@@ -1,6 +1,20 @@
 <?php 
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
+require_once '../../Controller/carteC.php';
+if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
+ 
+ $carteC= new carteC();
+ if ($result=$carteC->affichercarte1($_SESSION['id'],"Date_activation")===false)
+ {
+   header("location: carteerror.php");
+ }
+ 
+  $dateact=$carteC->affichercarte1($_SESSION['id'],"Date_activation");
+  $dateexp=$carteC->affichercarte1($_SESSION['id'],"Date_expiration");
+  $nbptn=$carteC->affichercarte1($_SESSION['id'],"nbptn");
+  $numero=$carteC->affichercarte1($_SESSION['id'],"numero");
+ 
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +85,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
               <li class="nav-item"><a class="nav-link" href="#">Promotions</a></li>
               <li class="nav-item dropdown ml-lg-3"><a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="avatar"  src="Assets/img/<?=$_SESSION['image']; ?>" alt="user"></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
+                <a class="dropdown-item" href="user-account.php"><i class="fa fa-user"></i> Mes informations</a>
                   <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt mr-2 text-muted"></i> Se déconnecter</a>
                 </div>
               </li>
@@ -93,8 +108,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
             </ol>
           </div>
           <div class="col-lg-6 text-lg-right">
-            <button class="btn btn-primary mr-2"><i class="far fa-file-pdf mr-2"></i> Télécharger PDF</button>
-            <button class="btn" onclick="window.print()"><i class="fas fa-print mr-2"></i> Imprimer</button>
+            <!-- <button class="btn btn-primary mr-2"><i class="far fa-file-pdf mr-2"></i> Télécharger PDF</button> -->
+            <button class="btn btn-primary mr-2" onclick="window.print()"><i class="fas fa-print mr-2"></i> Imprimer</button>
           </div>
         </div>
         <div class="card border-0 shadow shadow-print-0">
@@ -103,7 +118,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
               <div class="col-6 d-flex align-items-center"><img src="Assets/img/logoo.svg" alt="Directory"></div>
               <div class="col-6 text-right">
                 <h3 class="mb-0">Carte de fidélité</h3>
-                <p class="mb-0">Obtenue le Sep 01, 2020</p>
+                <p class="mb-0">Obtenue le: <?php echo $dateact ?> </p>
               </div>
             </div>
           </div>
@@ -112,7 +127,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
               <div class="col-sm-6 pr-lg-3">
                 
                 <h6 class="mb-1">Informations</h6>
-                <p class="text-muted">No.89568<br><strong>Vos points de fidélité:</strong><br> Vous ne benificiez d'aucun point pour le moment</p>
+                <p class="text-muted">Numéro: <?php echo $numero ?><br><strong>Vos points de fidélité:</strong><br><?php echo $nbptn  ?></p>
               </div>
               <div class="col-sm-6 pl-lg-4">
                 <h2 class="h6 text-uppercase mb-4">Client</h2>
@@ -123,12 +138,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
             
               <div class="col-md-6 pl-lg-4 text-sm">
                 <div class="row">
-                  <div class="col-6 text-uppercase text-muted">Obtenue le</div>
-                  <div class="col-6 text-right">Sep 01, 2020</div>
+                  <div class="col-6 text-uppercase text-muted">Obtenue le </div>
+                  <div class="col-6 text-right"><?php echo $dateact  ?></div>
                 </div>
                 <div class="row">
-                  <div class="col-6 text-uppercase text-muted">Expire le</div>
-                  <div class="col-6 text-right">Sep 01, 2021</div>
+                  <div class="col-6 text-uppercase text-muted">Expire le </div>
+                  <div class="col-6 text-right"><?php echo $dateexp ?></div>
                 </div>
               </div>
             </div>
