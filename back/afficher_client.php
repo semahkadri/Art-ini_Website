@@ -1,15 +1,14 @@
 <?php 
-session_start();
+
 require_once '../../Controller/clientC.php';
-if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
-    
+  $clientC =  new clientC();
     $db=config::getConnexion();
     
     $result=$db->query('SELECT * FROM users');
 
     if (isset($_GET['search'])&& !empty($_GET['search']))
     {
-        $result=$db->query('SELECT * FROM users WHERE uname like \'%'.$_GET['search'].'%\'');
+        $result=$db->query('SELECT * FROM users WHERE name like \'%'.$_GET['search'].'%\'');
         
     }else
     {
@@ -21,7 +20,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
     {
 
         $id =$_GET['delete'];
-        $clientC =  new clientC();
+       
         $res=$clientC->supprimerUtilisateur($id);
         if ($res)
         {
@@ -31,9 +30,26 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
        {
         header("Location: afficher_client.php?error=Echec");
        }
-       
+      
     }
+    if (isset($_GET['tri'])) {
+        if ($_GET['tri']=="ID") {
+          $tri="id";
+         
+         
+        }
+       
 
+       
+          else
+          {
+              $tri="name";
+             $result=$clientC->afficherclienttri($tri);
+            
+          }
+        
+          
+    }
 ?>
                 
                 <?php if (isset($_GET['error'])) { ?>
@@ -188,9 +204,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                    <h1 class="h5"><?php echo $_SESSION['name']; ?></h1>
+                    <h1 class="h5">Ines Kouki</h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -207,7 +223,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                         <li><a href="#">Ajouter une catégorie</a></li>
                         <li><a href="#">Ajouter un produit</a></li>
-                        <li><a href="afficher_client.php">Ajouter une carte de fidélité</a></li>
+                        <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
                     </ul>
                 </li>
                 <li>
@@ -244,11 +260,32 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
             <section>
             
                 <div class="container">
+                <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
                     <div class="title"><strong>Liste des clients</strong></div>
 
                     </br>
                     <form action="" method = 'GET'>
-                    <div class="form-group">
+                    <div class="input group">
+                    
+                   
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <button class="btn btn-info btn-xs" value="Chercher"> <i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
+                            </div>
+                             <td> <select name="tri" class="form-control" >
+                             <option value="" disabled selected>Trier par</option>
+                            <option >ID</option>
+                            
+                            <option>Nom d'utilisateur</option>
+
+                            
+                          </select></td> 
+                          
+                          
+                        <td>
+                            
+                        </div>
+                        </br>
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <button class="btn btn-danger btn-xs" value="Chercher"><i class="fa fa-search" ></i> Chercher</button>
@@ -256,6 +293,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
                             <input type="text" id="search" name="search" class="form-control" placeholder="Chercher un client">
                             
                         </div>
+                        
                     </form>
 
 
@@ -285,8 +323,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
 
                                        
                             <td>  <?php echo $row['id']; ?></td>
-                            <td> <?php echo $row['name']; ?></td>
-                            <td><?php echo $row['uname']; ?></td>
+                            <td> <?php echo $row['login']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['adress']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
@@ -359,9 +397,4 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
 </body>
 
 </html>
-<?php 
-}else{
-     header("Location: index.php");
-     exit();
-}
- ?>
+
