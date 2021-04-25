@@ -1,7 +1,7 @@
 <?php
 class carte
 {   private $id;
-	private  $numero;
+	private $numero;
 	private  $dateAct;
 	private  $dateExp;
 	private  $nbptn;
@@ -9,11 +9,12 @@ class carte
 	
 	
 
-	public function __construct($numero,$dateAct,$dateExp)
+	public function __construct($numero,$dateAct,$dateExp,$idclient)
 	{
 		$this->numero=$numero;
         $this->dateAct=$dateAct;
         $this->dateExp=$dateExp;
+		$this->idclient=$idclient;
 		
 	}
 	
