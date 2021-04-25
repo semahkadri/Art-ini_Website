@@ -1,10 +1,9 @@
 <?php 
-session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
 include_once '../../Controller/carteC.php';
 include_once '../../Model/carte.php';
-
+$db=config::getConnexion();
+$result=$db->query('select * from users ');
 
     $carteC =  new carteC();
     function verif_Num($str){
@@ -24,25 +23,29 @@ include_once '../../Model/carte.php';
       $numero= $_POST['numero'];
       $dateact= $_POST['dateact'];
       $dateexp =$_POST['dateexp'];
-      $idclient= $_POST['idclient'];
+     # $idclient= $_POST['idc'];
+      $date1 = new DateTime($dateact);
+      $date2 = new DateTime($dateexp);
 
         if(!verif_Num($numero))
         {
             header("Location: modifier_carte.php?error=Numéro non valid");
           exit();
         }
-        /*else if()
+        else if ($date2<$date1)
         {
-            header("Location: ajouter_carte.php?error=Id client non existant");
-        }*/
+            header("Location:  modifier_carte.php?error=Date expiration inferieure à la date d'activation");
+            exit();
+        }
+        
         else {
 
             if (isset($_GET['edit']))
         {
              $id =$_GET['edit'];
-             $carteC->modifierCarte($id,$numero,$dateact,$dateexp,$idclient);
+             $carteC->modifierCarte1($id,$numero,$dateact,$dateexp);
 
-        header('Location: modifier_carte.php?success=Ajout fait avec succès"');
+        header('Location: modifier_carte.php?success=Modification faite avec succès"');
 
         }
     }
@@ -84,9 +87,9 @@ include_once '../../Model/carte.php';
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
+                <div class="avatar"> <img src="Assets/img/avatar-3.jpg ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5"><?php echo $_SESSION['name']; ?> </h1>
+                    <h1 class="h5">Ines Kouki </h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -180,15 +183,7 @@ include_once '../../Model/carte.php';
                       name="dateexp" 
                       >
           <?php }?> </div>                
-                                            <div>
-                                        <label style="font-weight: bold"> Id CLient  </label>     
-                                        <?php if (isset($_GET['idclient'])) { ?>                                
-                                        <input type="text" class="form-control" name="idclient" placeholder="Id client"  style="width:350px" value="<?php echo $_GET['idclient']; ?>"> </br>
-                                        <?php }else{ ?>
-               <input  class="form-control" type="text" 
-                      name="idclient" placeholder="Id client"
-                      >
-          <?php }?> </div>     
+               
           <div>
           </br>
                                         <button class="btn btn-info btn-xs" type="submit" value="Valider" name="Valider"><i class="fa fa-pencil"></i>  Modifier </button>
@@ -225,10 +220,3 @@ include_once '../../Model/carte.php';
 </body>
 
 </html>
-
-<?php 
-}else{
-     header("Location: index.php");
-     exit();
-}
- ?>

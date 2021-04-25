@@ -1,11 +1,9 @@
 <?php 
-session_start();
-
-if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
 include_once '../../Controller/carteC.php';
 include_once '../../Model/carte.php';
-
-
+include "../Front/PHPMailer-master/PHPMailerAutoload.php";
+$db=config::getConnexion();
+$result=$db->query('select * from users ');
     $carteC =  new carteC();
     function verif_Num($str){
         // On cherche tt les caractères autre que [A-Za-z] ou [0-9]
@@ -18,28 +16,35 @@ include_once '../../Model/carte.php';
       }
    
 
-    if (isset($_POST['numero']) && isset($_POST['dateact']) && isset($_POST['dateexp'])) {
+    if (isset($_POST['numero']) && isset($_POST['dateact']) && isset($_POST['dateexp'])&& isset($_POST['idc'])) {
 
       $numero= $_POST['numero'];
       $dateact= $_POST['dateact'];
       $dateexp =$_POST['dateexp'];
-      $idclient= $_POST['idclient'];
+      $idclient =$_POST['idc'];
+        
+        
+      $date1 = new DateTime($dateact);
+      $date2 = new DateTime($dateexp);
+      
+      $sname= "localhost";
+      $unmae= "root";
+      $password = "";
+      $db_name = "gestioncc";
+      $conn = mysqli_connect($sname, $unmae, $password, $db_name);
+      $sql = "SELECT * FROM carte WHERE idclient='$idclient' ";
+		$result = mysqli_query($conn, $sql);
 
-        if(!verif_Num($numero))
+		if (mysqli_num_rows($result) > 0) {
+			header("Location: ajouter_carte.php?error=Identifiant deja pris");
+	        exit();
+        }
+        else if(!verif_Num($numero))
         {
             header("Location: ajouter_carte.php?error=Numéro non valid");
           exit();
         }
-       /* else if()
-        {
-            header("Location: ajouter_carte.php?error=Id client non existant");
-        }*/
-        else if(empty($numero))
-        {
-            header("Location: ajouter_carte.php?error=Numéro vide");
-            exit();
-
-        }
+       
         else if(empty($dateact))
         {
             header("Location: ajouter_carte.php?error=Date activation vide");
@@ -52,19 +57,49 @@ include_once '../../Model/carte.php';
             exit();
 
         }
+        else if ($date2<$date1)
+        {
+            header("Location: ajouter_carte.php?error=Date expiration inferieure à la date d'activation");
+            exit();
+        }
+        
         else{
 
-            $carte = new carte($numero,$dateact,$dateexp);
+            $carte = new carte($numero,$dateact,$dateexp,$idclient);
             $carteC->ajoutercarte($carte);
+            $resultmail=$db->query("SELECT * FROM users WHERE id='$idclient'");
+            foreach($resultmail as $row){
+                    $s=$row['email'];
+                    $n=$row['name'];
+                    $mailto = $s;
+                    $name = $n;
         
+                    $mailSub = 'Artini';
+                    $mailMsg = "Bonjour ,$name. Votre demande de carte de fidelité a approbé !";
+                   $mail = new PHPMailer();
+                   $mail ->IsSmtp();
+                   $mail ->SMTPDebug = 0;
+                   $mail ->SMTPAuth = true;
+                   $mail ->SMTPSecure = 'ssl';
+                   $mail ->Host = "smtp.gmail.com";
+                   $mail ->Port = 465; // or 587
+                   $mail ->IsHTML(true);
+                   $mail ->Username = 'Artiniprojet@gmail.com';
+                   $mail ->Password = "artini123";
+                   $mail ->SetFrom("yourmail@gmail.com");
+                   $mail ->Subject = $mailSub;
+                   $mail ->Body = $mailMsg;
+                   $mail ->AddAddress($mailto);
+                   $mail->Send();
+            }
             
 
         header('Location: ajouter_carte.php?success=Ajout fait avec succès"');
         }
         
     }
-
-
+   
+   
 ?>
 
 <!DOCTYPE html>
@@ -100,9 +135,9 @@ include_once '../../Model/carte.php';
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
+                <div class="avatar"> <img src="" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5"><?php echo $_SESSION['name']; ?> </h1>
+                    <h1 class="h5">Ines Kouki </h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -195,23 +230,24 @@ include_once '../../Model/carte.php';
                <input  class="form-control" type="date" 
                       name="dateexp" 
                       >
-          <?php }?> </div>                
+          <?php }?> </div>                </br>
                                             <div>
-                                        <label style="font-weight: bold"> Id CLient  </label>     
-                                        <?php if (isset($_GET['idclient'])) { ?>                                
-                                        <input type="text" class="form-control" name="idclient" placeholder="Id client"  style="width:350px" value="<?php echo $_GET['idclient']; ?>"> </br>
-                                        <?php }else{ ?>
-               <input  class="form-control" type="text" 
-                      name="idclient" placeholder="Id client"
-                      >
-          <?php }?> </div>     
+                                        <label style="font-weight: bold"> Identifiant du CLient  </label>     
+                                        <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idc" id="idc" required>
+                                <?php while ($row = $result->fetch()) { 
+                                    ?>
+                                    <option value= "<?php echo  $row['id'];?>"> <?php echo $row['id'];?> </option>
+                                <?php } ?>
+                                </select>
+          </div>     
           <div>
           </br>
                                         <button class="btn btn-info btn-xs" type="submit" value="Valider" name="Valider">  Enregister </button>
                                         <button type="reset" value="Annuler" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
+                                        
 </div>
                                     </form>
-
+                                                
                                 </div>
                             </div>
                         </div>
@@ -242,9 +278,3 @@ include_once '../../Model/carte.php';
 
 </html>
 
-<?php 
-}else{
-     header("Location: index.php");
-     exit();
-}
- ?>

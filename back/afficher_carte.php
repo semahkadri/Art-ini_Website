@@ -1,24 +1,24 @@
 <?php 
-session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
+
 
     require_once "../../Controller/carteC.php";
     $db=config::getConnexion();
     $result=$db->query('SELECT * FROM carte');
-
+    $carteC =  new carteC();
     if (isset($_GET['search'])&& !empty($_GET['search']))
     {
-        $result=$db->query('SELECT * FROM carte WHERE Identifiant like \'%'.$_GET['search'].'%\'');
+        $result=$db->query('SELECT * FROM carte WHERE numero like \'%'.$_GET['search'].'%\'');
         
     }else
     {
         $result=$db->query('SELECT * FROM carte');
     }
+
     if (isset($_GET['delete']))
     {
 
         $id =$_GET['delete'];
-        $carteC =  new carteC();
+        
         $res=$carteC->supprimerCarte($id);
         if ($res)
         {
@@ -29,6 +29,21 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
         header("Location: afficher_carte.php?error=Echec");
        }
        
+    }
+
+    if (isset($_GET['tri'])) {
+        if ($_GET['tri']=="numero") {
+          $tri="numero";
+          $result=$carteC->affichercartetri($tri);
+        }
+          else
+          {
+              $tri="Date_activation";
+             $result=$carteC->affichercartetri($tri);
+            
+          }
+        
+          
     }
     ?>
                 
@@ -81,9 +96,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                    <h1 class="h5"><?php echo $_SESSION['name']; ?></h1>
+                    <h1 class="h5">Ines Kouki</h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -134,16 +149,39 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
             </div>
             <section>
                 <div class="container">
+                <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
                     <div class="title"><strong>Liste des cartes fidélité</strong></div>
+                   
+                    <div class="col-lg-6 text-lg-right">
+            
 
+                </div>
                     </br>
                     <form action="" method = 'GET'>
                     <div class="form-group">
+                    <div class="input-group">
+                            <div class="input-group-prepend">
+                            <button class="btn btn-info btn-xs" value="Chercher"> <i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
+                            </div>
+                             <td> <select name="tri" class="form-control" >
+                             <option value="" disabled selected>Trier par</option>
+                            <option >numero</option>
+                            <option>Date activation</option>
+
+                            
+                          </select></td> 
+                          
+                          
+                        <td>
+                            
+                        </div>
+                        </br>
                         <div class="input-group">
+                        
                             <div class="input-group-prepend">
                             <button class="btn btn-danger btn-xs" value="Chercher"><i class="fa fa-search" ></i> Chercher</button>
                             </div>
-                            <input type="text" id="search" name="search" class="form-control" placeholder="Chercher un carte">
+                            <input type="text" id="search" name="search" class="form-control" placeholder="Chercher une carte">
                             
                         </div>
                     </form>
@@ -179,7 +217,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
                           
                         <td>  
                         <a href="modifier_carte.php?edit=<?php echo $row['Identifiant']; ?>&edit2=<?php echo $row['Date_activation']; ?>&edit3=<?php echo $row['Date_expiration']; ?>&edit4=<?php echo $row['nbptn']; ?>&edit5=<?php echo $row['idclient']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Modifier</a> </td>
-                       <td> <a href="afficher_carte.php?delete=<?php echo $row['Identifiant']; ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Supprimer</a> </td>
+                       <td> <a href="afficher_carte.php?delete=<?php echo $row['idclient']; ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Supprimer</a> </td>
                         </tr>
                                         
 										<?php
@@ -247,9 +285,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
 </html>
 
 </html>
-<?php 
-}else{
-     header("Location: index.php");
-     exit();
-}
- ?>
