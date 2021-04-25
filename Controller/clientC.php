@@ -1,9 +1,39 @@
 <?php
-require_once "configg.php";
+include "configg.php";
 
 class clientC
 {
   
+	public function ajouterClient($client)
+ {
+        $db=config::getConnexion();
+        $sql="INSERT INTO users(login,image,name,password,email,birthday) VALUES (:login, :image, :name, :password, :email, :birthday)";
+       
+        try{
+			
+            $req = $db->prepare($sql);
+			$login=$client->getLogin();
+            $name=$client->getName();
+            $birthday=$client->getBirthday();
+            $email=$client->getEmail();
+            $password=$client->getPassword();
+            $image=$client->getImage();
+			$req->bindValue(':login',$login);
+            $req->bindValue(':name',$name);
+            $req->bindValue(':birthday',$birthday);
+            $req->bindValue(':email',$email);
+            $req->bindValue(':password',$password);
+            $req->bindValue(':image',$image);
+			$req->execute();
+			
+			
+		} 
+		catch(Exception $e)
+		{
+			die('404:Error');
+
+		}
+	}
     public function supprimerUtilisateur($id){
         $db=config::getConnexion();
         $sql="DELETE FROM users WHERE id= :id";
@@ -25,7 +55,7 @@ class clientC
 public function modifierClient1($id,$name,$phone,$email,$birthday)
 {
 
-	$sql="update users set name= '$name', phone='$phone', birthday='$birthday', email='$email' where id='$id'";
+	$sql="UPDATE users SET name= '$name', phone='$phone', birthday='$birthday', email='$email' WHERE id='$id'";
 	$db = config::getConnexion();
 	try
 	{
@@ -40,7 +70,7 @@ public function modifierClient1($id,$name,$phone,$email,$birthday)
 public function modifierClient2($id,$adress)
 {
 
-	$sql="update users set adress= '$adress' where id='$id'";
+	$sql="UPDATE users SET adress= '$adress' WHERE id='$id'";
 	$db = config::getConnexion();
 	try
 	{
@@ -55,7 +85,7 @@ public function modifierClient2($id,$adress)
 public function modifierClient3($id,$password)
 {
 
-	$sql="update users set password='$password' where id='$id'";
+	$sql="UPDATE users SET password='$password' WHERE id='$id'";
 	$db = config::getConnexion();
 	try
 	{
@@ -69,14 +99,14 @@ public function modifierClient3($id,$password)
 function afficherclientsearch($search)
     {
 
-        $sql="select * from users where id='$search' OR name='$search' OR uname='$search'";
+        $sql="SELECT * FROM users WHERE login='$search'";
 
         $db = config::getConnexion();
         try
         {
             $query=$db->prepare($sql);
 			$query->execute([
-				'id' => $search
+				'login' => $search
 			]);
             return $query->fetch();
         }
@@ -90,49 +120,28 @@ function afficherclientsearch($search)
 
 
 
+	function afficherclienttri($cc)
+    {
+        
+        $sql="SELECT* FROM users ORDER BY $cc ASC";
+
+        $db = config::getConnexion();
+        try
+        {
+            $list=$db->query($sql);
+            return $list;
+        }
+        catch (Exception $e)
+        {
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 
 
 
-
-
-public function exist()
-	{
-        $db=config::getConnexion();
-		$req=$db->prepare('SELECT * FROM users WHERE uname=:uname');
-		$req->bindValue(':uname',$this->uname);
-		$req->execute();
-		if ($req->rowCount()==0)
-			return false;
-		$client=$req->fetch();
-		if ($client['password']!=$this->password)
-			return false;
-		return true;
-	}
 }
 
- /*function ajouterClient($client){
-        $db=config::getConnexion();
-        $sql="INSERT INTO users(name, uname, password, email, birthday) VALUES (:name,:uname, :password, :email, :birthday)";
-        $id_client=$client->getId_client();
-        $sql2="INSERT INTO carte(nb points, id user) values ( '$id_client',0)";
-        try{
-            
-            $req = $db->prepare($sql);
-            $req->bindValue(':name',$this->name);
-	        $req->bindValue(':email',$this->email);
-	        $req->bindValue(':password',$this->password);
-	        $req->bindValue(':uname',$this->uname);
-	        $req->bindValue(':birthday',$this->birthday);
-			$req->bindValue(':adress',$this->adress);
-			$req->bindValue(':phone',$this->phone);
-			$req->execute();
-			
-		}
-		catch(Exception $e)
-		{
-			die('404:client exist!!!');
+  
 
-		}
-	}*/
 
 ?>
