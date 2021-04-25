@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include_once "../../Controller/clientC.php";
-if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
 
   $clientC =  new clientC();
   function verif_alpha($str){
@@ -164,7 +164,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
                 </div>
               </li>
             </ul>
-          </div>
+          </div>*
         </div>
       </nav>
       <!-- /Navbar -->

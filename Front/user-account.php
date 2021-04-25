@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +71,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
               <li class="nav-item"><a class="nav-link" href="#">Promotions</a></li>
               <li class="nav-item dropdown ml-lg-3"><a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="avatar"  src="Assets/img/<?=$_SESSION['image']; ?>" alt="user"></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
+                <a class="dropdown-item" href="user-account.php"><i class="fa fa-user"></i> Mes informations</a>
                   <div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt mr-2 text-muted"></i> Se déconnecter</a>
                 </div>
               </li>

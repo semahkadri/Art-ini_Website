@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -47,6 +48,16 @@
           <?php if (isset($_GET['success'])) { ?>
                <p class="success"><?php echo $_GET['success']; ?></p>
           <?php } ?>
+
+          <div class="form-group">
+                <label class="form-label" for="id"> Identifiant </label>
+                <?php if (isset($_GET['id'])) { ?>
+                <input class="form-control" name="id" id="id" type="text" placeholder="identifiant" value="<?php echo $_GET['id']; ?>">
+                <?php }else{ ?>
+               <input  class="form-control" type="text" 
+                      name="id" 
+                      placeholder="Identifiant">
+                      <br>
               <div class="form-group">
                 <label class="form-label" for="name"> Nom et prénom </label>
                 <?php if (isset($_GET['name'])) { ?>
@@ -57,14 +68,7 @@
                       placeholder="Nom et prénom">
           <?php }?>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="uname"> Identifiant </label>
-                <?php if (isset($_GET['uname'])) { ?>
-                <input class="form-control" name="uname" id="uname" type="text" placeholder="identifiant" value="<?php echo $_GET['uname']; ?>">
-                <?php }else{ ?>
-               <input  class="form-control" type="text" 
-                      name="uname" 
-                      placeholder="Identifiant">
+              
           <?php }?>
               </div>
               <div class="form-group">
@@ -99,6 +103,13 @@
                 <label class="form-label" for="re_password"> Confirmer votre mot de passe</label>
                 <input class="form-control" name="re_password" id="re_password" placeholder="Mot de passe" type="password">
               </div>
+               <!-- <div class="form-group mb-4">
+              <label for="captcha">Please Enter the Captcha Text</label> <br>
+									    <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="material-icons">computer</i>
+									    
+									    <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{6}">
+              </div>-->
+
               <button class="btn btn-lg btn-block btn-primary" type="submit">S'inscrire</button>
               <!--<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
               <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>

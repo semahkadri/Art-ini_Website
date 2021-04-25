@@ -1,9 +1,12 @@
 
 <?php 
-include "../../config.php";
+include_once "../../Model/client.php";
+include_once "../../Controller/clientC.php";
+include "captcha.php";
+include "PHPMailer-master/PHPMailerAutoload.php";
 session_start(); 
 
-if (isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['date']) && isset($_POST['mail'])
+if (isset($_POST['id']) && isset($_POST['password']) && isset($_POST['date']) && isset($_POST['mail'])
     && isset($_POST['name']) && isset($_POST['re_password'])&& isset($_POST['image'])) 
 {
 	function validate($data)
@@ -31,38 +34,47 @@ if (isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['date'])
 		}
 		return true;
 	  }
+	  function verif_Num($str){
+		// On cherche tt les caractères autre que [A-Za-z] ou [0-9]
+		preg_match("/([^0-9\s])/",$str,$result);
+		// si on trouve des caractère autre que A-Za-z ou 0-9
+		if(!empty($result)){
+		  return false;
+		}
+		return true;
+	  }
 	  
-		$today= date("Y-m-d");
+		/*$today= date("Y-m-d");
 		$diff= date_diff (date_create($date),date_create($today));
-		$age=$diff->format('%y') ;
+		$age=$diff->format('%y') ;*/
 	 
-	$uname = validate($_POST['uname']);
+	$id = validate($_POST['id']);
 	$pass = validate($_POST['password']);
     $date= validate($_POST['date']);
-    $mail= validate($_POST['mail']);
+    $maile= validate($_POST['mail']);
 	$re_pass = validate($_POST['re_password']);
 	$name =validate($_POST['name']);
 	$image =$_POST['image'];
 	
 
-	$user_data = 'uname='. $uname. '&name='. $name;
+	$user_data = 'id='. $id. '&name='. $name;
 
 
 
-	if (empty($uname)) 
+	if (empty($id)) 
 	{
 		header("Location: signup.php?error=Identifiant est obligatoire&$user_data");
 	    exit();
 	}
 	else if(!verif_alpha($name))
 	{
-	header("Location: user-personal.php?error=Caractères invalids");
+	header("Location: signup.php.php?error=Caractères invalids");
 	exit();
 
 	}
-	else if(!verif_alphaNum($uname))
+	else if(!verif_alphaNum($id))
 	{
-	header("Location: user-personal.php?error=Caractères invalids");
+	header("Location: signup.php.php?error=Caractères invalids");
 	exit();
 
 	}
@@ -83,7 +95,7 @@ if (isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['date'])
 	    exit();
 	}
 	
-    else if (empty($mail)) 
+    else if (empty($maile)) 
 	{
 		header("Location: signup.php?error=Adresse e-mail obligatoire&$user_data");
 	    exit();
@@ -106,38 +118,45 @@ if (isset($_POST['uname']) && isset($_POST['password']) && isset($_POST['date'])
 	exit();
 
 	}
-	else if(strpos($mail,"@")==false || strpos($mail,".")==false)
+	else if(strpos($maile,"@")==false || strpos($maile,".")==false)
 	{
 		header("Location: signup.php?error=Adresse e-mail non valide&$user_data");
 	    exit();
 	}
-	/*else if($age<18)
-		{
-		header("Location: signup.php?error=Vous devez avoir au moins 18ans&$user_data");
-			exit();
-		}*/
+	
 
 	else
 	{	 
 		$pass = md5($pass);
-		$sql = "SELECT * FROM users WHERE uname='$uname' ";
-		$result = mysqli_query($conn, $sql);
+		$cliC= new clientC();
+		$cli=new Client($id,$image,$name,$pass,$maile,$_POST['date'],null,null);
+		$cliC->ajouterClient($cli);
+		
+	         
 
-		if (mysqli_num_rows($result) > 0) {
-			header("Location: signup.php?error=The username is taken try another&$user_data");
-	        exit();
-		}else {
-           $sql2 = "INSERT INTO users(image,name, uname, password, email, birthday) VALUES('$image','$name', '$uname', '$pass', '$mail', '$date')";
-		   
-           $result2 = mysqli_query($conn, $sql2);
-           if ($result2) {
-           	 header("Location: signup.php?success=Votre compte a été créé avec succès");
-	         exit();
-           }else {
-	           	header("Location: signup.php?error=une erreur inconnue s'est produite&$user_data");
-		        exit();
-           }
-		}
+			 $mailto = $_POST['mail'];
+			 $mailSub = 'Artini';
+			 //$mailMsg = ' confirmer votre email <a href=\"localhost/front/views/index.php\"> ';
+			 $idm=$_POST['id'];
+			 $mailMsg = "Bonjour ".$name." clickez sur <a href=\"localhost/Artini/Views/Front/verification.php?var=".$id."\">le lien</a> pour confirmer votre compte";
+		 
+			$mail = new PHPMailer();
+			$mail ->IsSmtp();
+			$mail ->SMTPDebug = 0;
+			$mail ->SMTPAuth = true;
+			$mail ->SMTPSecure = 'ssl';
+			$mail ->Host = "smtp.gmail.com";
+			$mail ->Port = 465; // or 587
+			$mail ->IsHTML(true);
+			$mail ->Username = 'Artiniprojet@gmail.com';
+			$mail ->Password = "artini123";
+			$mail ->SetFrom($_POST['mail']);
+			$mail ->Subject = $mailSub;
+			$mail ->Body = $mailMsg;
+			$mail ->AddAddress($mailto);
+			$mail->Send();	 
+			header("Location: signup.php?success=Votre compte a été créé avec succès! Consultez votre boite mail pour l'activer .");
+			exit();
 	}
 	
 }else{

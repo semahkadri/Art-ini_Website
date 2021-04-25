@@ -44,15 +44,15 @@
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
               <div class="form-group"> 
-                <label class="form-label" for="uname"> Identidiant</label>
-                <input class="form-control" name="uname" id="uname" type="text" placeholder="Identifiant">
+                <label class="form-label" for="login"> Identidiant</label>
+                <input class="form-control" name="login" id="login" type="text" placeholder="Identifiant">
                </div> 
               <div class="form-group mb-4">
                 <div class="row">
                   <div class="col">
                     <label class="form-label" for="password"> Mot de passe</label>
                   </div>
-                  <div class="col-auto"><a class="form-text small" href="forgot.php">Mot de passe oublié?</a></div>
+                  <div class="col-auto"><a class="form-text small" href="forgot.php" target="_blank">Mot de passe oublié?</a></div>
                 </div>
                 <input class="form-control" name="password" id="password" placeholder="Mot de passe" type="password" >
               </div>

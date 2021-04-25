@@ -2,7 +2,7 @@
 session_start(); 
 include "../../config.php";
 
-if (isset($_POST['uname']) && isset($_POST['password'])) {
+if (isset($_POST['login']) && isset($_POST['password'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -11,10 +11,10 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	   return $data;
 	}
 
-	$uname = validate($_POST['uname']);
+	$login = validate($_POST['login']);
 	$pass = validate($_POST['password']);
 
-	if (empty($uname)) {
+	if (empty($login)) {
 		header("Location: login.php?error=Identifiant est obligatoire");
 	    exit();
 	}else if(empty($pass)){
@@ -23,13 +23,13 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	}else{
 		// hashing the password
         $pass = md5($pass);
-		$sql = "SELECT * FROM users WHERE uname='$uname' AND password='$pass'";
+		$sql = "SELECT * FROM users WHERE login='$login' AND password='$pass' AND etat='verifie'";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['uname'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['uname'] = $row['uname'];
+            if ($row['login'] === $login && $row['password'] === $pass && $row['etat']==='verifie') {
+            	$_SESSION['login'] = $row['login'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
 				
@@ -40,12 +40,13 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 				$_SESSION['image'] = $row['image'];
             	header("Location: welcome.php");
 		        exit();
-            }else{
+            }
+			else{
 				header("Location:login.php?error=Incorect nom d'utilisateur ou mot de passe");
 		        exit();
 			}
 		}else{
-			header("Location: login.php?error=Incorect nom d'utilisateur ou mot de passe");
+			header("Location: login.php?error=Veuillez activer votre compte d'abord");
 	        exit();
 		}
 	}
