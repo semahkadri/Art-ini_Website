@@ -15,7 +15,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mot de passe oublié</title>
+    <title>Récuperation</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -46,21 +46,56 @@ session_start();
       <div class="container text-white text-center text-lg overlay-content py-6 py-lg-0">
         
         <h1 class="mb-5 text-shadow">Retrouvez votre compte.</h1>
-        <h5> Veuillez saisir votre identifiant. </h5>
-        <form class="form" method="post" action="generate.php">
+        
+        <form class="form" method="post" action="newpassword.php">
                                     <div class="form__group mb--20">
-                                        <input  class="form-control" type="type" name="lostid" id="lostid"  style="text-align:center" placeholder="Identifiant">
-                                        </br></br>
+                                    
+											<?php if (isset($_GET['x'])) {?>
+                                      
+<input   type="type" name="lostid" id="lostid"  style="text-align:center" placeholder="Identifiant"<?php echo $_GET['x'];?>" >
+                                    </div>
+									<?php
+									}
+									else
+									{
+									?>
+									 
+                                        <input  type="text" name="lostid" id="lostid" class="form__input form__input--2 "  placeholder="Identifiant">
+                                    </div>
+									<?php
+									}
+									?>
+									</br>
+									<?php if (isset($_GET['var'])) {?>
+									<div class="form__group mb--20">
+                                       
+                                        <input type="text" name="mcode" id="mcode" class="form__input form__input--2" placeholder="Code" value="<?php echo $_GET['var'];?>">
+                                    </div>
+									<?php
+									}
+									else
+									{
+									?>
+                                    <input type="text" name="mcode" id="mcode" class="form__input form__input--2 "  placeholder="Code">
+									<div class="form__group mb--20" >
+                                       
                                         
-                                        <?php if (isset($_SESSION['error'])) {?> 
-						  <p>Erreur! il faut saisir un indentifiant correcte</p> 
-						  <?php unset($_SESSION['error']);} 
-              else
-              ?>
-              
-                                         <div><button class="btn btn-info btn-xs" type="submit" value="Valider" name="Valider"> Enoyer </button>
-                                         <p>un email sera envoyer à votre boite</p>
-                                       </br> </br> </br>  <div> <a class="" href="index.php"> Retour </a> </div>
+                                    </div>
+									<?php
+									}
+									?>
+									</br>
+									<div class="form__group mb--20">
+                                        
+                                        <input type="password" name="newpass" id="newpass" class="form__input form__input--2"  placeholder="Nouveau mot de passe">
+                                    </div>
+                          </br>
+                                    <div >
+                                        <button type="submit" class="btn btn-info btn-xs">reinitialiser</button>
+											
+                                    </div>
+					
+                                </form>
                                     </div>
                         
         
