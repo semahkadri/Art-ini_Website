@@ -25,7 +25,7 @@ session_start ();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vagary Travels</title>
+    <title>artini</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -56,7 +56,7 @@ session_start ();
       <!-- Navbar-->
       <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
         <div class="container-fluid">
-          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.php"><img src="img.png" alt="Directory logo"></a>
+          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.php"><img src="img/moustache.png" alt="Directory logo"></a>
             <form class="form-inline d-none d-sm-flex" action="#" id="search">
               <div class="input-label-absolute input-label-absolute-left input-reset input-expand ml-lg-2 ml-xl-3"> 
                 <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span class="sr-only">What are you  for?</span></label>
@@ -201,41 +201,7 @@ session_start ();
 
 
     </section>
-    <section class="py-7">
-      <div class="container">
-        <div class="text-center">
-          <p class="subtitle text-primary">Testimonials</p>
-          <h2 class="mb-5">A word from our influencers to their communities</h2>
-        </div>
-        <!-- Slider main container-->
-        <div class="swiper-container testimonials-slider testimonials">
-          <!-- Additional required wrapper-->
-          <div class="swiper-wrapper pt-2 pb-5">
-            <!-- Slides-->
-            <?php
-            foreach($liste2 as $i) { 
-              //echo $i['feedback_inf'];
-            ?>
-            <div class="swiper-slide px-3">
-              <div class="testimonial card rounded-lg shadow border-0">
-                <div class="testimonial-avatar"><img class="img-fluid" src="<?php  echo $i['photo']?>" alt="..."></div>
-                <div class="text">
-                  <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                  <p class="testimonial-text"><?php echo $i['desc_eve'] ?></p><strong><?php echo $i['nom'] ?> <?php echo $i['directeur'] ?></strong>
-                </div>
-              </div>
-            </div>
-            <?php
-            }
-            ?>
-
-          </div>
-          <div class="swiper-pagination">     </div>
-        </div>
-
-        
-      </div>
-    </section>
+   
 
     
     

@@ -14,6 +14,7 @@
 <html>
 
 <head>
+<script src="javascript.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ajout categorie</title>
@@ -199,30 +200,32 @@
                     <div class="row">
 
                         <!-- Horizontal Form-->
+                        
                         <div class="col-lg-6">
                             <div class="block">
                                 <div class="title"><strong class="d-block">Ajouter evenement</strong><span class="d-block">veuillez ajouter un nouveau evenemnt</span></div>
                                 <div class="block-body">
-                                    <form class="form-horizontal" method="POST">
-                                                                        
+                                    <form name ="f" class="form-horizontal" method="POST" >
+                                    
+                                           
                                             <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Nom</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="nom" id="nom" placeholder="nom de l'evenement" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="nom" id="nom" placeholder="nom de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">directeur</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="directeur" id="directeur" placeholder="directeur de l'evenement" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="directeur" id="directeur" placeholder="directeur de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">description</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="desc_eve" id="desc_eve" placeholder="description d'evenemnt" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="desc_eve" id="desc_eve" placeholder="description d'evenemnt" minlength="10" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
@@ -243,7 +246,7 @@
                                             <div class="col-sm-9 offset-sm-3">
                                                 <input type="reset" value="Annuler" name="reset" class="btn btn-secondary">
 
-                                                <input type="button" onclick="document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
+                                                <input type="button" onclick=" fonction();document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
 
                                                 <div id="id" class="modal">
                                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">

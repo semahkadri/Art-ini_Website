@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
   <head> 
+  <script src="javascript.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Modifier catégorie</title>
@@ -155,9 +156,9 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                    <h1 class="h5">Semah Kadri</h1>
+                    <h1 class="h5">Mehdi Azzaz</h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -168,16 +169,16 @@
           <li>
                     <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-padnote"></i>Forms</a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="forms_inf.php">Ajouter influenceur</a></li>
-                        <li><a href="forms_spons.php">Ajouter sponsors</a></li>
+                        <li><a href="forms_inf.php">Ajouter evenement</a></li>
+                        <li><a href="forms_spons.php">Ajouter promotion</a></li>
                     </ul>
                 </li>
 
            <li>
                     <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Tables</a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="tables_inf.php">influenceur</a></li>
-                        <li><a href="tables_spons.php">Sponsors</a></li>
+                        <li><a href="tables_inf.php">evenement</a></li>
+                        <li><a href="tables_spons.php">promotion</a></li>
                     </ul>
                 </li>
                 <li>
@@ -190,14 +191,14 @@
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage Catégorie</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage evenement</h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">Catégorie  </li>
+            <li class="breadcrumb-item active">evenement  </li>
           </ul>
         </div>
         <section class="no-padding-top">
@@ -212,34 +213,34 @@
               
               <!-- Horizontal Form-->
                 <div class="block">
-                  <div class="title"><strong class="d-block">Modifier catégorie</strong><span class="d-block">Modifier la catégorie de ton produit</span></div>
+                  <div class="title"><strong class="d-block">Modifier evenement</strong></div>
                   <div class="block-body">
-                    <form class="form-horizontal" method="POST">
+                    <form name ="f" class="form-horizontal" method="POST">
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Nom catétgrie</label>
+                          <label class="col-sm-3 form-control-label">Nom evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="nom" id="nom" value="<?= $i['nom'] ?>" class="form-control form-control-success" ><small class="form-text">Set free your imagination !</small>
+                            <input type="text" name="nom" id="nom" minlength="4" value="<?= $i['nom'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">prenom catétgrie</label>
+                          <label class="col-sm-3 form-control-label">direcetur evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="directeur" id="directeur" value="<?= $i['directeur'] ?>" class="form-control form-control-success" ><small class="form-text">Set free your imagination !</small>
+                            <input type="text" name="directeur" id="directeur" minlength="4" value="<?= $i['directeur'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Historique du catégorie</label>
+                          <label class="col-sm-3 form-control-label">description d'evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="desc_eve" id="desc_eve" value="<?= $i['desc_eve'] ?>" class="form-control form-control-success" ><small class="form-text">Allez racontez nous l'historique!</small>
+                            <input type="text" name="desc_eve" id="desc_eve" minlength="10" value="<?= $i['desc_eve'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Photo du catégorie</label>
+                          <label class="col-sm-3 form-control-label">Photo d'evenement</label>
                           <div class="col-sm-9">
                           <div class="form-group">
                             <div class="input-group">
@@ -256,7 +257,7 @@
                         <div class="form-group row">       
                           <div class="col-sm-9 offset-sm-3">
 
-                          <input type="button" onclick="document.getElementById('id').style.display='block'" value="Save" name="Submit" class="btn btn-primary"> 
+                          <input type="button" onclick=" fonction(); document.getElementById('id').style.display='block'" value="Save" name="Submit" class="btn btn-primary"> 
                           <input type="hidden" value=<?PHP echo $i['id']; ?> name="id">
 
                           <div id="id" class="modal">

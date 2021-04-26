@@ -14,6 +14,7 @@
 <html>
 
 <head>
+<script src="javascript1.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ajout categorie</title>
@@ -203,26 +204,26 @@
                             <div class="block">
                                 <div class="title"><strong class="d-block">Ajouter promotion</strong><span class="d-block">veuillez ajouter un nouveau promotion</span></div>
                                 <div class="block-body">
-                                    <form class="form-horizontal" method="POST">
+                                    <form name ="f" class="form-horizontal" method="POST">
                                                                         
                                             <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Nom de produit</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="nom" id="nom" placeholder="nom du produit" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="nom" id="nom" placeholder="nom du produit" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label"> description </label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="desc_pro" id="desc_pro" placeholder="description du promotion" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="desc_pro" id="desc_pro" placeholder="description du promotion" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">valeur de produit</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="valeur" id="valeur" placeholder="valeur du produit" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="number" name="valeur" id="valeur" placeholder="valeur du produit" minlength="1" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         
@@ -232,12 +233,12 @@
                                             <div class="col-sm-9 offset-sm-3">
                                                 <input type="reset" value="Annuler" name="reset" class="btn btn-secondary">
 
-                                                <input type="button" onclick="document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
+                                                <input type="button" onclick="fonction();document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
 
                                                 <div id="id" class="modal">
                                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
                                                        <form method="POST" action="formType.php">
-                                                       <strong> Succés</strong> Tu as ajouté une catégorie.
+                                                       <strong> Succés</strong> Tu as ajouté une promotion.
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
