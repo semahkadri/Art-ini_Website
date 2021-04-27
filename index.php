@@ -1,150 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php  
+ $connect = mysqli_connect("localhost", "root", "", "cart_system");  
+ $query = "SELECT * FROM orders ORDER BY id DESC";  
+ $result = mysqli_query($connect, $query);  
+ ?>  
+ <!DOCTYPE html>  
+ <html>  
+      <head>  
+           <title>Artini</title>  
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+      </head>  
+      <body>  
+           <br /><br />  
+           <div class="container" style="width:700px;">  
+                <h3 align="center">ARTINI ADMIN</h3>  
+                <br />  
+                <div class="table-responsive">  
+                     <div align="right">  
+                          <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>  
+                     </div>  
+                     <br />  
+                     <div id="client_table">  
+                          <table class="table table-bordered">  
+                               <tr>  
+                                    <th width="70%">Client Name</th>  
+                                    <th width="15%">Edit</th>  
+                                    <th width="15%">View</th>  
+                                    <th width="15%">Delete </th> 
+                               </tr>  
+                               <?php  
+                               while($row = mysqli_fetch_array($result))  
+                               {  
+                               ?>  
+                               <tr>  
+                                    <td><?php echo $row["name"]; ?></td>  
+                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
+                                    <td><input type="button" name="view" value="view" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" /></td>
+                                    <td><input type="button" name="Delete" value="Delete" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs delete_data" /></td>  
+                               </tr>  
+                               <?php  
+                               }  
+                               ?>  
+                          </table>  
+                     </div>  
+                </div>  
+           </div>  
+      </body>  
+ </html>  
+ <div id="dataModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                     <h4 class="modal-title">client Details</h4>  
+                </div>  
+                <div class="modal-body" id="client_detail">  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>  
+ <div id="add_data_Modal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                     <h4 class="modal-title">ARTINI Admin</h4>  
+                </div>  
+                <div class="modal-body">  
+                     <form method="post" id="insert_form">  
+                          <label>Enter client Name</label>  
+                          <input type="text" name="name" id="name" class="form-control" />  
+                          <br />  
+                          <label>Enter client Address</label>  
+                          <textarea name="address" id="address" class="form-control"></textarea>  
+                          <br />  
+                          <label>Select phone number</label>  
+                           
+                          <textarea name="phone" id="phone" class="form-control"></textarea>   
+                          </select>  
+                          <br />  
+                          <label>Enter products</label>  
+                          <input type="text" name="products" id="products" class="form-control" />  
+                          <br />  
+                          <label>Enter email</label>  
+                          <input type="text" name="email" id="email" class="form-control" />  
+                          <br />  
+                          <input type="hidden" name="client_id" id="client_id" />  
+                          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
+                     </form>  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>  
+ <script>  
+ $(document).ready(function(){  
+      $('#add').click(function(){  
+           $('#insert').val("Insert");  
+           $('#insert_form')[0].reset();  
+      });  
+      $(document).on('click', '.edit_data', function(){  
+           var client_id = $(this).attr("id");  
+           $.ajax({  
+                url:"fetch.php",  
+                method:"POST",  
+                data:{client_id:client_id},  
+                dataType:"json",  
+                success:function(data){  
+                     $('#name').val(data.name);  
+                     $('#address').val(data.address);  
+                     $('#phone').val(data.phone);  
+                     $('#products').val(data.products);  
+                     $('#email').val(data.email);  
+                     $('#client_id').val(data.id);  
+                     $('#insert').val("Update");  
+                     $('#add_data_Modal').modal('show');  
+                }  
+           });  
+      });  
+      $('#insert_form').on("submit", function(event){  
+           event.preventDefault();  
+           if($('#name').val() == "")  
+           {  
+                alert("Name is required");  
+           }  
+           else if($('#address').val() == '')  
+           {  
+                alert("Address is required");  
+           }  
+           else if($('#products').val() == '')  
+           {  
+                alert("products is required");  
+           }  
+           else if($('#email').val() == '')  
+           {  
+                alert("email is required");  
+           }  
+           else if($('#phone').val() == '')  
+           {  
+                alert("phone is required");  
+           }
+           else  
+           {  
+                $.ajax({  
+                     url:"insert.php",  
+                     method:"POST",  
+                     data:$('#insert_form').serialize(),  
+                     beforeSend:function(){  
+                          $('#insert').val("Inserting");  
+                     },  
+                     success:function(data){  
+                          $('#insert_form')[0].reset();  
+                          $('#add_data_Modal').modal('hide');  
+                          $('#client_table').html(data);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('click', '.view_data', function(){  
+           var client_id = $(this).attr("id");  
+           if(client_id != '')  
+           {  
+                $.ajax({  
+                     url:"select.php",  
+                     method:"POST",  
+                     data:{client_id:client_id},  
+                     success:function(data){  
+                          $('#client_detail').html(data);  
+                          $('#dataModal').modal('show');  
+                     }  
+                });  
+           }            
+      });  
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Sahil Kumar">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Shopping Cart System</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
-</head>
 
-<body>
-  <!-- Navbar start -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="index.php"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;ARTINI Store</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-mobile-alt mr-2"></i>Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-th-list mr-2"></i>Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar end -->
-
-  <!-- Displaying Products Start -->
-  <div class="container">
-    <div id="message"></div>
-    <div class="row mt-2 pb-3">
-      <?php
-  			include 'config.php';
-  			$stmt = $conn->prepare('SELECT * FROM product');
-  			$stmt->execute();
-  			$result = $stmt->get_result();
-  			while ($row = $result->fetch_assoc()):
-  		?>
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
-        <div class="card-deck">
-          <div class="card p-2 border-secondary mb-2">
-            <img src="<?= $row['product_image'] ?>" class="card-img-top" height="250">
-            <div class="card-body p-1">
-              <h4 class="card-title text-center text-info"><?= $row['product_name'] ?></h4>
-              <h5 class="card-text text-center text-danger"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?>/-</h5>
-
-            </div>
-            <div class="card-footer p-1">
-              <form action="" class="form-submit">
-                <div class="row p-2">
-                  <div class="col-md-6 py-1 pl-4">
-                    <b>Quantity : </b>
-                  </div>
-                  <div class="col-md-6">
-                    <input type="number" class="form-control pqty" value="<?= $row['product_qty'] ?>">
-                  </div>
-                </div>
-                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
-                <input type="hidden" class="pname" value="<?= $row['product_name'] ?>">
-                <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
-                <input type="hidden" class="pimage" value="<?= $row['product_image'] ?>">
-                <input type="hidden" class="pcode" value="<?= $row['product_code'] ?>">
-                <button class="btn btn-info btn-block addItemBtn"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add to
-                  cart</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php endwhile; ?>
-    </div>
-  </div>
-  <!-- Displaying Products End -->
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-
-  <script type="text/javascript">
-  $(document).ready(function() {
-
-    // Send product details in the server
-    $(".addItemBtn").click(function(e) {
-      e.preventDefault();
-      var $form = $(this).closest(".form-submit");
-      var pid = $form.find(".pid").val();
-      var pname = $form.find(".pname").val();
-      var pprice = $form.find(".pprice").val();
-      var pimage = $form.find(".pimage").val();
-      var pcode = $form.find(".pcode").val();
-
-      var pqty = $form.find(".pqty").val();
-if (pqty>0)
-
-{
-      $.ajax({
-        url: 'action.php',
-        method: 'post',
-        data: {
-          pid: pid,
-          pname: pname,
-          pprice: pprice,
-          pqty: pqty,
-          pimage: pimage,
-          pcode: pcode
-        },
-        success: function(response) {
-          $("#message").html(response);
-          window.scrollTo(0, 0);
-          load_cart_item_number();
-        }
-      });
-    }
-    else
-		{
-			alert("lease Enter Number of Quantity");
-		}
+      $(document).on('click', '.delete_data', function(){
+   var id = $(this).attr("id");
+   if(confirm("Are you sure you want to remove this?"))
+   {
+    $.ajax({
+     url:"delete.php",
+     method:"POST",
+     data:{id:id},
+     success:function(data){
+      $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+      $('#client_data').DataTable().destroy();
+      $('#client_table').html(data);
+      fetch_data();
+      
+     }
     });
+    setInterval(function(){
+     $('#alert_message').html('');
+    }, 5000);
+   }
 
-    // Load total no.of items added in the cart and display in the navbar
-    load_cart_item_number();
-
-    function load_cart_item_number() {
-      $.ajax({
-        url: 'action.php',
-        method: 'get',
-        data: {
-          cartItem: "cart_item"
-        },
-        success: function(response) {
-          $("#cart-item").html(response);
-        }
-      });
-    }
   });
-  </script>
-</body>
+ 
 
-</html>
+ });  
+ </script>
