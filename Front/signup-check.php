@@ -2,7 +2,7 @@
 <?php 
 include_once "../../Model/client.php";
 include_once "../../Controller/clientC.php";
-include "captcha.php";
+
 include "PHPMailer-master/PHPMailerAutoload.php";
 session_start(); 
 
@@ -55,7 +55,7 @@ if (isset($_POST['id']) && isset($_POST['password']) && isset($_POST['date']) &&
 	$re_pass = validate($_POST['re_password']);
 	$name =validate($_POST['name']);
 	$image =$_POST['image'];
-	
+	$captcha=$_POST['captcha_challenge'];
 
 	$user_data = 'id='. $id. '&name='. $name;
 
@@ -121,6 +121,16 @@ if (isset($_POST['id']) && isset($_POST['password']) && isset($_POST['date']) &&
 	else if(strpos($maile,"@")==false || strpos($maile,".")==false)
 	{
 		header("Location: signup.php?error=Adresse e-mail non valide&$user_data");
+	    exit();
+	}
+	else if(empty($captcha))
+	{
+		header("Location: signup.php?error=Captcha obligatoire&$user_data");
+	    exit();
+	}
+	else if ($captcha !== $_SESSION['captcha_text'])
+	{
+		header("Location: signup.php?error=Captcha incorrecte&$user_data");
 	    exit();
 	}
 	
