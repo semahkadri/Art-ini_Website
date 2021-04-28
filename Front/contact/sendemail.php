@@ -3,6 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 require_once 'phpmailer/Exception.php';
 require_once 'phpmailer/PHPMailer.php';
 require_once 'phpmailer/SMTP.php';
+include_once '../../../config.php';
 $mail = new PHPMailer(true);
 session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
@@ -43,7 +44,8 @@ if(isset($_POST['submit'])){
  }
  else{
   try{
-    
+    $date = date('y-m-d h:i:s');
+    $sql_insert =mysqli_query($conn,"INSERT INTO message(name,email,cr_date) VALUES ('$name','$email','$date')");
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
