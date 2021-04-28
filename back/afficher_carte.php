@@ -1,7 +1,8 @@
 <?php 
+require_once "../../Controller/carteC.php";
+include_once "../../config.php";
 
-
-    require_once "../../Controller/carteC.php";
+    
     $db=config::getConnexion();
     $result=$db->query('SELECT * FROM carte');
     $carteC =  new carteC();
