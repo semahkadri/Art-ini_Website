@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 500 500" overflow="visible" xml:space="preserve">
+<font horiz-adv-x="1000">
+<!-- Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat) -->
+<!-- Copyright: Copyright 2021 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="Montserrat-Bold" units-per-em="1000" underline-position="-75" underline-thickness="50"/>
+<missing-glyph horiz-adv-x="587" d="M40,700l507,0l0,-700l-507,0M467,70l0,560l-347,0l0,-560z"/>
+<glyph unicode="A" horiz-adv-x="766" d="M544,150l-325,0l-62,-150l-166,0l312,700l160,0l313,-700l-170,0M493,273l-111,268l-111,-268z"/>
+<glyph unicode="I" horiz-adv-x="328" d="M83,700l162,0l0,-700l-162,0z"/>
+<glyph unicode="N" horiz-adv-x="808" d="M725,700l0,-700l-133,0l-349,425l0,-425l-160,0l0,700l134,0l348,-425l0,425z"/>
+<glyph unicode="R" horiz-adv-x="735" d="M529,0l-135,195l-8,0l-141,0l0,-195l-162,0l0,700l303,0C448,700 502,690 548,669C593,648 628,619 653,581C678,543 690,498 690,446C690,394 678,349 653,312C628,274 592,245 546,225l157,-225M377,568l-132,0l0,-244l132,0C426,324 463,335 488,356C513,377 526,407 526,446C526,485 513,516 488,537C463,558 426,568 377,568z"/>
+<glyph unicode="T" horiz-adv-x="618" d="M228,568l-224,0l0,132l610,0l0,-132l-224,0l0,-568l-162,0z"/>
+<glyph unicode="-" horiz-adv-x="386" d="M52,344l283,0l0,-125l-283,0z"/>
+</font>
+
+	<font horiz-adv-x="1000">
+<!-- Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat) -->
+<!-- Copyright: Copyright 2021 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="Montserrat-Light" units-per-em="1000" underline-position="-75" underline-thickness="50"/>
+<missing-glyph horiz-adv-x="587" d="M40,700l507,0l0,-700l-507,0M467,70l0,560l-347,0l0,-560z"/>
+<glyph unicode=" " horiz-adv-x="257"/>
+<glyph unicode="A" horiz-adv-x="705" d="M555,197l-406,0l-89,-197l-55,0l322,700l51,0l322,-700l-55,0M536,240l-184,404l-183,-404z"/>
+<glyph unicode="C" horiz-adv-x="716" d="M55,350C55,417 71,478 103,532C134,586 178,628 233,659C288,690 349,705 418,705C469,705 515,697 558,681C601,664 637,640 667,608l-32,-33C579,630 507,658 420,658C361,658 308,645 260,618C212,591 174,555 147,508C120,461 106,408 106,350C106,292 120,240 147,193C174,146 212,109 260,82C308,55 361,42 420,42C507,42 578,70 635,126l32,-33C637,61 601,37 558,20C515,3 468,-5 418,-5C349,-5 288,10 233,41C178,72 134,114 103,168C71,222 55,283 55,350z"/>
+<glyph unicode="E" horiz-adv-x="669" d="M605,46l0,-46l-483,0l0,700l468,0l0,-46l-417,0l0,-276l373,0l0,-45l-373,0l0,-287z"/>
+<glyph unicode="H" horiz-adv-x="814" d="M692,700l0,-700l-51,0l0,333l-468,0l0,-333l-51,0l0,700l51,0l0,-322l468,0l0,322z"/>
+<glyph unicode="I" horiz-adv-x="295" d="M122,700l51,0l0,-700l-51,0z"/>
+<glyph unicode="K" horiz-adv-x="703" d="M330,345l-157,-161l0,-184l-51,0l0,700l51,0l0,-450l437,450l62,0l-308,-318l329,-382l-62,0z"/>
+<glyph unicode="L" horiz-adv-x="585" d="M122,700l51,0l0,-654l403,0l0,-46l-454,0z"/>
+<glyph unicode="M" horiz-adv-x="956" d="M784,0l-1,599l-293,-506l-25,0l-293,504l0,-597l-50,0l0,700l43,0l313,-541l313,541l42,0l1,-700z"/>
+<glyph unicode="P" horiz-adv-x="715" d="M655,464C655,391 630,333 580,292C530,250 461,229 373,229l-200,0l0,-229l-51,0l0,700l251,0C461,700 530,679 580,638C630,596 655,538 655,464M603,464C603,525 583,572 544,605C505,638 448,654 373,654l-200,0l0,-379l200,0C448,275 505,291 544,324C583,357 603,403 603,464z"/>
+<glyph unicode="S" horiz-adv-x="609" d="M51,90l23,38C99,102 132,81 174,65C215,48 259,40 305,40C372,40 422,53 456,78C490,103 507,136 507,177C507,208 498,233 480,252C462,271 440,285 413,295C386,305 350,315 305,326C254,339 213,351 182,363C151,375 124,394 103,419C81,444 70,477 70,519C70,553 79,584 97,613C115,641 143,663 180,680C217,697 263,705 318,705C357,705 395,699 432,688C469,677 502,661 529,642l-19,-41C482,620 451,635 418,645C384,655 351,660 318,660C253,660 204,647 171,621C138,595 121,561 121,520C121,489 130,464 148,445C166,426 188,412 215,402C242,392 278,381 324,370C375,357 416,345 447,333C478,321 504,303 526,279C547,254 558,221 558,180C558,146 549,115 531,87C512,59 484,37 446,20C408,3 361,-5 306,-5C255,-5 206,4 160,22C113,39 77,62 51,90z"/>
+<glyph unicode="T" horiz-adv-x="563" d="M256,654l-252,0l0,46l555,0l0,-46l-252,0l0,-654l-51,0z"/>
+<glyph unicode="U" horiz-adv-x="793" d="M116,297l0,403l51,0l0,-401C167,213 187,149 226,106C265,63 322,42 397,42C471,42 528,63 567,106C606,149 626,213 626,299l0,401l51,0l0,-403C677,198 652,123 603,72C554,21 485,-5 396,-5C307,-5 239,21 190,72C141,123 116,198 116,297z"/>
+</font>
+
+	<g id="BACKGROUND" display="none">
+	<rect display="inline" fill="#F5F1EE" width="500" height="500"/>
+</g>
+<g id="OBJECTS">
+	<g>
+		<g>
+			<path fill="#315BBA" d="M249,45.83c-22.57,0-40.86,18.29-40.86,40.86c0,10.49,3.96,20.06,10.46,27.3
+				c2.3-17.64,10.63-41.67,33.05-58.38l3.13,7.73l16.34,40.39c0,0-24.45-2.29-40.81,7.66c9.62-10.47,21.57-15.85,28.49-18.27
+				c1.8-0.52,3.49-0.81,4.71-0.61c-0.4-0.19-0.85-0.35-1.32-0.48c-1.24-0.35-2.68-0.53-4.11-0.58l-10.27-13.76
+				c-9.33,9.27-16.94,20.54-21.33,32.91c2.3,2.22,4.92,4.11,7.76,5.59c3.54,1.85,7.43,3,11.4,3.47c7.98,0.89,16.26-1.18,22.87-5.85
+				c6.62-4.62,11.57-11.74,13.37-19.71c1.85-7.94,0.8-16.58-3.12-23.84c-3.86-7.28-10.54-13.03-18.34-15.87
+				c-7.78-2.83-16.67-2.87-24.46,0.27c-7.8,3.06-14.43,9.08-18.25,16.61c-3.86,7.51-4.88,16.5-2.7,24.75
+				c-2.37-8.19-1.59-17.28,2.16-25.02c3.7-7.76,10.33-14.1,18.33-17.46c7.99-3.43,17.25-3.65,25.52-0.86
+				c8.28,2.79,15.52,8.71,19.85,16.41c4.38,7.67,5.77,16.97,3.95,25.67c-1.76,8.73-6.99,16.69-14.2,21.99
+				c-7.19,5.35-16.42,7.91-25.41,7.12c-4.49-0.42-8.94-1.62-13.01-3.62c-2.6-1.28-5.05-2.86-7.3-4.69c-0.32,1.16-0.62,2.32-0.88,3.5
+				c6.91,5.34,15.57,8.53,24.98,8.53c22.57,0,40.86-18.29,40.86-40.86C289.86,64.13,271.57,45.83,249,45.83z"/>
+		</g>
+		<g>
+			<text transform="matrix(1 0 0 1 221.4166 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">A</text>
+			<text transform="matrix(1 0 0 1 231.2086 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">R</text>
+			<text transform="matrix(1 0 0 1 240.5084 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">T</text>
+			<text transform="matrix(1 0 0 1 248.0924 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">-</text>
+			<text transform="matrix(1 0 0 1 253.3243 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">I</text>
+			<text transform="matrix(1 0 0 1 257.86 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">N</text>
+			<text transform="matrix(1 0 0 1 268.1559 147.0166)" font-family="'Montserrat-Bold'" font-size="12px">I</text>
+			<text transform="matrix(1 0 0 1 181.1647 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">L</text>
+			<text transform="matrix(1 0 0 1 188.3615 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">E</text>
+			<text transform="matrix(1 0 0 1 196.4406 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">T</text>
+			<text transform="matrix(1 0 0 1 203.4064 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px"> </text>
+			<text transform="matrix(1 0 0 1 207.1569 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">T</text>
+			<text transform="matrix(1 0 0 1 214.1227 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">H</text>
+			<text transform="matrix(1 0 0 1 223.7257 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">E</text>
+			<text transform="matrix(1 0 0 1 231.8048 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px"> </text>
+			<text transform="matrix(1 0 0 1 235.5553 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">M</text>
+			<text transform="matrix(1 0 0 1 246.6501 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">U</text>
+			<text transform="matrix(1 0 0 1 256.0324 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">S</text>
+			<text transform="matrix(1 0 0 1 263.4816 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">I</text>
+			<text transform="matrix(1 0 0 1 267.6315 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">C</text>
+			<text transform="matrix(1 0 0 1 276.2043 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px"> </text>
+			<text transform="matrix(1 0 0 1 279.9552 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">S</text>
+			<text transform="matrix(1 0 0 1 287.404 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">P</text>
+			<text transform="matrix(1 0 0 1 295.862 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">E</text>
+			<text transform="matrix(1 0 0 1 303.9411 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">A</text>
+			<text transform="matrix(1 0 0 1 312.3986 159.4882)" fill="#031B49" font-family="'Montserrat-Light'" font-size="10.5064px">K</text>
+		</g>
+	</g>
+</g>
+</svg>
