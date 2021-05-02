@@ -77,6 +77,8 @@ session_start();
                                 <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
                                 <li class="nav-item"><a class="nav-link" href="reply.php">Feedbacks</a></li>
+                                <li class="nav-item"><a class="nav-link" href="http://localhost/demo/Semah/Viewer/Front/Chat/login.php">Contactez-nous</a></li>
+
                                 
                                 <li class="nav-item dropdown ml-lg-3">
                                     <a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="avatar" src="img/avatar/semah.jpg" alt="Jack London"></a>
@@ -167,15 +169,15 @@ session_start();
           <br>
             <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
               <div class="card border-0 hover-animate bg-transparent">
-                <a class="position-relative" href="shop.php?id_inf=<?php echo $elt['nom_categorie'] ?>">
+                <a class="position-relative" href="shop.php?nom_categorie=<?php echo $elt['nom_categorie'] ?>">
 
                   <img class="card-img-top team-img" src="assets/<?php echo $elt['photo_categorie'] ?>" alt=""/> 
-                  <!-- <p> hiiii </p>  --> 
                   <div class="team-circle bg-secondary-light"></div>
                 </a>
                   <div class="card-body team-body text-center">
                     <h6 class="card-title"> <?php echo $elt['nom_categorie'] ?> </h6>
                     <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $elt['historique_categorie'] ?>    </p>
+
                   </div>
               </div>
             </div>

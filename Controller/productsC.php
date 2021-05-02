@@ -64,7 +64,8 @@ class productsC
 		function rechercheproducts($str)
 	{
 			
-		$sql = "SELECT * FROM produit WHERE id_categorie LIKE '".$str."%' OR nom_prod LIKE '".$str."%' or id_prod LIKE '".$str."%' ";
+		$sql = "SELECT * FROM produit  inner join categorie on produit.id_categorie=categorie.id WHERE id_categorie LIKE '".$str."%' OR nom_prod LIKE '".$str."%' 
+		or nom_categorie LIKE '".$str."%' or id_prod LIKE '".$str."%' ";
 		$db = config::getConnexion();
 		try {
 			$liste = $db->query($sql);
@@ -125,5 +126,22 @@ class productsC
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+	function afficherproductstrie($cc)
+    {
+        
+        $sql="select * from produit order by $cc desc";
+
+        $db = config::getConnexion();
+        try
+        {
+            $list=$db->query($sql);
+            return $list;
+        }
+        catch (Exception $e)
+        {
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 	
 }

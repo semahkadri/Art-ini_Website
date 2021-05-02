@@ -14,7 +14,7 @@ if($link === false){
   
 $sql = "UPDATE produit SET nom_prod='$nom_prod',prix_prod='$prix_prod',img_prod='$img_prod',id_categorie='$id_categorie' WHERE id_prod='$id_prod' "; 
 if(mysqli_query($link, $sql)){ 
-    header('location:produit.php');
+    header('location:produitt.php');
 } else { 
     echo "ERROR: Could not able to execute $sql. "  
                             . mysqli_error($link); 

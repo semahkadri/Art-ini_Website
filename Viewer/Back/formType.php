@@ -252,7 +252,7 @@
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="assets/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
                     <h1 class="h5">Semah Kadri</h1>
                     <p>Admin</p>
@@ -277,7 +277,7 @@
                     <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Tables</a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                         <li><a href="themes.php">Catégorie</a></li>
-                        <li><a href="produit.php">Produit</a></li>
+                        <li><a href="produitt.php">Produit</a></li>
                     </ul>
                 </li>
                 <li>
