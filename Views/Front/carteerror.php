@@ -41,7 +41,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
         <h1 >Oups !</h1></br> 
         <h4>Il semble que vous ne bénéficiez pas encore d'une carte de fidélité <?php echo $_SESSION['name']; ?> </h4>
         
-        <a class="navbar-brand py-3" href="index-1.php"> <b> <h5>Aller au site </h3></b></a>
+        <a class="navbar-brand py-3" href="index.php"> <b> <h5>Aller au site </h3></b></a>
         <a class="navbar-brand py-3" href="fidelite.php"> <b> <h5>Visiter notre programme fidélité</h5></b></a> 
         <a class="navbar-brand py-3" href="logout.php"><b> <h5>Se déconnecter</h5></b></a>
         

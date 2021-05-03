@@ -1,3 +1,4 @@
+
 <header class="header header-absolute">
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -10,13 +11,7 @@
                             fill="#4E66F8" />
                         </svg>
                     </a>
-                    <form class="form-inline d-none d-sm-flex" action="#" id="search">
-                        <div class="input-label-absolute input-label-absolute-left input-reset input-expand ml-lg-2 ml-xl-3">
-                            <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span class="sr-only">Que cherchez-Vous?</span></label>
-                            <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search" placeholder="Chercher" aria-label="Search">
-                            <button class="btn btn-reset btn-sm" type="reset"><i class="fa-times fas"></i></button>
-                        </div>
-                    </form>
+                   
                 </div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                 <!-- Navbar Collapse -->
@@ -30,18 +25,24 @@
                     </form>
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li></li>
-                        <li class="nav-item"><a class="nav-link" href="shopp.php">Produits</a></li>
-                        <li class="nav-item"><a class="nav-link" href="infoo.php">Catégories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
+                        <li class="nav-item"><a class="nav-link" href="info.php">Catégories</a></li>
             
                         <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Promotions</a></li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="docsDropdownMenuLink" href="index.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon Compte</a>
                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="docsDropdownMenuLink">
-                                       <a class="dropdown-item" href="login.php">Se connecter </a><a class="dropdown-item" href="signup.php">S'inscrire </a>
+                                    
+                                   <?php if (isset($_SESSION['id'])) { ?> <a class="dropdown-item" href="user-account.php"> Mes informations </a><a class="dropdown-item" href="logout.php">Se déconnecter </a> <?php }else { ?>
+                                    <a class="dropdown-item" href="signup.php"> S'inscrire </a><a class="dropdown-item" href="login.php">Se connecter </a>
+                                  <?php } ?>
+                                
+                                   
+                                   
                                    </div>
                                </li>
-                        <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="#">Ajouter au panier</a></li>
+                       
                     </ul>
                 </div>
             </div>

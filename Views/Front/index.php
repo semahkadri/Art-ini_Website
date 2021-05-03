@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,6 +25,7 @@
 </head>
 
 <body style="padding-top: 0;">
+
 <?php include_once 'include/header.php'; ?>
     <!-- Slider main container-->
     <div class="swiper-container home-slider multi-slider">

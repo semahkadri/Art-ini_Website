@@ -39,7 +39,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
         
         <h1 class="mb-5 text-shadow">Bienvenue, <?php echo $_SESSION['name']; ?></h1>
         
-        <a class="navbar-brand py-3" href="index-1.php"> <b> <h3>Aller au site </h3></b></a>
+        <a class="navbar-brand py-3" href="index.php"> <b> <h3>Aller au site </h3></b></a>
         <div><a class="navbar-brand py-3" href="logout.php"><b> <h3>Se déconnecter</h3></b></a> </div>
         
         
