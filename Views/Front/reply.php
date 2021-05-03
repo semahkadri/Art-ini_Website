@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
+
 
 $conn = new mysqli('localhost', 'root', '', 'artini');
 
@@ -337,9 +337,3 @@ $numComments = $sqlNumComments->num_rows;
     </script>
 </body>
 </html>
-<?php 
-}else{
-     header("Location: index.php");
-     exit();
-}
- ?>
