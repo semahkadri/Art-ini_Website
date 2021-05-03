@@ -23,7 +23,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	}else{
 		// hashing the password
         $pass = md5($pass);
-		$sql = "SELECT * FROM users WHERE login='$login' AND password='$pass' AND etat='verifie'";
+		$sql = "SELECT * FROM users WHERE login='$login' AND password='$pass'";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
@@ -41,12 +41,16 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
             	header("Location: welcome.php");
 		        exit();
             }
-			else{
-				header("Location:login.php?error=Incorect nom d'utilisateur ou mot de passe");
+			else if ($row['login'] === $login && $row['password'] === $pass && $row['etat']===''){
+				header("Location:login.php?error=Veuillez activer votre compte d'abord");
 		        exit();
 			}
+			else{
+				header("Location:login.php?error=Incorect nom d'utilisateur ou mot de passe");
+	        exit();
+			}
 		}else{
-			header("Location: login.php?error=Veuillez activer votre compte d'abord");
+			header("Location:login.php?error=Incorect nom d'utilisateur ou mot de passe");
 	        exit();
 		}
 	}
