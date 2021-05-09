@@ -3,7 +3,7 @@
      require_once '../../Model/Influ.php';
 
   
-
+session_start();
     $tp1= new InfluC();
     $liste=$tp1->afficherType();
 
@@ -65,9 +65,9 @@ if (isset($_GET['tri'])) {
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="assets/img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">ilyes nakhli</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>

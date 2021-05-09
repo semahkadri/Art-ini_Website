@@ -1,7 +1,7 @@
 <?php 
     require_once '../../Controller/sponsC.php';
     require_once '../../Model/spons.php';
-
+    session_start();
     if( isset($_POST["historique_sponsor"])&& isset($_POST["nom_sponsor"]) && isset($_POST["photo_sponsor"]) ) {
       $tp= new Spons( $_POST["historique_sponsor"],$_POST["nom_sponsor"], $_POST["photo_sponsor"]);
       $newtp= new SponsC();
@@ -85,9 +85,9 @@
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">ilyes nakhli</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>

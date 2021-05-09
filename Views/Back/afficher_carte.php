@@ -2,7 +2,7 @@
 require_once "../../Controller/carteC.php";
 
 
-    
+    session_start();
     $db=config::getConnexion();
     $result=$db->query('SELECT * FROM carte');
     $carteC =  new carteC();
@@ -97,9 +97,9 @@ require_once "../../Controller/carteC.php";
         <nav id="sidebar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">Ines Kouki</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>

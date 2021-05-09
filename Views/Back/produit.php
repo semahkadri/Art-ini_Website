@@ -4,7 +4,7 @@ require_once '../../Controller/productsC.php';
 require_once '../../Model/Type.php';
 require_once '../../Model/product.php';
 
-
+session_start();
 if (isset ($_POST['supprimer']))
 {   
 $req="DELETE from produit where id_prod=".$_POST['id_prod'];
@@ -63,9 +63,9 @@ $sql->execute();
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">Semah Kadri</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>

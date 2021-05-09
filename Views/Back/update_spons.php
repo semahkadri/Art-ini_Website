@@ -2,7 +2,7 @@
     require_once '../../Controller/Type2CC.php';
     require_once '../../Model/Type2.php';
 
-    
+    session_start();
     if(isset($_POST["nom_sponsor"]) && isset($_POST["historique_sponsor"]) && isset($_POST["photo_sponsor"])) {
       $tp= new Type($_POST["historique_sponsor"],$_POST["nom_sponsor"],$_POST["photo_sponsor"]);
       $newtp= new TypeC();
@@ -84,9 +84,9 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">Semah Kadri</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>

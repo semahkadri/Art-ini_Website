@@ -2,7 +2,7 @@
     require_once 'C:/xampp/htdocs/demo/Semah/Controller/TypeC.php';
     require_once 'C:/xampp/htdocs/demo/Semah/Model/Type.php';
 
-    
+    session_start();
     if(isset($_POST["nom_categorie"]) && isset($_POST["historique_categorie"]) && isset($_POST["photo_categorie"])) {
       $tp= new Type($_POST["historique_categorie"],$_POST["nom_categorie"],$_POST["photo_categorie"]);
       $newtp= new TypeC();
@@ -149,9 +149,9 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
-                    <h1 class="h5">Semah Kadri</h1>
+                    <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>
