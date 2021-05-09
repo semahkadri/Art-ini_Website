@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 30 avr. 2021 à 04:08
+-- Généré le : dim. 09 mai 2021 à 04:53
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 7.4.16
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `artini`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `image`) VALUES
+(1, 'Ines', 'ines.kouki@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-3.jpg'),
+(2, 'Semah', 'sam@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,7 +76,9 @@ CREATE TABLE `categorie` (
 --
 
 INSERT INTO `categorie` (`id`, `historique_categorie`, `nom_categorie`, `photo_categorie`) VALUES
-(2, 'aaa', 'guitare', 'les percussions.jpg');
+(2, 'aaa', 'guitare', 'les percussions.jpg'),
+(3, 'aaa', 'guitare', '2.jpg'),
+(4, 'ssssssssssssssssssssss', 'sss', 'bombarde.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,6 +92,34 @@ CREATE TABLE `comments` (
   `comment` text NOT NULL,
   `createdOn` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `userID`, `comment`, `createdOn`) VALUES
+(4, 120, 'aaaaaaaaaa', '2021-05-09 00:54:18');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `influenceur`
+--
+
+CREATE TABLE `influenceur` (
+  `id` int(11) NOT NULL,
+  `historique_influenceur` text NOT NULL,
+  `nom_influenceur` varchar(30) NOT NULL,
+  `prenom_influenceur` varchar(30) NOT NULL,
+  `photo_influenceur` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `influenceur`
+--
+
+INSERT INTO `influenceur` (`id`, `historique_influenceur`, `nom_influenceur`, `prenom_influenceur`, `photo_influenceur`) VALUES
+(4, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'banjo.jpg');
 
 -- --------------------------------------------------------
 
@@ -110,6 +162,14 @@ CREATE TABLE `produit` (
   `img_prod` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`id_prod`, `nom_prod`, `id_categorie`, `prix_prod`, `img_prod`) VALUES
+(2, 'aa', 2, 12, 'gtr.jpg'),
+(3, 'aa', 3, 200, '3.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +182,19 @@ CREATE TABLE `replies` (
   `comment` text NOT NULL,
   `createdOn` datetime NOT NULL,
   `userID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sponsor`
+--
+
+CREATE TABLE `sponsor` (
+  `id` int(11) NOT NULL,
+  `historique_sponsor` text NOT NULL,
+  `nom_sponsor` varchar(30) NOT NULL,
+  `photo_sponsor` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -141,22 +214,26 @@ CREATE TABLE `users` (
   `adress` varchar(100) NOT NULL,
   `phone` int(11) NOT NULL,
   `code` varchar(100) DEFAULT NULL,
-  `etat` varchar(100) NOT NULL,
-  `unique_id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `etat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `image`, `name`, `password`, `email`, `birthday`, `adress`, `phone`, `code`, `etat`, `unique_id`, `status`) VALUES
-(112, 'Ines', '1619745931avatar-3.jpg', '', 'e10adc3949ba59abbe56e057f20f883e', 'ines@gmail.com', '0000-00-00', '', 0, NULL, '', 1181639567, 'Hors ligne'),
-(113, 'sem', '1619746959avatar-2.jpg', '', 'e10adc3949ba59abbe56e057f20f883e', 'semah@esprit.tn', '0000-00-00', '', 0, NULL, '', 910111296, 'En ligne');
+INSERT INTO `users` (`id`, `login`, `image`, `name`, `password`, `email`, `birthday`, `adress`, `phone`, `code`, `etat`) VALUES
+(119, 'Inesk', '141259698_3682681275119132_384325127000388152_n.jpg', 'Ines Kouki', '11befe1b03f596c805ed03864def873d', 'ines.kouki@esprit.tn', '2000-01-01', '', 0, '', 'verifie'),
+(120, 'Ines', '141259698_3682681275119132_384325127000388152_n.jpg', 'Ines Kouki', '7682fe272099ea26efe39c890b33675b', 'ines.kouki@esprit.tn', '2000-01-01', '', 0, '', 'verifie');
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `carte`
@@ -177,6 +254,12 @@ ALTER TABLE `categorie`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_user_com` (`userID`);
+
+--
+-- Index pour la table `influenceur`
+--
+ALTER TABLE `influenceur`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `message`
@@ -206,6 +289,12 @@ ALTER TABLE `replies`
   ADD KEY `fk_rep_user` (`userID`);
 
 --
+-- Index pour la table `sponsor`
+--
+ALTER TABLE `sponsor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -216,28 +305,40 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pour la table `carte`
 --
 ALTER TABLE `carte`
-  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `influenceur`
+--
+ALTER TABLE `influenceur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
@@ -249,7 +350,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `replies`
@@ -258,10 +359,16 @@ ALTER TABLE `replies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT pour la table `sponsor`
+--
+ALTER TABLE `sponsor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- Contraintes pour les tables déchargées
