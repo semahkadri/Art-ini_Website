@@ -33,6 +33,11 @@
                                 <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
                                 <li class="nav-item"><a class="nav-link" href="reply.php">Feedbacks</a></li>
+                                <li class="nav-item"><a class="nav-link" href="influ.php">Influenceurs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>
+
+
+
                                 <?php if (isset($_SESSION['id'])) { ?>      
                                 <li class="nav-item dropdown ml-lg-3"><a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="avatar"  src="Assets/img/<?=$_SESSION['image']; ?>" alt="user"></a>
                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">

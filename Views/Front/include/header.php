@@ -31,6 +31,10 @@
                         <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Promotions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="influ.php">Influenceurs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>
+
+
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="docsDropdownMenuLink" href="index.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon Compte</a>
                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="docsDropdownMenuLink">
                                     
