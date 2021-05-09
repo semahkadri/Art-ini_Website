@@ -241,7 +241,7 @@ $result=$db->query('select * from users');
                                         <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idc" id="idc" required>
                                 <?php while ($row = $result->fetch()) { 
                                     ?>
-                                    <option value= "<?php echo  $row['id'];?>"> <?php echo $row['id'];?> </option>
+                                    <option value= "<?php echo  $row['id'];?>"> <?php echo $row['login'];?> </option>
                                 <?php } ?>
                                 </select>
           </div>     

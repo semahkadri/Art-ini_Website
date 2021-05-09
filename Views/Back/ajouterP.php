@@ -280,7 +280,7 @@ $mailto = $s;
           <select  class="form-control" tabindex="10"  name="idc" id="idc" required style="width:500px">
                      <?php while ($row = $result->fetch()) { 
                               ?>
-                           <option value= "<?php echo  $row['id'];?>"> <?php echo $row['id'];?> </option>
+                           <option value= "<?php echo  $row['id'];?>"> <?php echo $row['nom_categorie'];?> </option>
                          <?php } ?>
                     </select>
                  </div>     
