@@ -208,6 +208,8 @@
                         <li><a href="formType.php">Ajouter une catégorie</a></li>
                         <li><a href="ajouterP.php">Ajouter un produit</a></li>
                         <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
+                        <li><a href="forms_inf.php">Ajouter influenceur</a></li>
+                        <li><a href="forms_spons.php">Ajouter Sponsors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -217,6 +219,8 @@
                         <li><a href="produit.php">Produits</a></li>
                         <li><a href="afficher_client.php">Client</a></li>
                         <li><a href="afficher_carte.php">Carte Fidélité</a></li>
+                        <li><a href="tables_inf.php">influenceur</a></li>
+                        <li><a href="tables_spons.php">Sponsors</a></li>
                     </ul>
                 </li>
                 <li>

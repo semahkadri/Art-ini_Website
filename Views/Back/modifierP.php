@@ -26,6 +26,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+  
   <body>
   <?php include_once 'include/header.php'; ?>
     <div class="d-flex align-items-stretch">
@@ -53,6 +54,8 @@
                         <li><a href="formType.php">Ajouter une catégorie</a></li>
                         <li><a href="ajouterP.php">Ajouter un produit</a></li>
                         <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
+                        <li><a href="forms_inf.php">Ajouter influenceur</a></li>
+                        <li><a href="forms_spons.php">Ajouter Sponsors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -62,13 +65,15 @@
                         <li><a href="produit.php">Produits</a></li>
                         <li><a href="afficher_client.php">Client</a></li>
                         <li><a href="afficher_carte.php">Carte Fidélité</a></li>
+                        <li><a href="tables_inf.php">influenceur</a></li>
+                        <li><a href="tables_spons.php">Sponsors</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="login.php"> <i class="icon-logout"></i>Page de connexion </a>
                 </li>
             </ul>
-      </nav>
+        </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -160,7 +165,7 @@
 </script>
                    <?php 
 
-include "../../config.php";
+include "configg.php";
 $total = 0 ;
 
 function verif_Num($str){
@@ -259,7 +264,7 @@ if (isset($_GET['id_prod']))
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">2020 &copy; Design by <a href="index.html">JD&Co</a>.</p>
+              <p class="no-margin-bottom">2021 &copy; Design by <a href="index.html">Art-ini</a>.</p>
             </div>
           </div>
         </footer>

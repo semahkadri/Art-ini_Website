@@ -15,12 +15,13 @@ $sql->execute();
 }
 
  $prod=new productsC;
-    if (isset($_GET['search'])) {
-        $listP = $prod->rechercheproducts($_GET['search']);
-    } else {
-        $listP = $prod->afficherproducts();
-    }
+ 
 
+    $listP=$prod->afficherproducts();
+
+    if(isset($_GET['id_prod'])) {
+      $prod->supprimerproducts($_GET['id_prod']);
+  }
 
 
 ?>
@@ -35,6 +36,10 @@ $sql->execute();
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Custom Font Icons CSS-->
@@ -49,7 +54,7 @@ $sql->execute();
     <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->  
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
@@ -78,6 +83,8 @@ $sql->execute();
                         <li><a href="formType.php">Ajouter une catégorie</a></li>
                         <li><a href="ajouterP.php">Ajouter un produit</a></li>
                         <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
+                        <li><a href="forms_inf.php">Ajouter influenceur</a></li>
+                        <li><a href="forms_spons.php">Ajouter Sponsors</a></li>
                     </ul>
                 </li>
                 <li>
@@ -87,13 +94,15 @@ $sql->execute();
                         <li><a href="produit.php">Produits</a></li>
                         <li><a href="afficher_client.php">Client</a></li>
                         <li><a href="afficher_carte.php">Carte Fidélité</a></li>
+                        <li><a href="tables_inf.php">influenceur</a></li>
+                        <li><a href="tables_spons.php">Sponsors</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="login.php"> <i class="icon-logout"></i>Page de connexion </a>
                 </li>
             </ul>
-      </nav>
+        </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
@@ -104,16 +113,15 @@ $sql->execute();
         </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
-          <ul class="breadcrumb">
+        <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
             <li class="breadcrumb-item active">Produit        </li>
           </ul>
         </div>
+        <section>
 
-        <section >
           <div class="container">
-                  <div class="title"><strong>Liste des produits</strong></div>
-
+          <div class="title"><strong>Liste des produits</strong></div>
               
                   </br>
                   <div class="form-group">
@@ -125,30 +133,19 @@ $sql->execute();
                     </div>
 
                   </div>
-                  </br>
-          <div class="container">
-                  <div class="table-responsive" id="pagination_data"> 
-                    <table class="table" id="pagination_data">
-                      <thead>
-                        <tr>
-                        <th scope="col">ID</th>
-                           <th scope="col">Photos</th>
-					                  <th scope="col">Nom du produit</th>
-						                <th scope="col">Prix</th>
-                            <th scope="col">ID Catègorie</th>
-                            <th scope="col">Nom du catégorie</th>
+                  
+                  <div class="table-responsive"> 
 
-                        </tr>
-                        </tr>
-                      </thead>
-                      
-                      <!-- Pagination -->
-  <script>
+                    <div class="table table-striped table-hover" id="pagination_data">
+                  </br>
+                                        
+                    <!-- Pagination -->
+                      <script>
                         $(document).ready(function(){
                           load_data();
                           function load_data(page){
                             $.ajax({
-                             url  : "pagination.php",
+                             url  : "pagination2.php",
                              type : "POST",
                              cache: false,
                              data : {page:page},
@@ -159,121 +156,61 @@ $sql->execute();
                           }
 
                           $(document).on('click', '.pagination_link', function(){
-                            var page = $(this).attr("id_prod");
+                            var page = $(this).attr("id");
                             load_data(page);
                           });
 
                         });
                       </script>
-                      </div>
-                        
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-                     <?php
-
-                     
-$total=0;
-foreach ($listP as $prod)
-{
-
-  echo('<td>'.$prod['id_prod'].'</td>');
-
-echo('<td> <img src="assets/'.$prod['img_prod'].'" width="80" height="80" /> </td>'); 
-
-echo('<td>'.$prod['nom_prod'].'</td>');
-
-echo('<td>'.$prod['prix_prod'].'</td>');
-	
-echo('<td>'.$prod['id_categorie'].'</td>');
-
-echo('<td>'.$prod['nom_categorie'].'</td>');
-
-
-	
-	
-$total+=1;
-
-
-
-?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-                    <script type = "text/javascript">
-                        $(document).ready(function(){
-                            load_data();
-                            function load_data(str)
-                            {
-                                $.ajax({
-                                    url:"produit.php",
-                                    method:"post",
-                                    data:{str:str},
-                                    success:function(data)
-                                    {
-                                        $('#tableau').html(data);
-                                    }
-                                });
-                            }
-                          
-                            $('#rech').keyup(function(){
-                                var recherche = $(this).val();
-                                if(recherche != '')
-                                {
-                                    load_data(recherche);
-                                }
-                                else
-                                {
-                                    load_data();
-                                }
+<script type = "text/javascript">
+    $(document).ready(function(){
+        load_data();
+        function load_data(str)
+        {
+            $.ajax({
+                url:"prod.php",
+                method:"post",
+                data:{str:str},
+                success:function(data)
+                {
+                    $('#tableau').html(data);
+                }
+            });
+        }
+      
+        $('#rech').keyup(function(){
+            var recherche = $(this).val();
+            if(recherche != '')
+            {
+                load_data(recherche);
+            }
+            else
+            {
+                load_data();
+            }
 }                            );
-                        });
-                    </script>
+    });
+</script>
 
-                     <?php
-                    $tp2= new productsC();
-                    if(!isset($_POST['str'])){
-                        $liste = $tp2->afficherproducts();
-                    }
-                    else{
-                        $liste = $tp2->rechercheproducts($_POST['str']);
-                    }
-                    ?>
+                      
 
-
-
-
-<td>
-<td>
-<form method="POST" action="produit.php" >
-<input style="background-color: #495156" class="btn btn-primary btn-block"  onclick="sure()" type="submit" name="supprimer" value="supprimer">
-<input class="btn btn-primary btn-block" type="hidden" value="<?php echo $prod['id_prod']; ?>" name="id_prod">
-</form>
-</td>
-<td>
-<a class="btn btn-success" href="modifierP.php?id_prod=<?php echo $prod['id_prod'] ?>">
-Modifier
-</a>
-<?php
-echo("</tr>");
-
-}
-?>
-<style>
+                    </div>
+                    <style>
 #serif 		{ font-family: serif ; 		}
 #sans-serif { font-family: sans-serif; 	}
 #cursive 	{ font-family: cursive; 	}
 #monospace 	{ font-family: monospace; 	}
-</style>    
-                </table>
-                <center>
-					<h5  id='cursive' style="color: black; background-color: #FFC300; width: 250px;" align="center"> <?php echo('Total des produits : '.$total)?></h5>
-                </center>
-<form method="get" action="ajouterP.php" >
+</style> 
+                    <form method="get" action="ajouterP.php" >
 <center>
    <button align="center" id='monospace' style="background-color: #0c6071; width: 300px" class="btn btn-primary btn-block" type="submit" > <a>  Ajouter un autre produit  </a> </button>
 </center>
 </form>
-</br> 
-<br>
+                    
+                    <br>
                     <form class="form-inline" method="post" action="generate_pdf.php">
 						          <button type="submit"  id="pdf" name="generate_pdf" class="btn btn-info"><i class="fa fa-pdf" aria-hidden="true"></i>
                         Generate PDF
@@ -281,11 +218,6 @@ echo("</tr>");
 						        </form>
                   </div>
                   <br>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
@@ -307,3 +239,4 @@ echo("</tr>");
     <script src="assets/js/front.js"></script>
   </body>
 </html>
+
