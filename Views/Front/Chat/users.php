@@ -8,8 +8,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   <link rel="shortcut icon" href="img/logoo.svg">
-
-</head>
+<!-- Google fonts - Playfair Display-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
+    <!-- swiper-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <!-- Magnigic Popup-->
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
+    <!-- theme stylesheet--> 
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/logoo.svg">
 
 <?php 
   session_start();
@@ -18,13 +30,19 @@
     header("location: login.php");
   }
 ?>
+    <?php include_once 'include/header-1.php'; ?>
+
+
+</head>
+
+
 <body>
   <div class="wrapper">
     <section class="users">
       <header>
         <div class="content">
           <?php 
-            $sql = mysqli_query($conn, "SELECT * FROM user WHERE unique_id = {$_SESSION['unique_id']}");
+            $sql = mysqli_query($conn, "SELECT * FROM visitor WHERE unique_id = {$_SESSION['unique_id']}");
             if(mysqli_num_rows($sql) > 0){
               $row = mysqli_fetch_assoc($sql);
             }
@@ -49,6 +67,7 @@
   </div>
 
   <script src="javascript/users.js"></script>
+  
 
 </body>
 </html>

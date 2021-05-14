@@ -22,13 +22,18 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/logoo.svg">
-</head>
+
 <?php 
   session_start();
   if(isset($_SESSION['unique_id'])){
     header("location: users.php");
   }
 ?>
+    <?php include_once 'include/header-1.php'; ?>
+
+
+</head>
+
 
 <body>
   <div class="wrapper">
