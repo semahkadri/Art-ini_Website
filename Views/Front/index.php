@@ -1,6 +1,13 @@
 <?php 
 session_start();
 
+require_once '../../Controller/TypeC.php';
+  require_once '../../Model/Type.php';
+
+  $tp1= new TypeC();
+  $listetp=$tp1->afficherType();
+
+
  ?>
 
 <!DOCTYPE html>
@@ -261,37 +268,7 @@ session_start();
         </div>
     </section>
     <!-- Places-->
-    <section class="bg-gray-100">
-        <div class="bg-cover" style="height: 250px; background-image: url(Assets/img/photo/places-divider.jpg);"></div>
-        <div class="container pb-lg-3">
-            <div class="search-bar rounded p-3 p-lg-4 position-relative mt-n4 z-index-20">
-                <form action="#">
-                    <div class="row">
-                        <div class="col-lg-4 d-flex align-items-center form-group">
-                            <input class="form-control border-0 shadow-0" type="search" name="search" placeholder="Que cherchez-vous">
-                        </div>
-                        <div class="col-md-6 col-lg-3 d-flex align-items-center form-group">
-                            <div class="input-label-absolute input-label-absolute-right w-100">
-                                <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>
-                                <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Location" id="location">
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider">
-                            <select class="selectpicker" title="Categories" data-style="btn-form-control">
-                  <option value="small">Restaurants</option>
-                  <option value="medium">Hotels</option>
-                  <option value="large">Cafes</option>
-                  <option value="x-large">Garages</option>
-                </select>
-                        </div>
-                        <div class="col-lg-2 form-group mb-0">
-                            <button class="btn btn-primary btn-block h-100" type="submit">Chercher</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+ 
     <section class="py-6 bg-gray-100">
         <div class="container">
             <div class="row mb-5">
@@ -299,7 +276,7 @@ session_start();
                     <p class="subtitle text-primary">Venez nous rendre visite</p>
                     <h2>Catégories</h2>
                 </div>
-                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
+                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="info.php">
                   Voir tous les guides<i class="fas fa-angle-double-right ml-2"></i></a></div>
             </div>
             <div class="swiper-container guides-slider mx-n2 pt-3">
@@ -308,37 +285,37 @@ session_start();
                     <!-- Slides-->
                     <div class="swiper-slide h-auto px-2">
                         <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0">
-                            <a class="tile-link" href="category.html"></a><img class="bg-image" src="Assets/img/photo/new-york.jpg" alt="Card image">
+                            <a class="tile-link" href="info.php"></a><img class="bg-image" src="Assets/timbale.jpg" alt="Card image">
                             <div class="card-body overlay-content">
-                                <h6 class="card-title text-shadow text-uppercase">New York</h6>
-                                <p class="card-text text-sm">The big apple</p>
+                                <h6 class="card-title text-shadow text-uppercase">les instruments de combinaison</h6>
+                                <p class="card-text text-sm">Art-ini</p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide h-auto px-2">
                         <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0">
-                            <a class="tile-link" href="category.html"></a><img class="bg-image" src="Assets/img/photo/paris.jpg" alt="Card image">
+                            <a class="tile-link" href="info.php"></a><img class="bg-image" src="Assets/wind.jpg" alt="Card image">
                             <div class="card-body overlay-content">
-                                <h6 class="card-title text-shadow text-uppercase">Paris</h6>
-                                <p class="card-text text-sm">Artist capital of Europe</p>
+                                <h6 class="card-title text-shadow text-uppercase">les instruments à vent</h6>
+                                <p class="card-text text-sm">Art-ini</p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide h-auto px-2">
                         <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0">
-                            <a class="tile-link" href="category.html"></a><img class="bg-image" src="Assets/img/photo/barcelona.jpg" alt="Card image">
+                            <a class="tile-link" href="info.php"></a><img class="bg-image" src="Assets/les percussions.jpg" alt="Card image">
                             <div class="card-body overlay-content">
-                                <h6 class="card-title text-shadow text-uppercase">Barcelona</h6>
-                                <p class="card-text text-sm">Dalí, Gaudí, Barrio Gotico</p>
+                                <h6 class="card-title text-shadow text-uppercase">les instruments à percussions</h6>
+                                <p class="card-text text-sm">Art-ini</p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide h-auto px-2">
                         <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0">
-                            <a class="tile-link" href="category.html"></a><img class="bg-image" src="Assets/img/photo/prague.jpg" alt="Card image">
+                            <a class="tile-link" href="info.php"></a><img class="bg-image" src="Assets/corde.jpg" alt="Card image">
                             <div class="card-body overlay-content">
-                                <h6 class="card-title text-shadow text-uppercase">Prague</h6>
-                                <p class="card-text text-sm">City of hundred towers</p>
+                                <h6 class="card-title text-shadow text-uppercase">les instruments à cordes</h6>
+                                <p class="card-text text-sm">Art-ini</p>
                             </div>
                         </div>
                     </div>
@@ -440,7 +417,7 @@ session_start();
                     <p class="subtitle text-secondary">Dépêchez-vous, ceux-ci expirent bientôt. </p>
                     <h2>Promotions à ne pas rater</h2>
                 </div>
-                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category.html">
+                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="info.php">
                 Voir toutes les offres<i class="fas fa-angle-double-right ml-2"></i></a></div>
             </div>
             <!-- Slider main container-->

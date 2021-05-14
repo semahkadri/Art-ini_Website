@@ -57,17 +57,17 @@ session_start();
 
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/instagram/cassette_retro_vintage_176763_1280x720.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\1.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
-          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Feel the music with ART-INI</h3>
+          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Ressentez la musique "ART-INI"</h3>
           <br>
           <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
             <form action="ResRecherche.php" method="POST">
               <div class="row">
                 <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
-                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Tu cherches quoi?">
+                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="La liste des catégories des instruments: ">
                 
                 </div>
                 <div class="col-lg-3 d-flex align-items-center form-group no-divider">
@@ -91,7 +91,7 @@ session_start();
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Search </button> 
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Chercher </button> 
 
                 </div>
               </div>
@@ -106,14 +106,14 @@ session_start();
     <section class="pt-6 pb-4">
     
       <div class="container">
-        <h6 class="subtitle text-center text-primary mb-5">Nos catégories</h6>
+        <h6 class="subtitle text-center text-primary mb-5">Nos produits et leurs catégories</h6>
         
         <div class="row mb-7">
           <?php
             foreach($liste as $i) {
           ?>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="#.php?id=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['img_prod']?>" alt=""/>
+            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="shop.php?id=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['img_prod']?>" alt=""/>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title"> <?php echo $i['nom_categorie'] ?> </h6>
@@ -135,7 +135,7 @@ session_start();
       <div class="container">
         <div class="text-center">
           <p class="subtitle text-primary">Historique</p>
-          <h2 class="mb-5">Story of a ........</h2>
+          <h2 class="mb-5">Découvrez l'historique de l'invention d'un tel instrument</h2>
         </div>
         <!-- Slider main container-->
         <div class="swiper-container testimonials-slider testimonials">
@@ -144,7 +144,6 @@ session_start();
             <!-- Slides-->
             <?php
             foreach($liste2 as $i) { 
-              //echo $i['feedback_inf'];
             ?>
             <div class="swiper-slide px-3">
               <div class="testimonial card rounded-lg shadow border-0">

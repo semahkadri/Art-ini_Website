@@ -23,9 +23,13 @@
                                 <a class="text-muted" href="#">Evénements </a>
                             </li>
                             <li><a class="text-muted" href="#">Promotions     </a></li>
-                            <li><a class="text-muted" href="#">Influenceurs     </a></li>
-                            <li><a class="text-muted" href="#">Sponsors     </a></li>
-                            <li><a class="text-muted" href="#">Produits     </a></li>
+                            <li><a class="text-muted" href="spons.php">Sponsors</a></li>
+                            <li><a class="text-muted" href="info.php">Catégorie</a></li>
+                            <li><a class="text-muted" href="shop.php">Produits</a></li>
+                            <li><a class="text-muted" href="reply.php">Feedback</a></li>
+                            <li><a class="text-muted" href="influ.php">Influenceurs</a></li>
+
+                            
                         </ul>
                     </div>
                    <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">

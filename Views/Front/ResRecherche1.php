@@ -51,7 +51,7 @@ session_start();
   
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/dj_music_disco_185378_3840x2160.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\4.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
           <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Who Are Our Influencers ?</h3>

@@ -55,24 +55,24 @@ session_start ();
 
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="assets/img/photo/photo-1493976040374-85c8e12f0c0e.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\photo\93771628_10221694505261463_8226134970649804800_n.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
-          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5"> Who Are Our Influencers ?</h3>
+          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5"> Qui sont nos influenceurs?</h3>
           <br>
           <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
             <form action="ResRecherche1.php" method="POST">
               <div class="row">
                 <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
-                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Which influencer are you searching for?">
+                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Qui sont nos influenceurs?">
                 
                 </div>
                 <div class="col-lg-3 d-flex align-items-center form-group no-divider">
 
                   
 
-                  <select class="selectpicker" title="influencer Name" name="nom_type" id="nom_type" >
+                  <select class="selectpicker" title="Nom influenceur" name="nom_type" id="nom_type" >
 
                     <?php
                       foreach($listetp as $t) {
@@ -89,7 +89,7 @@ session_start ();
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Search </button> 
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Chercher </button> 
 
                 </div>
               </div>
@@ -133,7 +133,7 @@ session_start ();
       <div class="container">
         <div class="text-center">
           <p class="subtitle text-primary">Testimonials</p>
-          <h2 class="mb-5">A word from our influencers to their communities</h2>
+          <h2 class="mb-5">Un mot de nos influenceurs à leurs communautés</h2>
         </div>
         <!-- Slider main container-->
         <div class="swiper-container testimonials-slider testimonials">

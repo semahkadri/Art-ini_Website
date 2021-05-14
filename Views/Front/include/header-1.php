@@ -35,6 +35,8 @@
                                 <li class="nav-item"><a class="nav-link" href="reply.php">Feedbacks</a></li>
                                 <li class="nav-item"><a class="nav-link" href="influ.php">Influenceurs</a></li>
                                 <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>
+                                <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
+
 
 
 
