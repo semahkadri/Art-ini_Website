@@ -233,7 +233,7 @@ if (isset($_GET['id_prod']))
 
 <tr><td><img src="assets/<?php echo $img_prod;?>" width="120" height="120"/> </td>
 <td>
-<input type="file"  class="btn btn-primary" style="width:400px" name="img_prod" enctype= "multipart/form-data" /> </td> </tr>
+<input type="file" class="btn btn-primary" style="width:400px" name="img_prod" enctype= "multipart/form-data" /> </td> </tr>
 
 </table>
 <center>

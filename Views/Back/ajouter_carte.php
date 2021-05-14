@@ -31,7 +31,7 @@ $result=$db->query('select * from users');
       $sname= "localhost";
       $unmae= "root";
       $password = "";
-      $db_name = "gestioncc";
+      $db_name = "artini";
       $conn = mysqli_connect($sname, $unmae, $password, $db_name);
       $sql = "SELECT * FROM carte WHERE idclient='$idclient' ";
 		$result = mysqli_query($conn, $sql);
