@@ -20,7 +20,6 @@ class productsC
 	}
 
 
-	
 	public function modifierproducts($id_prod,$nom_prod,$img_prod,$id_categorie)
 {
 
@@ -38,7 +37,8 @@ class productsC
 		function rechercheproducts($str)
 	{
 			
-		$sql = "SELECT * FROM produit WHERE id_categorie LIKE '".$str."%' OR nom_prod LIKE '".$str."%' or id_prod LIKE '".$str."%' ";
+		$sql = "SELECT * FROM produit  inner join categorie on produit.id_categorie=categorie.id WHERE id_categorie LIKE '".$str."%' OR nom_prod LIKE '".$str."%' 
+		or nom_categorie LIKE '".$str."%' or id_prod LIKE '".$str."%' ";
 		$db = config::getConnexion();
 		try {
 			$liste = $db->query($sql);
@@ -72,19 +72,16 @@ class productsC
 		}
 	}
 
-	function supprimerproducts($nom_prod)
+	function supprimerproducts($id_prod)
 	{
-		include "../config.php";
-		$sql = "DELETE FROM produit where nom_prod= :nom_prod";
-		$db = config::getConnexion();
-		$req = $db->prepare($sql);
-		$req->bindValue(':nom_prod', $nom_prod);
 		try {
-			$req->execute();
-			// header('Location: index.php');
-		} catch (Exception $e) {
-			die('Erreur: ' . $e->getMessage());
-		}
+            $db=config::getConnexion();
+            $query=$db->prepare("DELETE FROM produit WHERE id_prod=:id_prod");
+            $query->execute(['id_prod'=>$id_prod]);
+        }
+        catch (PDOException $e) {
+            $e->getMessage();
+        }
 	}
 	
 	function calculerproducts($id_prod){
@@ -99,5 +96,22 @@ class productsC
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+	function afficherproductstrie($cc)
+    {
+        
+        $sql="select * from produit order by $cc desc";
+
+        $db = config::getConnexion();
+        try
+        {
+            $list=$db->query($sql);
+            return $list;
+        }
+        catch (Exception $e)
+        {
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 	
 }
