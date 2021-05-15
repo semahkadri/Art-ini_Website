@@ -2,17 +2,16 @@
 
 session_start();
 
-    require_once '../../Controller/InfluC.php';
-    require_once '../../Model/Influ.php';
+    
 
 
-    require_once '../../Controller/Type1C.php';
-    require_once '../../Model/Type1.php';
+    require_once '../../Controller/Type3C.php';
+    require_once '../../Model/Type3.php';
   
     $tp1= new TypeC();
     $listetp=$tp1->afficherType();
 
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +38,7 @@ session_start();
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="assets/img/v2.png">
+    <link rel="shortcut icon" href="assets/img/logo.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -48,29 +47,29 @@ session_start();
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
-  
+
+    
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\4.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
-          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Who Are Our Influencers ?</h3>
-          <br>
+         <br>
           <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
-            <form action="ResRecherche1.php" method="POST">
+            <form action="ResRecherche2.php" method="POST">
               <div class="row">
                 <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Which influencer are you searching for?">
                 </div>
                 <div class="col-lg-3 d-flex align-items-center form-group no-divider">
-                <select class="selectpicker" title="influencer name" name="nom_type" id="nom_type" >
+                <select class="selectpicker" title="Trip categories" name="nom_type" id="nom_type" >
 
                   <?php 
                     foreach($listetp as $t) {
                   ?>
                   
-                  <option>  <?php echo $t['nom_influenceur'] ?>  </option>
+                  <option>  <?php echo $t['nom'] ?>  </option>
                     
                   <?php
                     }
@@ -99,8 +98,8 @@ session_start();
     <?php
       if (isset($_POST['searchInf'])) {
         //var_dump($_POST['searchInf']);
-        $inf2=new InfluC();
-        if ($liste2=$inf2->chercherInfluenceur($_POST['searchInf'])) {
+        $inf2=new TypeC();
+        if ($liste2=$inf2->chercherTypeInst($_POST['searchInf'])) {
         //echo "done";
    ?>
 
@@ -116,13 +115,13 @@ session_start();
           
             <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
               <div class="card border-0 hover-animate bg-transparent">
-                <a class="position-relative" href="profile_influ.php?id_inf=<?php echo $elt['id_inf'] ?>">
-                  <img class="card-img-top team-img" src="<?php echo $elt['photo_influenceur'] ?>" alt=""/> 
+                <a class="position-relative" href="profile_influ.php?id_inf=<?php echo $elt['id'] ?>">
+                  <img class="card-img-top team-img" src="<?php echo $elt['photo'] ?>" alt=""/> 
                   <!-- <p> hiiii </p>  --> 
                   <div class="team-circle bg-secondary-light"></div>
                 </a>
                   <div class="card-body team-body text-center">
-                    <h6 class="card-title"> <?php echo $elt['nom_influenceur'] ?> <?php echo $elt['prenom_influenceur'] ?></h6>
+                    <h6 class="card-title"> <?php echo $elt['nom'] ?> <?php echo $elt['directeur'] ?></h6>
                     <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $elt['id'] ?> followers    </p>
                   </div>
               </div>
@@ -149,8 +148,8 @@ session_start();
 <?php
       if (isset($_POST['nom_type'])) {
         //var_dump($_POST['nom_type']);
-        $tripinf2=new TripInfC();
-        if ($listetrip2=$tripinf2->chercherTripInf($_POST['nom_type'])) {
+        $tripinf2=new TypeC();
+        if ($listetrip2=$tripinf2->chercherTypeInst($_POST['nom_type'])) {
         //echo "done";
    ?>
 
@@ -166,17 +165,17 @@ session_start();
           
           <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                   <div class="card h-100 border-0 shadow">
-                    <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<?php  echo $lt['photo_influenceur']?>" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="Up_trip_profile.php?id_voy=<?php echo $ti['id'] ?>"></a>
+                    <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<?php  echo $lt['photo']?>" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="Up_trip_profile.php?id_voy=<?php echo $ti['id'] ?>"></a>
                       
                     </div>
                     <div class="card-body d-flex align-items-center">
                       <div class="w-100">
-                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="Up_trip_profile.php?id_voy=<?php echo $lt['prenom_influenceur'] ?>"><?php  echo $lt['nom_influenceur']?></a></h6>
+                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="Up_trip_profile.php?id_voy=<?php echo $lt['directeur'] ?>"><?php  echo $lt['nom']?></a></h6>
                         <div class="d-flex card-subtitle mb-3">
-                          <p class="flex-grow-1 mb-0 text-muted text-sm"><?php  echo $lt['prenom_influenceur']?> </p>
+                          <p class="flex-grow-1 mb-0 text-muted text-sm"><?php  echo $lt['directeur']?> </p>
                           
                         </div>
-                        <p class="card-text text-muted"><span class="h4 text-primary"><?php  echo $lt['historique_influenceur'].' '.'DT'?></span></p>
+                        <p class="card-text text-muted"><span class="h4 text-primary"><?php  echo $lt['desc_eve'].' '.'DT'?></span></p>
                       </div>
                     </div>
                   </div>
@@ -188,7 +187,7 @@ session_start();
         <?php
         } // foreach
 
-      } // récupère l'influenceur recherché de la base
+      } 
       
 
     }// isset              
@@ -258,7 +257,7 @@ session_start();
           <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
               <div class="font-weight-bold text-uppercase text-dark mb-3">Directory</div>
-              <p>Welcome to our page artini</p>
+              <p>Welcome to our page Vagary</p>
               <ul class="list-inline">
                 <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
                 <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
@@ -341,6 +340,6 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
-    <script src="assets/js/theme.js"></script>
+    <script src="js/theme.js"></script>
   </body>
 </html>

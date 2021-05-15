@@ -9,29 +9,18 @@
                 fill="#4E66F8" />
             </svg>
         </a>
-            <form class="form-inline d-none d-sm-flex" action="#" id="search">
-              <div class="input-label-absolute input-label-absolute-left input-reset input-expand ml-lg-2 ml-xl-3"> 
-                <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span class="sr-only">Que cherchez-vous?</span></label>
-                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search" placeholder="Chercher" aria-label="search">
-                <button class="btn btn-reset btn-sm" type="reset"><i class="fa-times fas"></i></button>
-              </div>
-            </form>
+            
           </div>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <form class="form-inline mt-4 mb-2 d-sm-none" action="#" id="searchcollapsed">
-              <div class="input-label-absolute input-label-absolute-left input-reset w-100">
-                <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">Que cherchez-vous?</span></label>
-                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchcollapsed_search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-reset btn-sm" type="reset"><i class="fa-times fas">           </i></button>
-              </div>
-            </form>
+            
             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
                                 <li class="nav-item"><a class="nav-link" href="info.php">Categories</a></li>
                                 <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
+                                <li class="nav-item"><a class="nav-link" href="event.php">Evénements</a></li>
+                                <li class="nav-item"><a class="nav-link" href="promo.php">Promotions</a></li>
                                 <li class="nav-item"><a class="nav-link" href="reply.php">Feedbacks</a></li>
                                 <li class="nav-item"><a class="nav-link" href="influ.php">Influenceurs</a></li>
                                 <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>

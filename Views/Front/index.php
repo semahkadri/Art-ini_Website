@@ -104,7 +104,7 @@ require_once '../../Controller/TypeC.php';
                                 <div class="d-none d-md-block col-md-4 mb-5" data-marker-id="">
                                     <div class="card h-100 border-0 shadow-lg bg-dark hover-animate">
                                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/fez.jpg" alt="Fez" />
-                                            <a class="tile-link" href="detail-rooms.html"></a>
+                                            <a class="tile-link" href="#"></a>
                                             <div class="card-img-overlay-top text-right">
                                                 <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                                     <svg class="svg-icon text-white">
@@ -114,11 +114,11 @@ require_once '../../Controller/TypeC.php';
                                         </div>
                                         <div class="card-body d-flex align-items-center">
                                             <div class="w-100">
-                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="detail-rooms.html">Guitares classiques</a></h6>
+                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="#">Khormo</a></h6>
                                                 <div class="d-flex card-subtitle">
-                                                    <p class="flex-grow-1 mb-0 text-muted text-sm">Grèce</p>
-                                                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                                    </p>
+                                                    
+                                             
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ require_once '../../Controller/TypeC.php';
                                 <div class="d-none d-md-block col-md-4 mb-5" data-marker-id="">
                                     <div class="card h-100 border-0 shadow-lg bg-dark hover-animate">
                                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/marrakech.jpg" alt="Marrakech" />
-                                            <a class="tile-link" href="detail-rooms.html"></a>
+                                            <a class="tile-link" href="#"></a>
                                             <div class="card-img-overlay-top text-right">
                                                 <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                                     <svg class="svg-icon text-white">
@@ -138,11 +138,10 @@ require_once '../../Controller/TypeC.php';
                                         </div>
                                         <div class="card-body d-flex align-items-center">
                                             <div class="w-100">
-                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="detail-rooms.html">Guitares électriques</a></h6>
+                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="#">Sami</a></h6>
                                                 <div class="d-flex card-subtitle">
-                                                    <p class="flex-grow-1 mb-0 text-muted text-sm">Canada</p>
-                                                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                                    </p>
+                                                 
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -152,7 +151,7 @@ require_once '../../Controller/TypeC.php';
                                 <div class="d-none d-md-block col-md-4 mb-5" data-marker-id="">
                                     <div class="card h-100 border-0 shadow-lg bg-dark hover-animate">
                                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/essaouira.jpg" alt="Essaouira" />
-                                            <a class="tile-link" href="detail-rooms.html"></a>
+                                            <a class="tile-link" href="#"></a>
                                             <div class="card-img-overlay-top text-right">
                                                 <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                                     <svg class="svg-icon text-white">
@@ -162,11 +161,10 @@ require_once '../../Controller/TypeC.php';
                                         </div>
                                         <div class="card-body d-flex align-items-center">
                                             <div class="w-100">
-                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="detail-rooms.html">Ukulélés</a></h6>
+                                                <h6 class="card-title"><a class="text-decoration-none text-white" href="#">Beki</a></h6>
                                                 <div class="d-flex card-subtitle">
-                                                    <p class="flex-grow-1 mb-0 text-muted text-sm">Panama</p>
-                                                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                                    </p>
+                                                    
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -328,8 +326,8 @@ require_once '../../Controller/TypeC.php';
         <div class="container">
             <div class="row mb-6">
                 <div class="col-lg-8">
-                    <h2>VOICI LES MARQUES LES PLUS RECHERCHÉES PAR LES MUSICIENS</h2>
-                    <p class="text-muted mb-0">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                    <h2>VOICI NOS SPONSORS </h2>
+                    
                 </div>
             </div>
         </div>
@@ -338,72 +336,72 @@ require_once '../../Controller/TypeC.php';
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/kathmandu.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Kathmandu</h4>
-                            <p class="mb-4">Spirituality &amp; mountains</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Jumia</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/medellin.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Medellín</h4>
-                            <p class="mb-4">Tropical paradise</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2"> Tunisi Telecome</h4>
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/bangkok.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Bangkok</h4>
-                            <p class="mb-4">Temples and street food</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Delice</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/kyoto.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Kyoto</h4>
-                            <p class="mb-4">Imperial capital</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Sony</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/los-angeles.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Los Angeles</h4>
-                            <p class="mb-4">City of angeles</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Fyzer</h4>
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/london.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">London</h4>
-                            <p class="mb-4">Galleries and shopping</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Pepsi</h4>
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/madrid.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Madrid</h4>
-                            <p class="mb-4">Aquí no hay playa</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">CitiBank</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/havana.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Havana</h4>
-                            <p class="mb-4">La Havana</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Visa</h4>
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0 d-none d-lg-block d-xl-none">
                     <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/barcelona.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Barcelona</h4>
-                            <p class="mb-4">Dalí, Gaudí, Barrio Gotico</p><a class="btn btn-link text-reset pl-0 stretched-link text-decoration-none" href="#">Take me there<i class="fa fa-chevron-right ml-2"></i></a>
+                            <h4 class="h2">Master Card</h4>
+                          
                         </div>
                     </div>
                 </div>
@@ -417,7 +415,7 @@ require_once '../../Controller/TypeC.php';
                     <p class="subtitle text-secondary">Dépêchez-vous, ceux-ci expirent bientôt. </p>
                     <h2>Promotions à ne pas rater</h2>
                 </div>
-                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="info.php">
+                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="promo.php">
                 Voir toutes les offres<i class="fas fa-angle-double-right ml-2"></i></a></div>
             </div>
             <!-- Slider main container-->
@@ -430,12 +428,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-0.jpg" alt="Pamela" />
-                                            <div class="media-body">Ines</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                   
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -446,12 +440,8 @@ require_once '../../Controller/TypeC.php';
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
                                         <h6 class="card-title">
-                                            <a class="text-decoration-none text-dark" href="detail-rooms.html"></a>Guitare électronique</h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">en bonne état</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                            </p>
-                                        </div>
+                                            <a class="text-decoration-none text-dark" href="#"></a>Tomorrowland</h6>
+                                        
                                         <p class="card-text text-muted"><span class="h4 text-primary">-20%</span>
                                     </div>
                                 </div>
@@ -463,12 +453,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-7.jpg" alt="John" />
-                                            <div class="media-body">Semah</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                   
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -478,12 +464,9 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Tambour</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">en mauvais état</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Tomorrowland
+Full Moon Party</a></h6>
+                                       
                                         <p class="card-text text-muted"><span class="h4 text-primary">-30%</span></p>
                                     </div>
                                 </div>
@@ -495,12 +478,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-8.jpg" alt="Julie" />
-                                            <div class="media-body">Mehdi</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                    
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -510,12 +489,8 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Piano</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">A vendre</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Glastonbury</a></h6>
+                                        
                                         <p class="card-text text-muted"><span class="h4 text-primary">-75%</span></p>
                                     </div>
                                 </div>
@@ -527,12 +502,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-9.jpg" alt="Barbora" />
-                                            <div class="media-body">Ilyes</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                    
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -542,13 +513,9 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Darbouka</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Bonne ocassion</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">-93%</span></p>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Reggae Sumfest</a></h6>
+                                       
+                                        <p class="card-text text-muted"><span class="h4 text-primary">-23%</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -559,12 +526,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-10.jpg" alt="Jack" />
-                                            <div class="media-body">Salim</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                   
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -574,12 +537,8 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Guitare acoustique</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">A vendre</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                            </p>
-                                        </div>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">RFLX</a></h6>
+                                       
                                         <p class="card-text text-muted"><span class="h4 text-primary">-15%</span></p>
                                     </div>
                                 </div>
@@ -591,12 +550,8 @@ require_once '../../Controller/TypeC.php';
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
                             <div class="card h-100 border-0 shadow">
                                 <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <div class="media text-white text-sm align-items-center"><img class="avatar avatar-border-white mr-2" src="Assets/img/avatar/avatar-11.jpg" alt="Stuart" />
-                                            <div class="media-body">Stuart</div>
-                                        </div>
-                                    </div>
+                                    <a class="tile-link" href="#"></a>
+                                   
                                     <div class="card-img-overlay-top text-right">
                                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                                             <svg class="svg-icon text-white">
@@ -606,12 +561,8 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Ibanez</a></h6>
-                                        <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Ampli Guitare Electrique</p>
-                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-right"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                                            </p>
-                                        </div>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Saint Louis Jazz Festival</a></h6>
+                                       
                                         <p class="card-text text-muted"><span class="h4 text-primary">-23%</span></p>
                                     </div>
                                 </div>

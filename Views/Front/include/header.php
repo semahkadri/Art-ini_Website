@@ -29,8 +29,8 @@
                         <li class="nav-item"><a class="nav-link" href="info.php">Catégories</a></li>
             
                         <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Evénements</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Promotions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="event.php">Evénements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="promo.php">Promotions</a></li>
                         <li class="nav-item"><a class="nav-link" href="influ.php">Influenceurs</a></li>
                         <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>
 
