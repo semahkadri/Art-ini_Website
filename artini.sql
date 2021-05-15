@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 09 mai 2021 à 04:53
+-- Généré le : sam. 15 mai 2021 à 23:36
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 7.4.16
 
@@ -41,7 +41,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `image`) VALUES
 (1, 'Ines', 'ines.kouki@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-3.jpg'),
-(2, 'Semah', 'sam@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-2.jpg');
+(2, 'Semah', 'sam@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-2.jpg'),
+(3, 'Mehdi', 'mehdi@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', 'avatar-5.jpg');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,14 @@ CREATE TABLE `carte` (
   `nbptn` int(11) NOT NULL,
   `idclient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `carte`
+--
+
+INSERT INTO `carte` (`Identifiant`, `numero`, `Date_activation`, `Date_expiration`, `nbptn`, `idclient`) VALUES
+(19, 22, '2222-02-22', '2222-02-22', 0, 119),
+(20, 1, '1111-11-11', '1111-11-11', 0, 120);
 
 -- --------------------------------------------------------
 
@@ -78,7 +87,8 @@ CREATE TABLE `categorie` (
 INSERT INTO `categorie` (`id`, `historique_categorie`, `nom_categorie`, `photo_categorie`) VALUES
 (2, 'aaa', 'guitare', 'les percussions.jpg'),
 (3, 'aaa', 'guitare', '2.jpg'),
-(4, 'ssssssssssssssssssssss', 'sss', 'bombarde.jpg');
+(4, 'ssssssssssssssssssssss', 'sss', 'bombarde.jpg'),
+(5, 'zzzzzz', 'guitare', '4.jpg');
 
 -- --------------------------------------------------------
 
@@ -99,6 +109,33 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `userID`, `comment`, `createdOn`) VALUES
 (4, 120, 'aaaaaaaaaa', '2021-05-09 00:54:18');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evenement`
+--
+
+CREATE TABLE `evenement` (
+  `id` int(11) NOT NULL,
+  `desc_eve` text NOT NULL,
+  `nom` varchar(30) NOT NULL,
+  `directeur` varchar(30) NOT NULL,
+  `prix_event` int(3) NOT NULL,
+  `photo` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`id`, `desc_eve`, `nom`, `directeur`, `prix_event`, `photo`) VALUES
+(18, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 50, ''),
+(19, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'ilyes', 'nakhli', 60, 'avatar-4.jpg'),
+(20, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 60, '1.jpg'),
+(21, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 60, '1.jpg'),
+(111, 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'fffffffffffffffffff', 'ffffffffffffffffffffff', 11, ''),
+(444, 'erterretretrreretretre', 'tttttttttttttttttttt', 'tttttttttttttt', 11, '1.jpg');
 
 -- --------------------------------------------------------
 
@@ -169,6 +206,30 @@ CREATE TABLE `produit` (
 INSERT INTO `produit` (`id_prod`, `nom_prod`, `id_categorie`, `prix_prod`, `img_prod`) VALUES
 (2, 'aa', 2, 12, 'gtr.jpg'),
 (3, 'aa', 3, 200, '3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `promotion`
+--
+
+CREATE TABLE `promotion` (
+  `id` int(11) NOT NULL,
+  `desc_pro` text NOT NULL,
+  `nom` varchar(30) NOT NULL,
+  `valeur` int(11) NOT NULL,
+  `PA_Promo` int(3) NOT NULL,
+  `idevent` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `promotion`
+--
+
+INSERT INTO `promotion` (`id`, `desc_pro`, `nom`, `valeur`, `PA_Promo`, `idevent`) VALUES
+(25, 'willyeyeyeyeyeyeyeyeyeyeyeyeyeeyeyeyeyeyyeyeeyeeeeyyeeyeyeyye', 'mehdi', 50, 25, 18),
+(26, 'azeiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'azerty', 123, 155, 19),
+(31, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'rerererr', 11, 11111, 19);
 
 -- --------------------------------------------------------
 
@@ -256,6 +317,12 @@ ALTER TABLE `comments`
   ADD KEY `fk_user_com` (`userID`);
 
 --
+-- Index pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `influenceur`
 --
 ALTER TABLE `influenceur`
@@ -279,6 +346,13 @@ ALTER TABLE `messages`
 ALTER TABLE `produit`
   ADD PRIMARY KEY (`id_prod`),
   ADD KEY `fk_prod_cat` (`id_categorie`);
+
+--
+-- Index pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `test` (`idevent`);
 
 --
 -- Index pour la table `replies`
@@ -308,19 +382,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `carte`
 --
 ALTER TABLE `carte`
-  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `comments`
@@ -329,10 +403,16 @@ ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445;
+
+--
 -- AUTO_INCREMENT pour la table `influenceur`
 --
 ALTER TABLE `influenceur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -351,6 +431,12 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `produit`
   MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT pour la table `replies`
@@ -391,6 +477,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `fk_prod_cat` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id`);
+
+--
+-- Contraintes pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD CONSTRAINT `test` FOREIGN KEY (`idevent`) REFERENCES `evenement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `replies`
