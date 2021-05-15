@@ -1,15 +1,15 @@
 <?php 
-    require_once '../../Controller/Type2CC.php';
-    require_once '../../Model/Type2.php';
+    require_once '../../Controller/Type3C.php';
+    require_once '../../Model/Type3.php';
 
     session_start();
-    if(isset($_POST["nom_sponsor"]) && isset($_POST["historique_sponsor"]) && isset($_POST["photo_sponsor"])) {
-      $tp= new Type($_POST["historique_sponsor"],$_POST["nom_sponsor"],$_POST["photo_sponsor"]);
-      $newtp= new TypeC();
+    if(isset($_POST["desc_eve"]) && isset($_POST["nom"]) && isset($_POST["directeur"])  && isset($_POST["prix_event"]) && isset($_POST["photo"])) {
+      $tp= new event($_POST["desc_eve"],$_POST["nom"],$_POST["directeur"],$_POST["prix_event"],$_POST["photo"]);
+      $newtp= new eventC();
       if ($newtp->modifierTypeInst($tp,$_POST['id'])) {
         var_dump($_POST['id']);
       }
-      header("Location:tables_spons.php");
+      header("Location:tables_event.php");
     }
     
 ?>
@@ -18,11 +18,10 @@
 <!DOCTYPE html>
 <html>
   <head> 
-  <script src="assets/javascript1.js">    
-        </script>
+  <script src="assets/javascript.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Modifier catégorie</title>
+    <title>Modifier évènement</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -78,7 +77,6 @@
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
       <nav id="sidebar">
@@ -123,20 +121,20 @@
                         <li><a href="tables_promo.php">Commandes</a></li>
 
                     </ul>
-        </nav>
+      </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage Catégorie</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage evenement</h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">Catégorie  </li>
+            <li class="breadcrumb-item active">evenement  </li>
           </ul>
         </div>
         <section class="no-padding-top">
@@ -145,39 +143,52 @@
 
             <?php
               if (isset($_GET['id'])) {
-                $tp2=new TypeC();
+                $tp2=new eventC();
                 $i=$tp2->chercheridTypeInst($_GET['id']); 
             ?>
               
               <!-- Horizontal Form-->
                 <div class="block">
-                  <div class="title"><strong class="d-block">Modifier catégorie</strong><span class="d-block">Modifier la catégorie de ton produit</span></div>
+                  <div class="title"><strong class="d-block">Modifier evenement</strong></div>
                   <div class="block-body">
                     <form name ="f" class="form-horizontal" method="POST">
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Nom catétgrie</label>
+                          <label class="col-sm-3 form-control-label">Nom evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="nom_sponsor" id="nom_sponsor" minlength="4" value="<?= $i['nom_sponsor'] ?>" class="form-control form-control-success" ><small class="form-text">Set free your imagination !</small>
+                            <input type="text" name="nom" id="nom" minlength="4" value="<?= $i['nom'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Historique du catégorie</label>
+                          <label class="col-sm-3 form-control-label">direcetur evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="historique_sponsor" id="historique_sponsor" minlength="10" value="<?= $i['historique_sponsor'] ?>" class="form-control form-control-success" ><small class="form-text">Allez racontez nous l'historique!</small>
+                            <input type="text" name="directeur" id="directeur" minlength="4" value="<?= $i['directeur'] ?>" class="form-control form-control-success" >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">prix evenement</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="prix_event" id="prix_event" minlength="1" value="<?= $i['prix_event'] ?>" class="form-control form-control-success" >
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">description d'evenement</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="desc_eve" id="desc_eve" minlength="10" value="<?= $i['desc_eve'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Photo du catégorie</label>
+                          <label class="col-sm-3 form-control-label">Photo d'evenement</label>
                           <div class="col-sm-9">
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-prepend">
-                                <img src="assets/<?php echo $i['photo_sponsor'] ?>" width="100" height="100">
-                                <input type="file" class="btn btn-primary" name="photo_sponsor" value="<?php echo $i["photo_sponsor"] ?>"  id="photo_sponsor" ></input>
+                                <img src="<?php echo $i['photo'] ?>" width="100" height="100">
+                                <input type="file" class="btn btn-primary" name="photo" value="<?php echo $i["photo"] ?>"  id="photo" ></input>
                               </div>
                             </div>
                           </div>
@@ -188,13 +199,13 @@
                         <div class="form-group row">       
                           <div class="col-sm-9 offset-sm-3">
 
-                          <input type="button" onclick="fonction();document.getElementById('id').style.display='block'" value="Save" name="Submit" class="btn btn-primary"> 
+                          <input type="button" onclick=" fonction(); document.getElementById('id').style.display='block'" value="Save" name="Submit" class="btn btn-primary"> 
                           <input type="hidden" value=<?PHP echo $i['id']; ?> name="id">
 
                           <div id="id" class="modal">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                              <form method="POST" action="influ.php">
-                                <strong>C'est bien !</strong> Tu as modifier la catégorie <?PHP echo $i['nom_sponsor']?>
+                              <form method="POST" action="event.php">
+                                <strong>C'est bien !</strong> Tu as modifier la catégorie <?PHP echo $i['nom']?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

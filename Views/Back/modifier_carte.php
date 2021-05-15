@@ -109,6 +109,8 @@ $result=$db->query('select * from users ');
                         <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
                         <li><a href="forms_inf.php">Ajouter influenceur</a></li>
                         <li><a href="forms_spons.php">Ajouter Sponsors</a></li>
+                        <li><a href="forms_event.php">Ajouter un evenement</a></li>
+                        <li><a href="forms_promo.php">Ajouter promotion</a></li>
                     </ul>
                 </li>
                 <li>
@@ -116,16 +118,15 @@ $result=$db->query('select * from users ');
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                         <li><a href="themes.php">Categories</a></li>
                         <li><a href="produit.php">Produits</a></li>
-                        <li><a href="afficher_client.php">Client</a></li>
-                        <li><a href="afficher_carte.php">Carte Fidélité</a></li>
-                        <li><a href="tables_inf.php">influenceur</a></li>
+                        <li><a href="afficher_client.php">Clients</a></li>
+                        <li><a href="afficher_carte.php">Cartes Fidélité</a></li>
+                        <li><a href="tables_inf.php">Influenceurs</a></li>
                         <li><a href="tables_spons.php">Sponsors</a></li>
+                        <li><a href="tables_event.php">Evenements</a></li>
+                        <li><a href="tables_promo.php">Promotions</a></li>
+                        <li><a href="tables_promo.php">Commandes</a></li>
+
                     </ul>
-                </li>
-                <li>
-                    <a href="login.php"> <i class="icon-logout"></i>Page de connexion </a>
-                </li>
-            </ul>
         </nav>
         <!-- Sidebar Navigation end-->
         <div class="page-content">

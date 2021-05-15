@@ -58,6 +58,8 @@
                         <li><a href="ajouter_carte.php">Ajouter une carte de fidélité</a></li>
                         <li><a href="forms_inf.php">Ajouter influenceur</a></li>
                         <li><a href="forms_spons.php">Ajouter Sponsors</a></li>
+                        <li><a href="forms_event.php">Ajouter un evenement</a></li>
+                        <li><a href="forms_promo.php">Ajouter promotion</a></li>
                     </ul>
                 </li>
                 <li>
@@ -65,16 +67,15 @@
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                         <li><a href="themes.php">Categories</a></li>
                         <li><a href="produit.php">Produits</a></li>
-                        <li><a href="afficher_client.php">Client</a></li>
-                        <li><a href="afficher_carte.php">Carte Fidélité</a></li>
-                        <li><a href="tables_inf.php">influenceur</a></li>
+                        <li><a href="afficher_client.php">Clients</a></li>
+                        <li><a href="afficher_carte.php">Cartes Fidélité</a></li>
+                        <li><a href="tables_inf.php">Influenceurs</a></li>
                         <li><a href="tables_spons.php">Sponsors</a></li>
+                        <li><a href="tables_event.php">Evenements</a></li>
+                        <li><a href="tables_promo.php">Promotions</a></li>
+                        <li><a href="#">Commandes</a></li>
+
                     </ul>
-                </li>
-                <li>
-                    <a href="login.php"> <i class="icon-logout"></i>Page de connexion </a>
-                </li>
-            </ul>
         </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
@@ -273,12 +274,12 @@ if (isset($_GET['id_prod']))
       </div>
     </div>
     <!-- JavaScript files-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/front.js"></script>
+    <script src="Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="Assets/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="Assets/vendor/chart.js/Chart.min.js"></script>
+    <script src="Assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="Assets/js/front.js"></script>
   </body>
 </html>

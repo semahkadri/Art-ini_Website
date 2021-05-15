@@ -1,27 +1,51 @@
 <?php 
-    require_once '../../Controller/InfluC.php';
-    require_once '../../Model/Influ.php';
-    
+    include_once '../../Controller/Type3C.php';
+    include_once '../../Model/Type3.php';
+    /*include "../Front/PHPMailer-master/PHPMailerAutoload.php";*/
     session_start();
-    if( isset($_POST["historique_influenceur"])&& isset($_POST["nom_influenceur"]) && isset($_POST["prenom_influenceur"]) && isset($_POST["photo_influenceur"]) ) {
-      $tp= new Influ( $_POST["historique_influenceur"],$_POST["nom_influenceur"],$_POST["prenom_influenceur"], $_POST["photo_influenceur"]);
-      $newtp= new InfluC();
-      $newtp->ajouterTypeInst($tp);
+    $newtp= new eventC();
+    if( isset($_POST["desc_eve"])&& isset($_POST["nom"]) && isset($_POST["directeur"]) && isset($_POST["prix_event"]) && isset($_POST["photo"]) ) {
+      $tp= new event( $_POST["desc_eve"],$_POST["nom"],$_POST["directeur"],$_POST["prix_event"], $_POST["photo"]);
       
-      header("Location:tables_inf.php");
+      $newtp->ajouterTypeInst($tp);
+     /* $sql="SELECT * FROM evenment";
+$db=config::getConnexion();
+      $resultmail=$db->query('select * from users ');
+foreach($resultmail as $row){
+        $s=$row['email'];
+$mailto = $s;
+    $mailSub = 'Artini';
+    $mailMsg = ' nous avons recement ajouter un nouveau evenement consultez nous le plutot possible !';
+   $mail = new PHPMailer();
+   $mail ->IsSmtp();
+   $mail ->SMTPDebug = 0;
+   $mail ->SMTPAuth = true;
+   $mail ->SMTPSecure = 'ssl';
+   $mail ->Host = "smtp.gmail.com";
+   $mail ->Port = 465; // or 587
+   $mail ->IsHTML(true);
+   $mail ->Username = 'Artiniprojet@gmail.com';
+   $mail ->Password = "artini123";
+   $mail ->SetFrom("yourmail@gmail.com");
+   $mail ->Subject = $mailSub;
+   $mail ->Body = $mailMsg;
+   $mail ->AddAddress($mailto);
+   $mail->Send();
+}*/
+      header("Location:tables_event.php");
+    }
 
-      }
+    
   ?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-<script src="assets/javascript.js">    
-        </script>
+<script src="assets/javascript.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ajout Influenceur</title>
+    <title>Ajout event</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -36,7 +60,7 @@
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="assets/img/JD&Co3.png">
     <link rel="shortcut icon" href="assets/img/mostache.png">
@@ -83,7 +107,6 @@
 
 <body>
 <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
         <!-- Sidebar Navigation-->
         <nav id="sidebar">
@@ -134,14 +157,14 @@
             <!-- Page Header-->
             <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Ajouter un influenceur</h2>
+                    <h2 class="h5 no-margin-bottom">Ajouter un evenemnt</h2>
                 </div>
             </div>
             <!-- Breadcrumb-->
             <div class="container-fluid">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
-                    <li class="breadcrumb-item active">influenceurs </li>
+                    <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
+                    <li class="breadcrumb-item active">evenement </li>
                 </ul>
             </div>
             <section class="no-padding-top">
@@ -149,40 +172,48 @@
                     <div class="row">
 
                         <!-- Horizontal Form-->
+                        
                         <div class="col-lg-6">
                             <div class="block">
-                                <div class="title"><strong class="d-block">Ajouter influenceur</strong><span class="d-block">veuillez ajouter un nouveau influenceur</span></div>
+                                <div class="title"><strong class="d-block">Ajouter evenement</strong><span class="d-block">veuillez ajouter un nouveau evenemnt</span></div>
                                 <div class="block-body">
-                                    <form name ="f" class="form-horizontal" method="POST">
-                                                                        
+                                    <form name ="f" class="form-horizontal" action="" method="POST" >
+                                    
+                                           
                                             <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Nom</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="nom_influenceur" id="nom_influenceur" placeholder="nom de l'influenceur" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="nom" id="nom" placeholder="nom de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Prenom</label>
+                                            <label class="col-sm-3 form-control-label">directeur</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="prenom_influenceur" id="prenom_influenceur" placeholder="prenom de l'influenceur" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="directeur" id="directeur" placeholder="directeur de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">prix d'evenement</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="prix_event" id="prix_event" placeholder="prix d'evenement" minlength="1" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Historique</label>
+                                            <label class="col-sm-3 form-control-label">description</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="historique_influenceur" id="historique_influenceur" placeholder="historique de l'influenceurs" minlength="10" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="desc_eve" id="desc_eve" placeholder="description d'evenemnt" minlength="10" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Photo du l'influenceur</label>
+                                            <label class="col-sm-3 form-control-label">Photo d'evenement</label>
                                             <div class="col-sm-9">
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <input type="file" class="btn btn-primary" name="photo_influenceur" id="photo_influenceur" required></input>
+                                                            <input type="file" class="btn btn-primary" name="photo" id="photo" src="assets/<?php echo $_GET['photo']; ?>" required></input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -193,17 +224,17 @@
                                             <div class="col-sm-9 offset-sm-3">
                                                 <input type="reset" value="Annuler" name="reset" class="btn btn-secondary">
 
-                                                <input   type="button"  onclick="fonction();document.getElementById('id').style.display='block'"  value="Enregistrer" name="Submit"  class="btn btn-primary " >
+                                                <input type="button" onclick=" fonction();document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
 
                                                 <div id="id" class="modal">
                                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                                       <form method="POST" action="formType.php">
-                                                       <strong> Succés</strong> Tu as ajouté un influenceur.
+                                                       <form method="POST" action="forms_event.php">
+                                                       <strong> Succés</strong> Tu as ajouté un évènement.
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                                                             <div class="clearfix ">
-                                                                <input  type="submit" onclick="document.getElementById('id').style.display='none'"  class="btn-primary" value="Passer">
+                                                                <input type="submit" onclick="document.getElementById('id').style.display='none'" class="btn-primary" value="Passer">
                                                             </div>
                                                         </form>
                                                     </div>
@@ -248,7 +279,7 @@
     </script>
     <script src="assets/vendor/chart.js/Chart.min.js"></script>
     <script src="assets/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/front.js"></script>
+    <script src="assets/js/front.js"></script>
 </body>
 
 </html>

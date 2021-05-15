@@ -1,14 +1,27 @@
 <?php 
-   require_once '../../Controller/sponsC.php';
-   require_once '../../Model/spons.php';
-session_start();
-    $tp1= new SponsC();
+    require_once '../../Controller/Type3C.php';
+    require_once '../../Model/Type3.php';
+    session_start();
+    $tp1= new eventC();
     $liste=$tp1->afficherType();
 
     if(isset($_GET['id'])) {
       $tp1->supprimerTypeInst($_GET['id']);
   }
-
+  if (isset($_GET['tri'])) {
+    if ($_GET['tri']=="nom") {
+      $tri="nom";
+      $result=$Type3C->affichercartetri($tri);
+    }
+      else
+      {
+          $tri="directeur";
+         $result=$Type3C->affichercartetri($tri);
+        
+      }
+    
+      
+}
 
 ?>
 
@@ -17,7 +30,7 @@ session_start();
   <head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sponsors</title>
+    <title>Evement</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -41,7 +54,6 @@ session_start();
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
       <nav id="sidebar">
@@ -87,39 +99,52 @@ session_start();
                         <li><a href="tables_promo.php">Commandes</a></li>
 
                     </ul>
-        </nav>
+      </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <!-- Page Header-->
          <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage des sponsor</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage les evenments </h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">sponsor</li>
+            <li class="breadcrumb-item active">evenement</li>
           </ul>
         </div>
         <section >
           <div class="container">
-                  <div class="title"><strong>Liste des sponsors</strong></div>
+                  <div class="title"><strong>Liste des evenements</strong></div>
+                  <form action="" method = 'GET'>
+                    <div class="form-group">
+                    <div class="input-group">
+                            <div class="input-group-prepend">
+                            <button class="btn btn-info btn-xs" value="Chercher"> <i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
+                            </div>
+                             <td> <select name="tri" class="form-control" >
+                             <option value="" disabled selected>Trier par</option>
+                            <option >numero</option>
+                            <option>Date activation</option>
+
+                            
+                          </select></td> 
 
                   </br>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <button type="button" class="btn btn-primary" >Chercher</button>
+                        <button type="button" class="btn btn-primary" >Chercher</button><br>
+                        
+                        
                       </div>
-                      <input type="text" id="rech" class="form-control" placeholder="Chercher un sponsor">
+                      <input type="text" id="rech" class="form-control" placeholder="Chercher un evenement">
                     </div>
-
-
-
                   </div>
                   <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
+
                   </br>
                   
                   <div class="table-responsive"> 
@@ -153,12 +178,14 @@ session_start();
 
 
                         <tr>
-                          <th>ID sponsor</th>
-                          <th>Historique sponsor</th>
-                          <th>Nom sponsor</th>
-                          <th>Photo sponsor</th>
-                          <th>Modifier sponsor</th>
-                          <th>Supprimer sponsor</th>
+                          <th>ID evenement</th>
+                          <th>desciption evenement</th>
+                          <th>Nom evenement</th>
+                          <th>directeur evenement</th>
+                          <th>prix evenement</th>
+                          <th>photo evenement</th>
+                          <th>Modifier evenement</th>
+                          <th>Supprimer evenement</th>
                         </tr>
                       </thead>
 
@@ -178,7 +205,7 @@ session_start();
                             function load_data(str)
                             {
                                 $.ajax({
-                                    url:"table_spons.php",
+                                    url:"table_event.php",
                                     method:"post",
                                     data:{str:str},
                                     success:function(data)
