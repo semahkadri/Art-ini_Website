@@ -1,5 +1,5 @@
 <?php
-include "configg.php";
+include_once "configg.php";
 
 
 class carteC
