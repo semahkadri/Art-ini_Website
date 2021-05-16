@@ -1,11 +1,11 @@
 <?php 
-    require_once '../../Controller/Type1C.php';
-    require_once '../../Model/Type1.php';
+    require_once '../../Controller/InfluC.php';
+    require_once '../../Model/Influ.php';
 session_start();
     
     if(isset($_POST["historique_influenceur"]) && isset($_POST["nom_influenceur"]) && isset($_POST["prenom_influenceur"]) && isset($_POST["photo_influenceur"])) {
-      $tp= new Type($_POST["historique_influenceur"],$_POST["nom_influenceur"],$_POST["prenom_influenceur"],$_POST["photo_influenceur"]);
-      $newtp= new TypeC();
+      $tp= new influ($_POST["historique_influenceur"],$_POST["nom_influenceur"],$_POST["prenom_influenceur"],$_POST["photo_influenceur"]);
+      $newtp= new influC();
       if ($newtp->modifierTypeInst($tp,$_POST['id'])) {
         var_dump($_POST['id']);
       }
@@ -22,7 +22,7 @@ session_start();
         </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Modifier catégorie</title>
+    <title>Modifier influenceur</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -78,20 +78,20 @@ session_start();
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
-      <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
                     <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
+
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
                 <li class="active">
                     <a href="index.php"> <i class="icon-home"></i>Accueil </a>
                 </li>
@@ -145,7 +145,7 @@ session_start();
 
             <?php
               if (isset($_GET['id'])) {
-                $tp2=new TypeC();
+                $tp2=new influC();
                 $i=$tp2->chercheridTypeInst($_GET['id']); 
             ?>
               

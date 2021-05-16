@@ -1,13 +1,37 @@
 <?php 
     require_once '../../Controller/InfluC.php';
     require_once '../../Model/Influ.php';
+    include "../Front/PHPMailer-master/PHPMailerAutoload.php";
     
     session_start();
     if( isset($_POST["historique_influenceur"])&& isset($_POST["nom_influenceur"]) && isset($_POST["prenom_influenceur"]) && isset($_POST["photo_influenceur"]) ) {
       $tp= new Influ( $_POST["historique_influenceur"],$_POST["nom_influenceur"],$_POST["prenom_influenceur"], $_POST["photo_influenceur"]);
       $newtp= new InfluC();
       $newtp->ajouterTypeInst($tp);
-      
+      $sql="SELECT * FROM influenceur";
+$db=config::getConnexion();
+      $resultmail=$db->query('select * from users ');
+foreach($resultmail as $row){
+        $s=$row['email'];
+$mailto = $s;
+    $mailSub = 'Artini';
+    $mailMsg = ' nous avons recement ajouter un nouveau influencuer consultez nous le plutot possible !';
+   $mail = new PHPMailer();
+   $mail ->IsSmtp();
+   $mail ->SMTPDebug = 0;
+   $mail ->SMTPAuth = true;
+   $mail ->SMTPSecure = 'ssl';
+   $mail ->Host = "smtp.gmail.com";
+   $mail ->Port = 465; // or 587
+   $mail ->IsHTML(true);
+   $mail ->Username = 'Artiniprojet@gmail.com';
+   $mail ->Password = "artini123";
+   $mail ->SetFrom("yourmail@gmail.com");
+   $mail ->Subject = $mailSub;
+   $mail ->Body = $mailMsg;
+   $mail ->AddAddress($mailto);
+   $mail->Send();
+}
       header("Location:tables_inf.php");
 
       }
@@ -83,7 +107,6 @@
 
 <body>
 <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
         <!-- Sidebar Navigation-->
         <nav id="sidebar">
@@ -95,6 +118,7 @@
                     <p>Admin</p>
                 </div>
             </div>
+
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                 <li class="active">

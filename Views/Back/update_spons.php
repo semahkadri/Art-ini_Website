@@ -1,11 +1,11 @@
 <?php 
-    require_once '../../Controller/Type2CC.php';
-    require_once '../../Model/Type2.php';
+    require_once '../../Controller/sponsC.php';
+    require_once '../../Model/spons.php';
 
     session_start();
     if(isset($_POST["nom_sponsor"]) && isset($_POST["historique_sponsor"]) && isset($_POST["photo_sponsor"])) {
-      $tp= new Type($_POST["historique_sponsor"],$_POST["nom_sponsor"],$_POST["photo_sponsor"]);
-      $newtp= new TypeC();
+      $tp= new spons($_POST["historique_sponsor"],$_POST["nom_sponsor"],$_POST["photo_sponsor"]);
+      $newtp= new sponsC();
       if ($newtp->modifierTypeInst($tp,$_POST['id'])) {
         var_dump($_POST['id']);
       }
@@ -22,7 +22,7 @@
         </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Modifier catégorie</title>
+    <title>Modifier sponsor</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -78,20 +78,20 @@
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
-      <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
                     <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
+
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
                 <li class="active">
                     <a href="index.php"> <i class="icon-home"></i>Accueil </a>
                 </li>
@@ -145,7 +145,7 @@
 
             <?php
               if (isset($_GET['id'])) {
-                $tp2=new TypeC();
+                $tp2=new sponsC();
                 $i=$tp2->chercheridTypeInst($_GET['id']); 
             ?>
               

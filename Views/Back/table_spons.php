@@ -2,8 +2,7 @@
   require_once '../../Controller/sponsC.php';
   require_once '../../Model/spons.php';
 
-    $tp1= new SponsC();
-    $liste=$tp1->afficherType();
+  
 
 
   $tp2= new SponsC();
@@ -13,6 +12,10 @@
   else{
       $liste = $tp2->rechercherType($_POST['str']);
   }
+
+
+
+
 
   foreach ($liste as $t) {
     ?>

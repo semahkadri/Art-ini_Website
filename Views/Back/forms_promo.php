@@ -65,7 +65,7 @@ $result=$db->query('select * from evenement ');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> promotion</title>
+    <title> Ajout promotion</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -154,38 +154,38 @@ $result=$db->query('select * from evenement ');
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="block margin-bottom-sm">
-                                <div class="title"><strong>Table promotion</strong></div>
+                                <div class="title"><strong>Ajouter promotion</strong></div>
                                 <div class="table-responsive">
                                     <div class="card-header">
                                         <i class="fas fa-table"></i> Ajouter une nouvelle promotion
                                     <form id="myForm" action="" method="POST">
                                  
                                         <div>
-                                        <label style="font-weight: bold"> desc_pro </label>
+                                        </br>
+                                        <label style="font-weight: bold"> description promo </label>
                                        
-                                        <input type="text" class="form-control" name="desc_pro" placeholder="descrption promotion" style="width:350px" > </br>
+                                        <input type="text" class="form-control" name="desc_pro" placeholder="descrption promotion" style="width:350px" > 
                                       
                                          </div>
                                          <div>
                                         <label style="font-weight: bold"> nom </label>      
                                                          
-                                        <input type="text" class="form-control" name="nom"  style="width:350px" > </br>
+                                        <input type="text" class="form-control" name="nom" placeholder="Nom" style="width:350px" > 
                                         </div>
                                       <div>
                                         <label style="font-weight: bold"> valeur </label>      
                                                                    
-                                        <input type="valeur" class="form-control" name="valeur"  style="width:350px" > </br>   
+                                        <input type="valeur" class="form-control" name="valeur" placeholder="Valeur de promotion" style="width:350px" >   
                                        
-               </div>                </br>
+               </div>               
                <div>
-                                        <label style="font-weight: bold"> prix a promotion </label>      
+                                        <label style="font-weight: bold"> prix de promotion </label>      
                                                                    
-                                        <input type="PA_Promo" class="form-control" name="PA_Promo"  style="width:350px" > </br>   
-                                       
-               </div>                </br>
+                                        <input type="PA_Promo" class="form-control" name="PA_Promo"  placeholder="Prix de promotion" style="width:350px" > 
+               </div>                
                                             <div>
                                         <label style="font-weight: bold"> Identifiant du evenement  </label>     
-                                        <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idevent" id="idevent" required>
+                                        <select  class="form-control" tabindex="10"  name="idevent" id="idevent" style="width:350px" required>
                                         <?php while ($row = $result->fetch()) { 
                                     ?>
                                     <option value= "<?php echo  $row['id'];?>"> <?php echo $row['nom'];?> </option>
@@ -194,8 +194,8 @@ $result=$db->query('select * from evenement ');
           </div>     
           <div>
           </br>
-                                        <button class="btn btn-info btn-xs" type="submit" value="Valider" name="Valider">  Enregister </button>
-                                        <button type="reset" value="Annuler" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
+                                        <button class="btn btn-light btn-xs" type="submit" value="Valider" name="Valider">  Enregister </button>
+                                        <button type="reset" value="Annuler" class="btn btn-info btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
                                         
 </div>
                                     </form>

@@ -263,7 +263,7 @@ $mailto = $s;
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="block margin-bottom-sm">
-                                <div class="title"><strong>Table Produit</strong></div>
+                                <div class="title"><strong>Ajouter un produit</strong></div>
                                 <div class="table-responsive">
                                     <form id="myForm" action="" method="POST">
 

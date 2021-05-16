@@ -213,7 +213,7 @@ $mailto = $s;
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <input type="file" class="btn btn-primary" name="photo" id="photo" src="assets/<?php echo $_GET['photo']; ?>" required></input>
+                                                        <input type="file" class="btn btn-primary" name="photo" id="photo" required></input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -222,14 +222,14 @@ $mailto = $s;
                         
                                         <div class="form-group row">
                                             <div class="col-sm-9 offset-sm-3">
-                                                <input type="reset" value="Annuler" name="reset" class="btn btn-secondary">
+                                            <button type="reset" value="Annuler" class="btn btn-light btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
 
-                                                <input type="button" onclick=" fonction();document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
+                                                <input type="button" onclick="document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-info">
 
                                                 <div id="id" class="modal">
                                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                                       <form method="POST" action="forms_event.php">
-                                                       <strong> Succés</strong> Tu as ajouté un évènement.
+                                                       <form method="POST" action="formType.php">
+                                                       <strong> Succés</strong> Tu as ajouté un évenement .
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

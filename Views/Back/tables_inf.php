@@ -5,28 +5,10 @@
   
 session_start();
     $tp1= new InfluC();
-    $liste=$tp1->afficherType();
 
-    if(isset($_GET['id'])) {
+  if(isset($_GET['id'])) {
       $tp1->supprimerTypeInst($_GET['id']);
   }
-
-
-if (isset($_GET['tri'])) {
-  if ($_GET['tri']=="nom_influenceur") {
-    $tri="nom_influenceur";
-    $liste=$tp1->affichercartetri($tri);
-  }
-    else
-    {
-        $tri="prenom_influenceur";
-        $liste=$tp1->affichercartetri($tri);
-      
-    }
-  
-    
-}
-  
 
 ?>
 
@@ -59,21 +41,20 @@ if (isset($_GET['tri'])) {
   </head>
   <body>
   <?php include_once 'include/header.php'; ?>
-
     <div class="d-flex align-items-stretch">
-      <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
                     <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>
-        
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
+
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
                 <li class="active">
                     <a href="index.php"> <i class="icon-home"></i>Accueil </a>
                 </li>
@@ -126,6 +107,7 @@ if (isset($_GET['tri'])) {
                   <div class="title"><strong>Liste des influenceurs</strong></div>
 
                   </br>
+
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -134,29 +116,6 @@ if (isset($_GET['tri'])) {
                       <input type="text" id="rech" class="form-control" placeholder="Chercher un influenceur">
                     </div>
                   </div>
-
-
-<form action="" method = 'GET'>
-                    <div class="form-group">
-                    <div class="input-group">
-                            <div class="input-group-prepend">
-                            <button class="btn btn-info btn-xs" value="Chercher"> <i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
-                            </div>
-                             <td> <select name="tri" class="form-control" >
-                             <option value="" disabled selected>Trier par</option>
-                            <option >nom_influenceur</option>
-                            <option>prenom_influenceur</option>
-
-                            
-                          </select></td> 
-                          
-                          
-                        
-                          </div>
-                        </div>
-                        </br>
-                        
-                    </form>
 
                   
                   <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
@@ -221,11 +180,11 @@ if (isset($_GET['tri'])) {
                             {
                                 $.ajax({
                                     url:"table_inf.php",
-                                    method:"post",
+                                    method:"post", //type de la requete post ou get
                                     data:{str:str},
-                                    success:function(data)
+                                    success:function(data) //en cas de reussi le paramétre succées sera executée
                                     {
-                                        $('#tableau').html(data);
+                                        $('#tableau').html(data); //type de donnée a recevoir
                                     }
                                 });
                             }

@@ -105,46 +105,34 @@
         <!-- Page Header-->
          <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage les evenments </h2>
+                    <h2 class="h5 no-margin-bottom">Affichage des évenements</h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">evenement</li>
+            <li class="breadcrumb-item active">Evenement</li>
           </ul>
         </div>
         <section >
           <div class="container">
-                  <div class="title"><strong>Liste des evenements</strong></div>
-                  <form action="" method = 'GET'>
-                    <div class="form-group">
-                    <div class="input-group">
-                            <div class="input-group-prepend">
-                            <button class="btn btn-info btn-xs" value="Chercher"> <i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
-                            </div>
-                             <td> <select name="tri" class="form-control" >
-                             <option value="" disabled selected>Trier par</option>
-                            <option >numero</option>
-                            <option>Date activation</option>
+                  <div class="title"><strong>Liste des évenèments</strong></div>
 
-                            
-                          </select></td> 
+
 
                   </br>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <button type="button" class="btn btn-primary" >Chercher</button><br>
-                        
-                        
+                        <button type="button" class="btn btn-primary" >Chercher</button>
                       </div>
-                      <input type="text" id="rech" class="form-control" placeholder="Chercher un evenement">
+                      <input type="text" id="rech" class="form-control" placeholder="Chercher une catégorie">
                     </div>
-                  </div>
-                  <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
 
+
+
+                  </div>
                   </br>
                   
                   <div class="table-responsive"> 
@@ -182,7 +170,7 @@
                           <th>desciption evenement</th>
                           <th>Nom evenement</th>
                           <th>directeur evenement</th>
-                          <th>prix evenement</th>
+                          <th>prix evenement(dt)</th>
                           <th>photo evenement</th>
                           <th>Modifier evenement</th>
                           <th>Supprimer evenement</th>

@@ -1,11 +1,36 @@
 <?php 
     require_once '../../Controller/sponsC.php';
     require_once '../../Model/spons.php';
+    include "../Front/PHPMailer-master/PHPMailerAutoload.php";
     session_start();
     if( isset($_POST["historique_sponsor"])&& isset($_POST["nom_sponsor"]) && isset($_POST["photo_sponsor"]) ) {
       $tp= new Spons( $_POST["historique_sponsor"],$_POST["nom_sponsor"], $_POST["photo_sponsor"]);
       $newtp= new SponsC();
       $newtp->ajouterTypeInst($tp);
+      $sql="SELECT * FROM sponsor";
+      $db=config::getConnexion();
+            $resultmail=$db->query('select * from users ');
+      foreach($resultmail as $row){
+              $s=$row['email'];
+      $mailto = $s;
+          $mailSub = 'Artini';
+          $mailMsg = ' nous avons recement ajouter un nouveau sponsor consultez nous le plutot possible !';
+         $mail = new PHPMailer();
+         $mail ->IsSmtp();
+         $mail ->SMTPDebug = 0;
+         $mail ->SMTPAuth = true;
+         $mail ->SMTPSecure = 'ssl';
+         $mail ->Host = "smtp.gmail.com";
+         $mail ->Port = 465; // or 587
+         $mail ->IsHTML(true);
+         $mail ->Username = 'Artiniprojet@gmail.com';
+         $mail ->Password = "artini123";
+         $mail ->SetFrom("yourmail@gmail.com");
+         $mail ->Subject = $mailSub;
+         $mail ->Body = $mailMsg;
+         $mail ->AddAddress($mailto);
+         $mail->Send();
+      }
       header("Location:tables_spons.php");
     }
   ?>
@@ -91,6 +116,7 @@
                     <p>Admin</p>
                 </div>
             </div>
+
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                 <li class="active">

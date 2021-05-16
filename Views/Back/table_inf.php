@@ -2,8 +2,7 @@
    require_once '../../Controller/InfluC.php';
   require_once '../../Model/Influ.php';
 
-  $tp1= new InfluC();
-  $liste=$tp1->afficherType();
+ 
 
 
 $tp2= new InfluC();

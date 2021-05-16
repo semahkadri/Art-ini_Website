@@ -200,7 +200,7 @@ session_start();
                         });
                     </script>
               
-          </div>
+              </div>
         </section>
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
@@ -213,12 +213,12 @@ session_start();
       </div>
     </div>
     <!-- JavaScript files-->
-    <script src="Assets/vendor/jquery/jquery.min.js"></script>
-    <script src="Assets/vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="Assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="Assets/vendor/chart.js/Chart.min.js"></script>
-    <script src="Assets/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="Assets/js/front.js"></script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="assets/vendor/chart.js/Chart.min.js"></script>
+    <script src="assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="assets/js/front.js"></script>
   </body>
 </html>

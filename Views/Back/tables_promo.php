@@ -156,6 +156,10 @@
                           <th>desciption promotion</th>
                           <th>Nom promotion</th>
                           <th>valeur promotion</th>
+                          <th>prix promotion</th>
+                          <th>id event</th>
+
+
                           <th>Modifier promotion</th>
                           <th>Supprimer promotion</th>
                         </tr>

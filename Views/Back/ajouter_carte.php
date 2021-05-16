@@ -108,7 +108,7 @@ $result=$db->query('select * from users');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Carte fidélité</title>
+    <title>Ajout carte fidélité</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -182,7 +182,7 @@ $result=$db->query('select * from users');
             <!-- Page Header-->
             <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Ajouter Carte fidelité</h2>
+                    <h2 class="h5 no-margin-bottom">Ajouter une carte fidelité</h2>
                 </div>
             </div>
             <!-- Breadcrumb-->
@@ -197,10 +197,10 @@ $result=$db->query('select * from users');
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="block margin-bottom-sm">
-                                <div class="title"><strong>Table Carte fidélité</strong></div>
+                                <div class="title"><strong>Ajouter carte fidélité</strong></div>
                                 <div class="table-responsive">
                                     <div class="card-header">
-                                        <i class="fas fa-table"></i> Ajouter une nouvelle carte
+                                        <i class="fas fa-table"></i> Veuillez ajouter une nouvelle carte pour un client
                                     </div>
                                     <form id="myForm" action="" method="POST">
                                     <?php if (isset($_GET['error'])) { ?>
@@ -239,7 +239,7 @@ $result=$db->query('select * from users');
           <?php }?> </div>                </br>
                                             <div>
                                         <label style="font-weight: bold"> Identifiant du CLient  </label>     
-                                        <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idc" id="idc" required>
+                                        <select  class="form-control" tabindex="10"  name="idc" id="idc" required>
                                 <?php while ($row = $result->fetch()) { 
                                     ?>
                                     <option value= "<?php echo  $row['id'];?>"> <?php echo $row['login'];?> </option>

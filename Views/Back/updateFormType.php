@@ -145,18 +145,19 @@
   <body>
   <?php include_once 'include/header.php'; ?>
     <div class="d-flex align-items-stretch">
-      <!-- Sidebar Navigation-->
-      <nav id="sidebar">
-        <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"> <img src="Assets/img/<?=$_SESSION['image']; ?>" alt="..." class="img-fluid rounded-circle" ></div>
                 <div class="title">
                     <h1 class="h5"> <?php echo $_SESSION['name']; ?> </h1>
                     <p>Admin</p>
                 </div>
             </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
+
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
                 <li class="active">
                     <a href="index.php"> <i class="icon-home"></i>Accueil </a>
                 </li>
