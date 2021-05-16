@@ -2,8 +2,8 @@
 
 session_start (); 
 
-  require_once '../../Controller/Type3C.php';
-  require_once '../../Model/Type3.php';
+  include_once '../../Controller/Type3C.php';
+  include_once '../../Model/Type3.php';
 
   $inf1= new eventC();
   $liste=$inf1->afficherType();
@@ -41,19 +41,22 @@ session_start ();
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="assets/img/logo.png">
+    <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
 
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\event.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
        
@@ -70,7 +73,7 @@ session_start ();
 
                   
 
-                  <select class="selectpicker" title="Trip themes" name="nom_type" id="nom_type" >
+                  <select class="selectpicker" title="Evenement" name="nom_type" id="nom_type" >
 
                     <?php
                       foreach($listetp as $t) {
@@ -87,7 +90,7 @@ session_start ();
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Search </button> 
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Chercher </button> 
 
                 </div>
               </div>
@@ -102,18 +105,20 @@ session_start ();
     <section class="pt-6 pb-4">
     
       <div class="container">
-        <h6 class="subtitle text-center text-primary mb-5">Evenement</h6>
+        <h6 class="subtitle text-center text-primary mb-5">Evenements</h6>
         
         <div class="row mb-7">
           <?php
             foreach($liste as $i) {
           ?>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="profile_influ.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="<?php  echo $i['photo']?>" alt=""/>
+            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="promo.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['photo']?>" alt=""/>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
-                <h6 class="card-title"> <?php echo $i['nom'] ?> <?php echo $i['directeur'] ?> </h6>
-                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['id'] ?> K Visitors    </p>
+                <h6 class="card-title"> <?php echo $i['nom'] ?> </h6>
+                <p class="card-subtitle text-muted text-xs text-uppercase">directed by </p>
+                <h6 class="card-title"> <?php echo $i['directeur'] ?> </h6>
+                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['prix_event'] ?> dinars    </p>
               </div>
             </div>
           </div>

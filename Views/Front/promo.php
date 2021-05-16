@@ -2,8 +2,8 @@
 
 session_start (); 
 
-require_once '../../Controller/Type3CC.php';
-require_once '../../Model/Typee3.php';
+include_once '../../Controller/Type3CC.php';
+include_once '../../Model/Typee3.php';
 
   $inf1= new promoC();
   $liste=$inf1->afficherType();
@@ -43,53 +43,39 @@ require_once '../../Model/Typee3.php';
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="assets/img/logo.png">
+    <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
 
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\promo.png" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
        
           <br>
-          <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
             <form action="ResRecherchepro.php" method="POST">
               <div class="row">
-                <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
-                  <input class="form-control border-0 shadow-0" type="text" name="searchPro" placeholder="Quel événement recherchez-vous?">
                 
                 </div>
-                <div class="col-lg-3 d-flex align-items-center form-group no-divider">
 
                   
 
-                  <select class="selectpicker" title="Trip themes" name="nom_type" id="nom_type" >
-
-                    <?php
-                      foreach($listetp as $t) {
-                    ?>
-
-                    <option >  <?php echo $t['nom'] ?>  </option>
-                    
-                    <?php
-                      }
-                    ?>
-                  </select>
 
                 </div>
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Search </button> 
 
                 </div>
               </div>
@@ -120,6 +106,10 @@ require_once '../../Model/Typee3.php';
                 <h6 class="card-title"> <?php echo $i['nom'] ?><br> 
                 
                 <h5 class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['valeur'] ?> %   </h5>
+                <br>
+                <h5 class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['PA_Promo'] ?> dt  </h5>
+
+
               </div>
             </div>
           </div>

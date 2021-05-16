@@ -7,11 +7,10 @@ session_start ();
     require_once '../../Model/Influ.php';
 
 
-    require_once '../../Controller/TripInfC.php';
-    require_once '../../Model/tripspons.php';
+   
 
-    $trip1= new TripInfC();
-    $liste=$trip1->afficherTripInf();
+    $inf1= new InfluC();
+    $liste=$inf1->afficherType();
 
 ?>
 
@@ -20,7 +19,7 @@ session_start ();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vagary Travels</title>
+    <title>Artini</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -39,7 +38,7 @@ session_start ();
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="assets/img/v2.png">
+    <link rel="shortcut icon" href="Assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -53,7 +52,7 @@ session_start ();
         <?php
           if (isset($_GET['id_inf'])) {
             $influenceur=new InfluC();
-            $i=$influenceur->chercherid($_GET['id_inf']); // récupère l'influenceur à afficher de la base
+            $i=$influenceur->chercheridTypeInst($_GET['id_inf']); // récupère l'influenceur à afficher de la base
             //foreach($liste as $i) {
         ?>
       <div class="container">
@@ -61,15 +60,10 @@ session_start ();
           <div class="col-lg-3 mr-lg-auto">
             <div class="card border-0 shadow mb-6 mb-lg-0">
               
-              <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="<?php  echo $i['photo_influenceur']?>" alt=""></a>
+              <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="assets/<?php  echo $i['photo_influenceur']?>" alt=""></a>
                 <h5><?php echo $i['nom_influenceur'] ?> <?php echo $i['prenom_influenceur'] ?></h5>
 
-                <?php
                 
-                if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
-                { 
-
-                ?>
 
                 <form method="POST">
                   <!--<button class="btn btn-primary like_button rounded-xl h-100" name="like_button" type="button" data-content_id="7" > Follow </button>-->
@@ -78,8 +72,7 @@ session_start ();
                   <?php
                      if(isset($_POST["follow_button"]) && (!empty($_POST['follow_button']))){
                        //echo "work";
-                       include 'D:/Programmes/xampp/htdocs/projet/VAGARY/CyrineTrabelsi/Controller/ClientFollowInfC.php';
-                       include 'D:/Programmes/xampp/htdocs/projet/VAGARY/CyrineTrabelsi/Model/ClientFollowInf.php';
+                      
                        $date = date("Y/m/d");
                        $Res1=new ClientFollowInf($_SESSION['e'],$_GET['id_inf'],$date);
                        $Res1C=new ClientFollowInfC();
@@ -99,7 +92,7 @@ session_start ();
                   ?>
 
                   <br>
-                  <a type="submit" class="btn btn-primary rounded-xl h-100" href="followers.php?id_inf=<?php echo $i["id_inf"] ?>" > Followers </a>
+                 
 
                   <script>
                     function disableBtn() {
@@ -118,7 +111,7 @@ session_start ();
                   </div>
                   
                   <div class="media-body">
-                    <p class="mb-0"><?php echo $i['id'] ?> K Visitors</p>
+                    <p class="mb-0"><?php echo $i['id'] ?> K Visiteurs</p>
                   </div>
                 </div>
                 <div class="media align-items-center mb-3">
@@ -128,26 +121,26 @@ session_start ();
                     </svg>
                   </div>
                   <div class="media-body">
-                    <p class="mb-0">Verified</p>
+                    <p class="mb-0">Verifié</p>
                   </div>
                 </div>
                 <hr>
-                <h6><?php echo $i['nom_influenceur'] ?>'s social media</h6>
+                <h6>Les réseaux sociaux de <?php echo $i['nom_influenceur'] ?></h6>
                 <ul class="card-text text-muted">
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="<?php echo $i['fb_inf'] ?>" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a>      Facebook page</li>
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="<?php echo $i['insta_inf'] ?>" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>     Instagram page</li> 
+                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="<?php echo $i['fb_inf'] ?>" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a>      Page facebook </li>
+                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="<?php echo $i['insta_inf'] ?>" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>     Page instagram</li> 
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-lg-9 pl-lg-5">
-            <h1 class="hero-heading mb-0">Hello, I'm <?php echo $i['prenom_influenceur'] ?>!</h1>
+            <h1 class="hero-heading mb-0">Bonjour, je suis <?php echo $i['prenom_influenceur'] ?>!</h1>
             <div class="text-block">
-              <p> <span class="badge badge-secondary-light">Joined in <?php echo $i['id'] ?></span></p>
+              <p> <span class="badge badge-secondary-light">S'est joint en <?php echo $i['id'] ?></span></p>
               <p class="text-muted"><?php echo $i['historique_influenceur'] ?> </p>
             </div>
             <div class="text-block">
-              <h4 class="mb-5"><?php echo $i['prenom_influenceur'] ?>'s upcoming projects!</h4>
+              <h4 class="mb-5">Les projets à venir de <?php echo $i['prenom_influenceur'] ?></h4>
               <div class="row">
                 <!-- place item-->
 
@@ -182,10 +175,8 @@ session_start ();
 
                 <?php
                       }
-                  }
-                  else 
-                  echo "This influencer has no trips yet, try again next time :)";
-                }
+                    }
+                  
                 ?>
                 
               </div>
@@ -200,54 +191,7 @@ session_start ();
     </section>
 
     <!-- Footer-->
-    <footer class="position-relative z-index-10 d-print-none">
-        <!-- Main block - menus, subscribe form-->
-        <div class="py-6 bg-gray-200 text-muted"> 
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="font-weight-bold text-uppercase text-dark mb-3">Directory</div>
-                <p>Welcome to our page artini</p>
-                <ul class="list-inline">
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo"></i></a></li>
-                </ul>
-              </div>
-              
-              <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                <h6 class="text-uppercase text-dark mb-3">Pages</h6>
-                <ul class="list-unstyled">
-                  
-                  <li><a class="text-muted" href="contact.php">Team                                   </a></li>
-                  <li><a class="text-muted" href="contact.php">Contact                                   </a></li>
-                </ul>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        <!-- Copyright section of the footer-->
-        <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-md-6 text-center text-md-left">
-                <p class="text-sm mb-md-0">&copy; 2020, Your company.  All rights reserved.</p>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
-                  <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <?php include_once 'include/footer.php'; ?>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

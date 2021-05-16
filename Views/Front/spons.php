@@ -2,8 +2,8 @@
 
 session_start (); 
 
-require_once '../../Controller/sponsC.php';
-require_once '../../Model/spons.php';
+include_once '../../Controller/sponsC.php';
+include_once '../../Model/spons.php';
 
 
   $inf1= new SponsC();
@@ -24,7 +24,7 @@ require_once '../../Model/spons.php';
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Artini Sponsors</title>
+    <title>Sponsors</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -49,6 +49,9 @@ require_once '../../Model/spons.php';
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
@@ -112,11 +115,11 @@ require_once '../../Model/spons.php';
             foreach($liste as $i) {
           ?>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="profile_spons.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="<?php  echo $i['photo_sponsor']?>" alt=""/>
+            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="#?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['photo_sponsor']?>" alt=""/>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
-                <h6 class="card-title"> <?php echo $i['nom_sponsor'] ?> <?php echo $i['nom_sponsor'] ?> </h6>
-                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['id'] ?> K visiteurs    </p>
+                <h6 class="card-title"><?php echo $i['nom_sponsor'] ?> </h6>
+                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['historique_sponsor'] ?>  </p>
               </div>
             </div>
           </div>
@@ -130,41 +133,7 @@ require_once '../../Model/spons.php';
 
 
     </section>
-    <section class="py-7">
-      <div class="container">
-        <div class="text-center">
-          <p class="subtitle text-primary">Testimonials</p>
-          <h2 class="mb-5">Un mot de nos sponsors à leurs communautés</h2>
-        </div>
-        <!-- Slider main container-->
-        <div class="swiper-container testimonials-slider testimonials">
-          <!-- Additional required wrapper-->
-          <div class="swiper-wrapper pt-2 pb-5">
-            <!-- Slides-->
-            <?php
-            foreach($liste2 as $i) { 
-              //echo $i['feedback_inf'];
-            ?>
-            <div class="swiper-slide px-3">
-              <div class="testimonial card rounded-lg shadow border-0">
-                <div class="testimonial-avatar"><img class="img-fluid" src="<?php  echo $i['photo_sponsor']?>" alt="..."></div>
-                <div class="text">
-                  <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                  <p class="testimonial-text"><?php echo $i['historique_sponsor'] ?></p><strong><?php echo $i['nom_sponsor'] ?> <?php echo $i['nom_sponsor'] ?></strong>
-                </div>
-              </div>
-            </div>
-            <?php
-            }
-            ?>
-
-          </div>
-          <div class="swiper-pagination">     </div>
-        </div>
-
-        
-      </div>
-    </section>
+  
 
     
     

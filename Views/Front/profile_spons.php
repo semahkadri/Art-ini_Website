@@ -5,12 +5,6 @@ session_start ();
 
     require_once '../../Controller/sponsC.php';
     require_once '../../Model/spons.php';
-
-
-
-    require_once '../../Controller/TripsponsC.php';
-    require_once '../../Model/Type2.php';
-
     $trip1= new TripInfC();
     $liste=$trip1->afficherTripInf();
 
@@ -21,7 +15,7 @@ session_start ();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vagary Travels</title>
+    <title>Atini</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -62,7 +56,7 @@ session_start ();
           <div class="col-lg-3 mr-lg-auto">
             <div class="card border-0 shadow mb-6 mb-lg-0">
               
-              <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="<?php  echo $i['photo_sponsor']?>" alt=""></a>
+              <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="assets/<?php  echo $i['photo_sponsor']?>" alt=""></a>
                 <h5><?php echo $i['nom_sponsor'] ?> <?php echo $i['nom_sponsor'] ?></h5>
 
                 <?php
@@ -79,8 +73,7 @@ session_start ();
                   <?php
                      if(isset($_POST["follow_button"]) && (!empty($_POST['follow_button']))){
                        //echo "work";
-                       include 'D:/Programmes/xampp/htdocs/projet/VAGARY/CyrineTrabelsi/Controller/ClientFollowInfC.php';
-                       include 'D:/Programmes/xampp/htdocs/projet/VAGARY/CyrineTrabelsi/Model/ClientFollowInf.php';
+                      
                        $date = date("Y/m/d");
                        $Res1=new ClientFollowInf($_SESSION['e'],$_GET['id_inf'],$date);
                        $Res1C=new ClientFollowInfC();
@@ -119,7 +112,7 @@ session_start ();
                   </div>
                   
                   <div class="media-body">
-                    <p class="mb-0"><?php echo $i['id'] ?> K Visitors</p>
+                    <p class="mb-0"><?php echo $i['id'] ?> K Visiteurs</p>
                   </div>
                 </div>
                 <div class="media align-items-center mb-3">
@@ -201,54 +194,7 @@ session_start ();
     </section>
 
     <!-- Footer-->
-    <footer class="position-relative z-index-10 d-print-none">
-        <!-- Main block - menus, subscribe form-->
-        <div class="py-6 bg-gray-200 text-muted"> 
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="font-weight-bold text-uppercase text-dark mb-3">Directory</div>
-                <p>Welcome to our page artini</p>
-                <ul class="list-inline">
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
-                  <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo"></i></a></li>
-                </ul>
-              </div>
-              
-              <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                <h6 class="text-uppercase text-dark mb-3">Pages</h6>
-                <ul class="list-unstyled">
-                  
-                  <li><a class="text-muted" href="contact.php">Team                                   </a></li>
-                  <li><a class="text-muted" href="contact.php">Contact                                   </a></li>
-                </ul>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        <!-- Copyright section of the footer-->
-        <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-md-6 text-center text-md-left">
-                <p class="text-sm mb-md-0">&copy; 2020, Your company.  All rights reserved.</p>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
-                  <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-                  <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <?php include_once 'include/footer.php'; ?>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

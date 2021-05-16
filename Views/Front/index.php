@@ -29,6 +29,10 @@ require_once '../../Controller/TypeC.php';
     <link rel="stylesheet" href="Assets/css/custom.css">
     <link rel="shortcut icon" href="Assets/img/mostache.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
 </head>
 
 <body style="padding-top: 0;">
@@ -334,7 +338,7 @@ require_once '../../Controller/TypeC.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/kathmandu.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/jumia.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">Jumia</h4>
                             
@@ -342,15 +346,15 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/medellin.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/tt.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2"> Tunisi Telecome</h4>
+                            <h4 class="h2"> Tunisie Telecome</h4>
                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/bangkok.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/delice.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">Delice</h4>
                             
@@ -358,7 +362,7 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/kyoto.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/sony.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">Sony</h4>
                             
@@ -366,15 +370,15 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/los-angeles.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/pfizer.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Fyzer</h4>
+                            <h4 class="h2">pfizer</h4>
                            
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/london.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/pepsi.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">Pepsi</h4>
                            
@@ -382,7 +386,7 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/madrid.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/citi.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">CitiBank</h4>
                             
@@ -390,7 +394,7 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/havana.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/visa.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
                             <h4 class="h2">Visa</h4>
                            
@@ -398,9 +402,9 @@ require_once '../../Controller/TypeC.php';
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 px-0 d-none d-lg-block d-xl-none">
-                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/barcelona.jpg" alt="">
+                    <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img class="bg-image" src="Assets/img/photo/paypal.jpg" alt="">
                         <div class="p-3 p-sm-5 text-white z-index-20">
-                            <h4 class="h2">Master Card</h4>
+                            <h4 class="h2">Paypal</h4>
                           
                         </div>
                     </div>
@@ -427,7 +431,7 @@ require_once '../../Controller/TypeC.php';
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/tomrrow.jpg" alt="Modern, Well-Appointed Room" />
                                     <a class="tile-link" href="#"></a>
                                    
                                     <div class="card-img-overlay-top text-right">
@@ -452,7 +456,7 @@ require_once '../../Controller/TypeC.php';
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/moon.jpg" alt="Cute Quirky Garden apt, NYC adjacent" />
                                     <a class="tile-link" href="#"></a>
                                    
                                     <div class="card-img-overlay-top text-right">
@@ -464,8 +468,7 @@ require_once '../../Controller/TypeC.php';
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Tomorrowland
-Full Moon Party</a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="#">Full Moon Party</a></h6>
                                        
                                         <p class="card-text text-muted"><span class="h4 text-primary">-30%</span></p>
                                     </div>
@@ -477,7 +480,7 @@ Full Moon Party</a></h6>
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/glas.jpg" alt="Modern Apt - Vibrant Neighborhood!" />
                                     <a class="tile-link" href="#"></a>
                                     
                                     <div class="card-img-overlay-top text-right">
@@ -501,7 +504,7 @@ Full Moon Party</a></h6>
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/rag.jpg" alt="Sunny Private Studio-Apartment" />
                                     <a class="tile-link" href="#"></a>
                                     
                                     <div class="card-img-overlay-top text-right">
@@ -525,7 +528,7 @@ Full Moon Party</a></h6>
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/rfx.jpg" alt="Mid-Century Modern Garden Paradise" />
                                     <a class="tile-link" href="#"></a>
                                    
                                     <div class="card-img-overlay-top text-right">
@@ -549,7 +552,7 @@ Full Moon Party</a></h6>
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan" />
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="Assets/img/photo/rag.jpg" alt="Brooklyn Life, Easy to Manhattan" />
                                     <a class="tile-link" href="#"></a>
                                    
                                     <div class="card-img-overlay-top text-right">

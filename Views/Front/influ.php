@@ -1,6 +1,6 @@
 <?php 
-require_once '../../Controller/InfluC.php';
-require_once '../../Model/Influ.php';
+include_once '../../Controller/InfluC.php';
+include_once '../../Model/Influ.php';
 
 session_start (); 
 
@@ -24,7 +24,7 @@ session_start ();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Artini</title>
+    <title>Influenceur</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -49,6 +49,9 @@ session_start ();
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
@@ -104,18 +107,18 @@ session_start ();
     <section class="pt-6 pb-4">
     
       <div class="container">
-        <h6 class="subtitle text-center text-primary mb-5">Our influencers</h6>
+        <h6 class="subtitle text-center text-primary mb-5">Nos influenceurs</h6>
         
         <div class="row mb-7">
           <?php
             foreach($liste as $i) {
           ?>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="profile_influ.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="<?php  echo $i['photo_influenceur']?>" alt=""/>
+            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="profile_influ.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['photo_influenceur']?>" alt=""/>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title"> <?php echo $i['nom_influenceur'] ?> <?php echo $i['prenom_influenceur'] ?> </h6>
-                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['id'] ?> K Visitors    </p>
+                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['id'] ?> K followers    </p>
               </div>
             </div>
           </div>
@@ -146,7 +149,7 @@ session_start ();
             ?>
             <div class="swiper-slide px-3">
               <div class="testimonial card rounded-lg shadow border-0">
-                <div class="testimonial-avatar"><img class="img-fluid" src="<?php  echo $i['photo_influenceur']?>" alt="..."></div>
+                <div class="testimonial-avatar"><img class="img-fluid" src="assets/<?php  echo $i['photo_influenceur']?>" alt="..."></div>
                 <div class="text">
                   <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
                   <p class="testimonial-text"><?php echo $i['historique_influenceur'] ?></p><strong><?php echo $i['nom_influenceur'] ?> <?php echo $i['prenom_influenceur'] ?></strong>
