@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 15 mai 2021 à 23:36
+-- Généré le : lun. 17 mai 2021 à 02:10
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 7.4.16
 
@@ -47,6 +47,22 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `product_price` varchar(50) NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `qty` int(10) NOT NULL,
+  `total_price` varchar(100) NOT NULL,
+  `product_code` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `carte`
 --
 
@@ -64,8 +80,7 @@ CREATE TABLE `carte` (
 --
 
 INSERT INTO `carte` (`Identifiant`, `numero`, `Date_activation`, `Date_expiration`, `nbptn`, `idclient`) VALUES
-(19, 22, '2222-02-22', '2222-02-22', 0, 119),
-(20, 1, '1111-11-11', '1111-11-11', 0, 120);
+(23, 12, '1111-11-04', '1111-11-11', 0, 123);
 
 -- --------------------------------------------------------
 
@@ -87,8 +102,7 @@ CREATE TABLE `categorie` (
 INSERT INTO `categorie` (`id`, `historique_categorie`, `nom_categorie`, `photo_categorie`) VALUES
 (2, 'aaa', 'guitare', 'les percussions.jpg'),
 (3, 'aaa', 'guitare', '2.jpg'),
-(4, 'ssssssssssssssssssssss', 'sss', 'bombarde.jpg'),
-(5, 'zzzzzz', 'guitare', '4.jpg');
+(4, 'kjnjknjknjknjkjnkkkkkkkkkkkkkjnkjnkjkjk', 'jnkjkjn', 'banjo.jpg');
 
 -- --------------------------------------------------------
 
@@ -108,7 +122,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `userID`, `comment`, `createdOn`) VALUES
-(4, 120, 'aaaaaaaaaa', '2021-05-09 00:54:18');
+(5, 123, 'J?B KJHBIBHIBIBHIHBIH', '2021-05-17 00:55:52');
 
 -- --------------------------------------------------------
 
@@ -130,12 +144,9 @@ CREATE TABLE `evenement` (
 --
 
 INSERT INTO `evenement` (`id`, `desc_eve`, `nom`, `directeur`, `prix_event`, `photo`) VALUES
-(18, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 50, ''),
-(19, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'ilyes', 'nakhli', 60, 'avatar-4.jpg'),
 (20, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 60, '1.jpg'),
-(21, 'yoskken fi douraa bruhhh azuoiejouiajouizjoeiojizjiojiaozjieoijejazpejioa,id,iozqediommdq,dmeqrio,zjeioiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii', 'mehdi', 'azzaz', 60, '1.jpg'),
-(111, 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'fffffffffffffffffff', 'ffffffffffffffffffffff', 11, ''),
-(444, 'erterretretrreretretre', 'tttttttttttttttttttt', 'tttttttttttttt', 11, '1.jpg');
+(444, 'erterretretrreretretre', 'tttttttttttttttttttt', 'tttttttttttttt', 11, '1.jpg'),
+(445, 'zrezerezrzerezz', 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', 'azzzzzzzzzzzzzz', 11, '4.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +167,7 @@ CREATE TABLE `influenceur` (
 --
 
 INSERT INTO `influenceur` (`id`, `historique_influenceur`, `nom_influenceur`, `prenom_influenceur`, `photo_influenceur`) VALUES
-(4, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'banjo.jpg');
+(7, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'piano.jpg');
 
 -- --------------------------------------------------------
 
@@ -185,6 +196,38 @@ CREATE TABLE `messages` (
   `msg` varchar(1000) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `messages`
+--
+
+INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) VALUES
+(1, 1555201362, 1605594170, 'bubgihy'),
+(2, 1605594170, 1555201362, 'çuçyçy');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `pmode` varchar(50) NOT NULL,
+  `products` varchar(255) NOT NULL,
+  `amount_paid` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `address`, `pmode`, `products`, `amount_paid`) VALUES
+(34, 'InesK', 'ines.kouki@esprit.tn', '50435351', '.JLJOIJPI', 'cod', 'aa(2), aa(1), aa(2)', '812');
+
 -- --------------------------------------------------------
 
 --
@@ -196,16 +239,18 @@ CREATE TABLE `produit` (
   `nom_prod` varchar(50) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `prix_prod` int(11) NOT NULL,
-  `img_prod` varchar(200) NOT NULL
+  `img_prod` varchar(200) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `code_prod` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_prod`, `nom_prod`, `id_categorie`, `prix_prod`, `img_prod`) VALUES
-(2, 'aa', 2, 12, 'gtr.jpg'),
-(3, 'aa', 3, 200, '3.jpg');
+INSERT INTO `produit` (`id_prod`, `nom_prod`, `id_categorie`, `prix_prod`, `img_prod`, `quantite`, `code_prod`) VALUES
+(2, 'aa', 2, 12, 'gtr.jpg', 0, ''),
+(3, 'aa', 3, 200, '3.jpg', 0, '');
 
 -- --------------------------------------------------------
 
@@ -221,15 +266,6 @@ CREATE TABLE `promotion` (
   `PA_Promo` int(3) NOT NULL,
   `idevent` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `promotion`
---
-
-INSERT INTO `promotion` (`id`, `desc_pro`, `nom`, `valeur`, `PA_Promo`, `idevent`) VALUES
-(25, 'willyeyeyeyeyeyeyeyeyeyeyeyeyeeyeyeyeyeyyeyeeyeeeeyyeeyeyeyye', 'mehdi', 50, 25, 18),
-(26, 'azeiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'azerty', 123, 155, 19),
-(31, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'rerererr', 11, 11111, 19);
 
 -- --------------------------------------------------------
 
@@ -258,6 +294,13 @@ CREATE TABLE `sponsor` (
   `photo_sponsor` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `sponsor`
+--
+
+INSERT INTO `sponsor` (`id`, `historique_sponsor`, `nom_sponsor`, `photo_sponsor`) VALUES
+(4, 'aaaaaaaaaaaaa', 'aaaaaaaa', '4.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -283,8 +326,32 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `image`, `name`, `password`, `email`, `birthday`, `adress`, `phone`, `code`, `etat`) VALUES
-(119, 'Inesk', '141259698_3682681275119132_384325127000388152_n.jpg', 'Ines Kouki', '11befe1b03f596c805ed03864def873d', 'ines.kouki@esprit.tn', '2000-01-01', '', 0, '', 'verifie'),
-(120, 'Ines', '141259698_3682681275119132_384325127000388152_n.jpg', 'Ines Kouki', '7682fe272099ea26efe39c890b33675b', 'ines.kouki@esprit.tn', '2000-01-01', '', 0, '', 'verifie');
+(123, 'InesK', '141259698_3682681275119132_384325127000388152_n.jpg', 'Ines Kouki', 'e10adc3949ba59abbe56e057f20f883e', 'ines.kouki@esprit.tn', '1111-01-01', '', 0, NULL, 'verifie');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `visitor`
+--
+
+CREATE TABLE `visitor` (
+  `user_id` int(11) NOT NULL,
+  `unique_id` int(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `visitor`
+--
+
+INSERT INTO `visitor` (`user_id`, `unique_id`, `fname`, `lname`, `email`, `password`, `img`, `status`) VALUES
+(1, 1605594170, 'ines', 'kouki', 'ines.kouki@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', '1621209858141259698_3682681275119132_384325127000388152_n.jpg', 'En ligne'),
+(2, 1555201362, 'sem', 'sem', 'sem@esprit.tn', 'e10adc3949ba59abbe56e057f20f883e', '1621209886150895136_759214891658313_1544516413722671588_n.jpg', 'En ligne');
 
 --
 -- Index pour les tables déchargées
@@ -294,6 +361,12 @@ INSERT INTO `users` (`id`, `login`, `image`, `name`, `password`, `email`, `birth
 -- Index pour la table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `cart`
+--
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -341,6 +414,12 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`msg_id`);
 
 --
+-- Index pour la table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
@@ -375,6 +454,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `visitor`
+--
+ALTER TABLE `visitor`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -385,10 +470,16 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT pour la table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
+--
 -- AUTO_INCREMENT pour la table `carte`
 --
 ALTER TABLE `carte`
-  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Identifiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
@@ -400,19 +491,19 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=446;
 
 --
 -- AUTO_INCREMENT pour la table `influenceur`
 --
 ALTER TABLE `influenceur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -424,13 +515,19 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `promotion`
@@ -448,13 +545,19 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT pour la table `sponsor`
 --
 ALTER TABLE `sponsor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
+-- AUTO_INCREMENT pour la table `visitor`
+--
+ALTER TABLE `visitor`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
