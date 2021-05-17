@@ -102,46 +102,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 pr-lg-3">
-              <h3>Historique de vos commandes</h3>
-              <div class="text-muted">Vous trouverez ici vos commandes passées depuis la création de votre compte</div>
-
-            </div>
-            <div class="table-responsive text-sm mb-5">
-              <table class="table table-striped">
-                <thead class="bg-gray-200">
-                  <tr class="border-0">
-                    <th class="center">Référence</th>
-                    <th>Date</th>
-                    <th>Prix Total</th>
-                    <th class="text-right">Paiement</th>
-                    <th class="text-right">Facture</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td >YMEOMBHNJ</td>
-                    <td class="font-weight-bold">15/01/2021</td>
-                    <td>958.00TND</td>
-                    <td class="text-right">Paiement comptant à la livraison (Cash on delivery)</td>
-                    <td class="text-left">- <a href="#">Détails</a></td>
-                   
-                  </tr>
-                  <tr>
-                    <td >YMJFFOFHNJ</td>
-                    <td class="font-weight-bold">04/03/2021</td>
-                    <td>100.00TND</td>
-                    <td class="text-right">Paiement à la boutique</td>
-                    <td class="text-left">- <a href="#">Détails</a></td>
-                   
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="row">
-              
-            </div>
-          </div>
+            
           <div class="card-footer bg-gray-100 p-5 px-print-0 border-0 text-right text-sm">
             <p class="mb-0">Merci pour votre confiance.</p>
           </div>

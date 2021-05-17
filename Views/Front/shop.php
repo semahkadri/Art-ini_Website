@@ -1,106 +1,145 @@
-<?php
-include "../../Controller/productsC.php";
-$prod=new productsC;
-    if (isset($_GET['search'])) {
-        $listP = $prod->rechercheproducts($_GET['search']);
-    } else {
-        $listP = $prod->afficherproducts();
-    }
-    session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start() ?>
 <head>
-    <meta charset="utf-8">
+ 
+ 
+
+  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Produit</title>
+    <title>Art-ini</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    <!-- Price Slider Stylesheets -->
-    <link rel="stylesheet" href="assets/vendor/nouislider/nouislider.css">
-    <!-- Google fonts - Playfair Display-->
+    <link rel="stylesheet" href="Assets/vendor/nouislider/nouislider.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
-    <!-- Google fonts - Poppins-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
-    <!-- swiper-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
-    <!-- Magnigic Popup-->
-    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
-    <!-- theme stylesheet--> 
-    <link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <!-- Favicon-->
+    <link rel="stylesheet" href="Assets/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="Assets/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="Assets/css/custom.css">
     <link rel="shortcut icon" href="Assets/img/mostache.png">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
-  </head>
-  <body style="padding-top: 72px;">
-  <header class="header">
-  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-41baaf6b-e479-4628-98c8-02aef69c71c6"></div>
-      <!-- Navbar-->
-      <?php include_once 'include/header-1.php'; ?>
-    <section class="py-5">
-      <div class="container">
-        <br>
-        <br>
-        <h1 class="center">Art-ini Shop</h1>
-        <br>
-        <br>
-        <div class="row">
-          <!-- Slider main container-->
-        <div class="swiper-container swiper-container-mx-negative swiper-init pt-3" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
-          <!-- Additional required wrapper-->
-          <div class="swiper-wrapper pb-5">
-            <!-- Slides-->
-			      <?PHP $total=0; ?>
-				    <?PHP 
-			      require_once 'db.class.php' ;
-			      $DB = new DB() ;
-			  
-			      $products = $DB->query('select * from produit inner join categorie on produit.id_categorie=categorie.id') ;  ?>
-			      <?PHP foreach ( $products as  $product) :?>
-            <div class="swiper-slide h-auto px-2">
-              <!-- place item-->
-              <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                <div class="card h-100 border-0 shadow">
-                  <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="assets/<?= $product->img_prod; ?>" ><a class="tile-link"  href="addpanier.php?id_prod= <?= $product->id_prod ; ?>"></a>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+</head>
 
+<body>
+<?php include_once 'include/header-1.php'; ?>
+  <!-- Navbar end -->
+
+  <!-- Displaying Products Start -->
+  </br></br></br></br></br> <div class="container">
+    <div id="message"></div>
+    <div class="row mt-2 pb-3">
+      <?php
+  			include 'config.php';
+  			$stmt = $conn->prepare('SELECT * FROM produit');
+  			$stmt->execute();
+  			$result = $stmt->get_result();
+  			while ($row = $result->fetch_assoc()):
+  		?>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+        <div class="card-deck">
+          <div class="card p-2 border-secondary mb-2">
+            <img src="assets/<?= $row['img_prod'] ?>" class="card-img-top" height="250">
+            <div class="card-body p-1">
+              <h4 class="card-title text-center text-info"><?= $row['nom_prod'] ?></h4>
+              <h5 class="card-text text-center text-danger"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['prix_prod'],2) ?>/-</h5>
+
+            </div>
+            <div class="card-footer p-1">
+              <form action="" class="form-submit">
+                <div class="row p-2">
+                  <div class="col-md-6 py-1 pl-4">
+                    <b>Quantité : </b>
                   </div>
-                  <div class="card-body d-flex align-items-center">
-                    <div class="w-100">
-                      <h6 class="card-title"><a class="text-decoration-none text-dark"  href="addpanier.php?id_prod= <?= $product->id_prod ; ?>"><?PHP echo $product->nom_prod; ?></a></h6>
-                      <div class="d-flex card-subtitle mb-3">
-                        <p class="flex-grow-1 mb-0 text-muted text-sm"><?PHP echo $product->nom_categorie; ?></p>
-                        </p>
-                      </div>
-                      <p class="card-text text-muted"><span class="h4 text-primary"><?PHP echo number_format($product->prix_prod,2,',',' '); ?>DT</span> </p>
-                    </div>
+                  <div class="col-md-6">
+                    <input type="number" class="form-control pqty" value="<?= $row['quantite'] ?>">
                   </div>
                 </div>
-              </div>
+                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
+                <input type="hidden" class="pname" value="<?= $row['nom_prod'] ?>">
+                <input type="hidden" class="pprice" value="<?= $row['prix_prod'] ?>">
+                <input type="hidden" class="pimage" value="<?= $row['img_prod'] ?>">
+                <input type="hidden" class="pcode" value="<?= $row['code_prod'] ?>">
+                <button class="btn btn-info btn-block addItemBtn"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Ajouter au panier </button>
+              </form>
             </div>
-			      <?PHP endforeach ?>
-            
-            
-           
-           
-          
           </div>
         </div>
       </div>
-      </div>
-    </section>
-    <!-- Footer-->
-    <?php include_once 'include/footer.php'; ?>
+      <?php endwhile; ?>
+    </div>
+  </div>
+  <!-- Displaying Products End -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+    // Send product details in the server
+    $(".addItemBtn").click(function(e) {
+      e.preventDefault();
+      var $form = $(this).closest(".form-submit");
+      var pid = $form.find(".pid").val();
+      var pname = $form.find(".pname").val();
+      var pprice = $form.find(".pprice").val();
+      var pimage = $form.find(".pimage").val();
+      var pcode = $form.find(".pcode").val();
+
+      var pqty = $form.find(".pqty").val();
+if (pqty>0)
+
+{
+      $.ajax({
+        url: 'action.php',
+        method: 'post',
+        data: {
+          pid: pid,
+          pname: pname,
+          pprice: pprice,
+          pqty: pqty,
+          pimage: pimage,
+          pcode: pcode
+        },
+        success: function(response) {
+          $("#message").html(response);
+          window.scrollTo(0, 0);
+          load_cart_item_number();
+        }
+      });
+    }
+    else
+		{
+			alert("lease Enter Number of Quantity");
+		}
+    });
+
+    // Load total no.of items added in the cart and display in the navbar
+    load_cart_item_number();
+
+    function load_cart_item_number() {
+      $.ajax({
+        url: 'action.php',
+        method: 'get',
+        data: {
+          cartItem: "cart_item"
+        },
+        success: function(response) {
+          $("#cart-item").html(response);
+        }
+      });
+    }
+  });
+  </script>
+  <!-- Footer-->
+  <?php include_once 'include/footer.php'; ?>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //
@@ -144,17 +183,5 @@ $prod=new productsC;
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
     <script src="assets/js/theme.js"></script>
-    <!-- Map-->
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    <!-- Available tile layers-->
-    <script src="assets/js/map-layers.js"> </script>
-    <script src="assets/js/map-category.js">                               </script>
-    <script>
-      createListingsMap({
-          mapId: 'categoryMap',
-          jsonFile: 'js/restaurants-geojson.json',
-          //tileLayer: tileLayers[5] - uncomment for a different map styling
-      }); 
-    </script>
   </body>
 </html>

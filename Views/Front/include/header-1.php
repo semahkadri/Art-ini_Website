@@ -18,7 +18,10 @@
             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
                                 <li class="nav-item"><a class="nav-link" href="info.php">Categories</a></li>
-                                <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
+                                <?php if (isset($_SESSION["id"])) {?>
+                                    <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li><?php }else { ?>
+                                        <li class="nav-item"><a class="nav-link" href="shopp.php">Produits</a></li>
+                                        <?php } ?>
                                 <li class="nav-item"><a class="nav-link" href="event.php">Evénements</a></li>
                                 <li class="nav-item"><a class="nav-link" href="promo.php">Promotions</a></li>
                                 <li class="nav-item"><a class="nav-link" href="reply.php">Feedbacks</a></li>
@@ -26,10 +29,12 @@
                                 <li class="nav-item"><a class="nav-link" href="spons.php">Sponsors</a></li>
                                 <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
 
+                                
 
 
-
-                                <?php if (isset($_SESSION['id'])) { ?>      
+                                <?php if (isset($_SESSION['id'])) { ?> 
+                                  <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+        </li>     
                                 <li class="nav-item dropdown ml-lg-3"><a id="userDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="avatar"  src="Assets/img/<?=$_SESSION['image']; ?>" alt="user"></a>
                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
                 <a class="dropdown-item" href="user-account.php"><i class="fa fa-user"></i> Mes informations</a>

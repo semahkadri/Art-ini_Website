@@ -116,7 +116,8 @@ session_start();
             foreach($liste as $i) {
           ?>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="shop.php?id=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['img_prod']?>" alt=""/>
+          <?php if (isset($_SESSION["id"])) {?> <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="shop.php?id=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['img_prod']?>" alt=""/>
+          <?php }else { ?><div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="shopp.php?id=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['img_prod']?>" alt=""/>   <?php } ?>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title"> <?php echo $i['nom_categorie'] ?> </h6>

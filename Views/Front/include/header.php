@@ -25,9 +25,12 @@
                     </form>
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li></li>
-                        <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li>
+                       
                         <li class="nav-item"><a class="nav-link" href="info.php">Catégories</a></li>
-            
+                        <?php if (isset($_SESSION["id"])) {?>
+                                    <li class="nav-item"><a class="nav-link" href="shop.php">Produits</a></li><?php }else { ?>
+                                        <li class="nav-item"><a class="nav-link" href="shopp.php">Produits</a></li>
+                                        <?php } ?>
                         <li class="nav-item"><a class="nav-link" href="Chat/login.php">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="event.php">Evénements</a></li>
                         <li class="nav-item"><a class="nav-link" href="promo.php">Promotions</a></li>

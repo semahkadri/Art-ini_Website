@@ -8,7 +8,7 @@ session_start();
     require_once '../../Controller/Type3C.php';
     require_once '../../Model/Type3.php';
   
-    $tp1= new TypeC();
+    $tp1= new eventC();
     $listetp=$tp1->afficherType();
 
     
@@ -60,10 +60,10 @@ session_start();
               <div class="row">
                 <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
-                 <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Which influencer are you searching for?">
+                 <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Quel événement recherchez-vous?">
                 </div>
                 <div class="col-lg-3 d-flex align-items-center form-group no-divider">
-                <select class="selectpicker" title="Trip categories" name="nom_type" id="nom_type" >
+                <select class="selectpicker" title="Evenements" name="nom_type" id="nom_type" >
 
                   <?php 
                     foreach($listetp as $t) {
@@ -79,7 +79,7 @@ session_start();
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit"> Search </button>
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit"> Recherche </button>
 
                 </div>
               </div>
@@ -98,7 +98,7 @@ session_start();
     <?php
       if (isset($_POST['searchInf'])) {
         //var_dump($_POST['searchInf']);
-        $inf2=new TypeC();
+        $inf2=new eventC();
         if ($liste2=$inf2->chercherTypeInst($_POST['searchInf'])) {
         //echo "done";
    ?>
@@ -107,7 +107,7 @@ session_start();
       foreach ($liste2 as $elt) {
     ?>
         <div class="container">
-          <h6 class="subtitle text-center text-primary mb-5">Search Results</h6>
+          <h6 class="subtitle text-center text-primary mb-5">Résultats de recherche</h6>
           
           <div class="row mb-7">
 
@@ -115,7 +115,7 @@ session_start();
           
             <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
               <div class="card border-0 hover-animate bg-transparent">
-                <a class="position-relative" href="profile_influ.php?id_inf=<?php echo $elt['id'] ?>">
+                <a class="position-relative" href="#?id_inf=<?php echo $elt['id'] ?>">
                   <img class="card-img-top team-img" src="<?php echo $elt['photo'] ?>" alt=""/> 
                   <!-- <p> hiiii </p>  --> 
                   <div class="team-circle bg-secondary-light"></div>
@@ -138,7 +138,7 @@ session_start();
       ?>
 
         <h1 class="hero-heading mb-4">Error 404</h1>
-        <p class="text-muted mb-5">Oops, looks like the influencer you're searching for doesn't exist.</p>
+        <p class="text-muted mb-5">Oups, il semble que l'événement que vous recherchez n'existe pas.</p>
         <p class="mb-6"> <img class="img-fluid" src="img/illustration/undraw_trip_dv9f.svg" alt="" style="width: 400px;"></p>
     <?php
       }
@@ -148,14 +148,14 @@ session_start();
 <?php
       if (isset($_POST['nom_type'])) {
         //var_dump($_POST['nom_type']);
-        $tripinf2=new TypeC();
+        $tripinf2=new eventC();
         if ($listetrip2=$tripinf2->chercherTypeInst($_POST['nom_type'])) {
         //echo "done";
    ?>
 
     
         <div class="container">
-          <h6 class="subtitle text-center text-primary mb-5">Search Results</h6>
+          <h6 class="subtitle text-center text-primary mb-5">Résultats de recherche</h6>
           <?php
       foreach ($listetrip2 as $lt) {
     ?>
@@ -165,7 +165,7 @@ session_start();
           
           <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                   <div class="card h-100 border-0 shadow">
-                    <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<?php  echo $lt['photo']?>" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="Up_trip_profile.php?id_voy=<?php echo $ti['id'] ?>"></a>
+                    <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="assets/<?php  echo $lt['photo']?>" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="Up_trip_profile.php?id_voy=<?php echo $ti['id'] ?>"></a>
                       
                     </div>
                     <div class="card-body d-flex align-items-center">
@@ -175,7 +175,7 @@ session_start();
                           <p class="flex-grow-1 mb-0 text-muted text-sm"><?php  echo $lt['directeur']?> </p>
                           
                         </div>
-                        <p class="card-text text-muted"><span class="h4 text-primary"><?php  echo $lt['desc_eve'].' '.'DT'?></span></p>
+                        <p class="card-text text-muted"><span class="h4 text-primary"><?php  echo $lt['desc_eve'].' '.''?></span></p>
                       </div>
                     </div>
                   </div>
@@ -208,23 +208,7 @@ session_start();
 
          
           
-<div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-        <div class="card h-100 border-0 shadow">
-          <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<?php  echo $elt['img_voy']?>" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="Up_trip_profile.php?id_voy=<?php echo $ti['id_voy'] ?>"></a>
-            
-          </div>
-          <div class="card-body d-flex align-items-center">
-            <div class="w-100">
-              <h6 class="card-title"><a class="text-decoration-none text-dark" href="Up_trip_profile.php?id_voy=<?php echo $elt['id_voy'] ?>"><?php  echo $elt['destination_voy']?></a></h6>
-              <div class="d-flex card-subtitle mb-3">
-                <p class="flex-grow-1 mb-0 text-muted text-sm"><?php  echo $elt['nom_type']?> </p>
-                
-              </div>
-              <p class="card-text text-muted"><span class="h4 text-primary"><?php  echo $elt['prix_voy'].' '.'DT'?></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
   
 
@@ -237,7 +221,7 @@ session_start();
       ?>
 
         <h1 class="hero-heading mb-4">Error 404</h1>
-        <p class="text-muted mb-5">Oops, looks like the influencer you're searching for doesn't exist.</p>
+        <p class="text-muted mb-5">Oups, il semble que l'événement que vous recherchez n'existe pas.</p>
         <p class="mb-6"> <img class="img-fluid" src="img/illustration/undraw_trip_dv9f.svg" alt="" style="width: 400px;"></p>
     <?php
       }
@@ -249,55 +233,7 @@ session_start();
    
     
     <!-- Footer-->
-    <!-- Footer-->
-    <footer class="position-relative z-index-10 d-print-none">
-      <!-- Main block - menus, subscribe form-->
-      <div class="py-6 bg-gray-200 text-muted"> 
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-              <div class="font-weight-bold text-uppercase text-dark mb-3">Directory</div>
-              <p>Welcome to our page Vagary</p>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
-                <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo"></i></a></li>
-              </ul>
-            </div>
-            
-            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-              <h6 class="text-uppercase text-dark mb-3">Pages</h6>
-              <ul class="list-unstyled">
-                
-                <li><a class="text-muted" href="contact.php">Team                                   </a></li>
-                <li><a class="text-muted" href="contact.php">Contact                                   </a></li>
-              </ul>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      <!-- Copyright section of the footer-->
-      <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-left">
-              <p class="text-sm mb-md-0">&copy; 2020, Your company.  All rights reserved.</p>
-            </div>
-            <div class="col-md-6">
-              <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
-                <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-                <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-                <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-                <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php include_once 'include/footer.php'; ?>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //
