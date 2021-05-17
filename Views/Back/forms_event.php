@@ -1,14 +1,14 @@
 <?php 
     include_once '../../Controller/Type3C.php';
     include_once '../../Model/Type3.php';
-    /*include "../Front/PHPMailer-master/PHPMailerAutoload.php";*/
+    include "../Front/PHPMailer-master/PHPMailerAutoload.php";
     session_start();
     $newtp= new eventC();
     if( isset($_POST["desc_eve"])&& isset($_POST["nom"]) && isset($_POST["directeur"]) && isset($_POST["prix_event"]) && isset($_POST["photo"]) ) {
       $tp= new event( $_POST["desc_eve"],$_POST["nom"],$_POST["directeur"],$_POST["prix_event"], $_POST["photo"]);
       
       $newtp->ajouterTypeInst($tp);
-     /* $sql="SELECT * FROM evenment";
+     $sql="SELECT * FROM evenment";
 $db=config::getConnexion();
       $resultmail=$db->query('select * from users ');
 foreach($resultmail as $row){
@@ -31,7 +31,7 @@ $mailto = $s;
    $mail ->Body = $mailMsg;
    $mail ->AddAddress($mailto);
    $mail->Send();
-}*/
+}
       header("Location:tables_event.php");
     }
 
@@ -42,7 +42,7 @@ $mailto = $s;
 <html>
 
 <head>
-<script src="assets/javascript.js">    </script>
+<script src="assets/javascript3.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ajout event</title>
@@ -148,7 +148,7 @@ $mailto = $s;
                         <li><a href="tables_spons.php">Sponsors</a></li>
                         <li><a href="tables_event.php">Evenements</a></li>
                         <li><a href="tables_promo.php">Promotions</a></li>
-                        <li><a href="tables_promo.php">Commandes</a></li>
+                        <li><a href="afficher_commande.php">Commandes</a></li>
 
                     </ul>
         </nav>
@@ -183,14 +183,14 @@ $mailto = $s;
                                             <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Nom</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="nom" id="nom" placeholder="nom de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="nom" id="nom" placeholder="nom de l'evenement" minlength="3" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">directeur</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="directeur" id="directeur" placeholder="directeur de l'evenement" minlength="4" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="directeur" id="directeur" placeholder="directeur de l'evenement" minlength="3" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -224,7 +224,7 @@ $mailto = $s;
                                             <div class="col-sm-9 offset-sm-3">
                                             <button type="reset" value="Annuler" class="btn btn-light btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
 
-                                                <input type="button" onclick="document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-info">
+                                            <input type="button" onclick=" fonction();document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-primary">
 
                                                 <div id="id" class="modal">
                                                     <div class="alert alert-primary alert-dismissible fade show" role="alert">

@@ -1,19 +1,20 @@
 <?php 
 
-require_once '../../Controller/clientC.php';
+require_once '../../Controller/commandeC.php';
+require_once '../../Model/commande.php';
 session_start();
-  $clientC =  new clientC();
+  $commandeC =  new commandeC();
     $db=config::getConnexion();
     
-    $result=$db->query('SELECT * FROM users');
+    $result=$db->query('SELECT * FROM orders');
 
     if (isset($_GET['search'])&& !empty($_GET['search']))
     {
-        $result=$db->query('SELECT * FROM users WHERE name like \'%'.$_GET['search'].'%\'');
+        $result=$db->query('SELECT * FROM orders WHERE name like \'%'.$_GET['search'].'%\'');
         
     }else
     {
-        $result=$db->query('SELECT * FROM users');
+        $result=$db->query('SELECT * FROM orders');
     }
 
 
@@ -22,14 +23,14 @@ session_start();
 
         $id =$_GET['delete'];
        
-        $res=$clientC->supprimerUtilisateur($id);
+        $res=$commandeC->supprimerCommande($id);
         if ($res)
         {
-            header("Location: afficher_client.php?success=Suppression executée avec succès");
+            header("Location: afficher_commande.php?success=Suppression executée avec succès");
         }
        else 
        {
-        header("Location: afficher_client.php?error=Echec");
+        header("Location: afficher_commande.php?error=Echec");
        }
       
     }
@@ -45,7 +46,7 @@ session_start();
           else
           {
               $tri="name";
-             $result=$clientC->afficherclienttri($tri);
+             $result=$commandeC->afficherCommandetri($tri);
             
           }
         
@@ -67,7 +68,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>table clients</title>
+    <title>table commande</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -146,21 +147,21 @@ session_start();
             <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
                 
-                    <h2 class="h5 no-margin-bottom">Affichage table Clients</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage table Commande</h2>
                 </div>
             </div>
             <!-- Breadcrumb-->
             <div class="container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-                    <li class="breadcrumb-item active">Clients</li>
+                    <li class="breadcrumb-item active">Commande</li>
                 </ul>
             </div>
             <section>
             
                 <div class="container">
                 <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
-                    <div class="title"><strong>Liste des clients</strong></div>
+                    <div class="title"><strong>Liste des commande</strong></div>
 
                     </br>
                     <form action="" method = 'GET'>
@@ -175,7 +176,7 @@ session_start();
                              <option value="" disabled selected>Trier par</option>
                             <option >ID</option>
                             
-                            <option>Nom d'utilisateur</option>
+                            <option>Nom </option>
 
                             
                           </select></td> 
@@ -189,7 +190,7 @@ session_start();
                             <div class="input-group-prepend">
                             <button class="btn btn-danger btn-xs" value="Chercher"><i class="fa fa-search" ></i> Chercher</button>
                             </div>
-                            <input type="text" id="search" name="search" class="form-control" placeholder="Chercher un client">
+                            <input type="text" id="search" name="search" class="form-control" placeholder="Chercher une commande">
                             
                         </div>
                         
@@ -205,12 +206,12 @@ session_start();
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nom et prénom</th>
-                                    <th>Nom d'utilisateur</th>
-                                    <th>Adresse e-mail</th>
-                                    <th>Adresse </th>
+                                    <th>Nom </th>
+                                    <th>email</th>
+                                    <th>produit</th>
+                                    <th>Adress </th>
                                     <th>Numero de téléphone</th>
-                                    <th>Date de naissance</th>
+                                    <th>methode de paiment</th>
                                 </tr>
                             </thead>
 
@@ -222,14 +223,14 @@ session_start();
 
                                        
                             <td>  <?php echo $row['id']; ?></td>
-                            <td> <?php echo $row['login']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
+                            <td> <?php echo $row['name']; ?></td>
                             <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['adress']; ?></td>
+                            <td><?php echo $row['products']; ?></td>
+                            <td><?php echo $row['address']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
-                            <td><?php echo $row['birthday']; ?></td>
+                            <td><?php echo $row['pmode']; ?></td>
                         <td>  
-                        <a href="afficher_client.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Supprimer</a>
+                        <a href="afficher_commande.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Supprimer</a>
 </tr>
 
 										<?php

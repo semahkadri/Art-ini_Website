@@ -3,14 +3,19 @@
     require_once '../../Model/Typee3.php';
 
     session_start();
-    if(isset($_POST["desc_pro"]) && isset($_POST["nom"]) && isset($_POST["valeur"])  && isset($_POST["PA_Promo"]) ) {
-      $tp= new promo($_POST["desc_pro"],$_POST["nom"],$_POST["valeur"],$_POST["PA_Promo"]);
-      $newtp= new promoC();
-      if ($newtp->modifierTypeInst($tp,$_POST['id'])) {
-        var_dump($_POST['id']);
-      }
-      header("Location:tables_promo.php");
-    }
+    $db=config::getConnexion();
+    $result=$db->query('select * from evenement ');
+        $promoC =  new promoC();
+        
+        if (isset($_POST['desc_pro']) && isset($_POST['nom']) && isset($_POST['valeur'])&& isset($_POST['PA_Promo'])&& isset($_POST['idevent']) ) {
+          $tp= new promo($_POST["desc_pro"],$_POST["nom"],$_POST["valeur"],$_POST["PA_Promo"],$_POST["idevent"]);
+          $newtp= new promoC();
+          if ($newtp->modifierTypeInst($tp,$_POST['id'])) {
+            var_dump($_POST['id']);
+          }
+          header("Location:tables_promo.php");
+        }
+      
     
 ?>
 
@@ -18,7 +23,7 @@
 <!DOCTYPE html>
 <html>
   <head> 
-  <script src="assets/javascript.js">    </script>
+  <script src="assets/javascript4.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Modifier promotion</title>
@@ -118,7 +123,7 @@
                         <li><a href="tables_spons.php">Sponsors</a></li>
                         <li><a href="tables_event.php">Evenements</a></li>
                         <li><a href="tables_promo.php">Promotions</a></li>
-                        <li><a href="tables_promo.php">Commandes</a></li>
+                        <li><a href="afficher_commande.php">Commandes</a></li>
 
                     </ul>
       </nav>
@@ -161,9 +166,9 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">direcetur evenement</label>
+                          <label class="col-sm-3 form-control-label">valeur evenement</label>
                           <div class="col-sm-9">
-                            <input type="text" name="valeur" id="valeur" minlength="4" value="<?= $i['valeur'] ?>" class="form-control form-control-success" >
+                            <input type="text" name="valeur" id="valeur" minlength="1" value="<?= $i['valeur'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
                         <div class="form-group row">
@@ -180,7 +185,15 @@
                           </div>
                         </div>
 
-
+                        <div>
+                                        <label style="font-weight: bold"> Identifiant du evenement  </label>     
+                                        <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idevent" id="idevent" required>
+                                        <?php while ($row = $result->fetch()) { 
+                                    ?>
+                                    <option value= "<?php echo  $row['id'];?>"> <?php echo $row['nom'];?> </option>
+                                <?php } ?>
+                                </select>
+                      </div>     
                         
 
                         <div class="form-group row">       
@@ -192,7 +205,7 @@
                           <div id="id" class="modal">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                               <form method="POST" action="promo.php">
-                                <strong>C'est bien !</strong> Tu as modifier la catégorie <?PHP echo $i['nom']?>
+                                <strong>C'est bien !</strong> Tu as modifier la promotion <?PHP echo $i['nom']?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

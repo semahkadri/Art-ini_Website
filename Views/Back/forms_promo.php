@@ -130,7 +130,7 @@ $result=$db->query('select * from evenement ');
                         <li><a href="tables_spons.php">Sponsors</a></li>
                         <li><a href="tables_event.php">Evenements</a></li>
                         <li><a href="tables_promo.php">Promotions</a></li>
-                        <li><a href="tables_promo.php">Commandes</a></li>
+                        <li><a href="afficher_commande.php">Commandes</a></li>
 
                     </ul>
         </nav>
