@@ -1,11 +1,11 @@
 <?php
-require_once 'C:\xampp\htdocs\ilyes\config.php';
+include "configg.php";
 
-class InfluC {
+class SponsC {
     
-    public function affichersponsor() {
-        $sql='SELECT * FROM sponsor';
-        $db=Config::getConnexion();
+    public function afficherType() {
+        $sql="SELECT * FROM sponsor";
+        $db=config::getConnexion();
         try{
             $liste = $db->query($sql);
             return $liste;
@@ -15,27 +15,12 @@ class InfluC {
         }	
     }
 
-
-    public function affichersponsorStat() {
-        $sql='SELECT * FROM sponsor WHERE nbr_ab_inf=(SELECT max(nbr_ab_inf) FROM sponsor)';
-        $db=Config::getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
-        }
-        catch (Exception $e){ 
-            die('Erreur: '.$e->getMessage());
-        }	
-    }
-
-    
-
-    public function chercherid($id) {
+    public function chercheridTypeInst($id) {
         $sql="SELECT * FROM sponsor where id=:id";
-        $db=Config::getConnexion();
+        $db=config::getConnexion();
         try{
             $query=$db->prepare($sql);
-        $query->execute(['id' =>$id ]);
+        $query->execute(['id' =>$id]);
         $liste=$query->fetch();
         return $liste;
         } 
@@ -44,15 +29,16 @@ class InfluC {
         }
     }
 
-     public function ajoutersponsor($sponsor) {
-        $sql = "insert into sponsor (historique_sponsor,nom_sponsor,photo_sponsor) values (:historique_sponsor,:nom_sponsor,:photo_sponsor)" ;
+     public function ajouterTypeInst($Type) {
+        $sql = "INSERT INTO sponsor (historique_sponsor,nom_sponsor,photo_sponsor) values (:historique_sponsor,:nom_sponsor,:photo_sponsor)" ;
         try{
         $db = config::getConnexion();
         $query = $db->prepare($sql);
         $query->execute([
-            'historique_sponsor'=>$sponsor->getHistoriqueType(),
-            'nom_sponsor'=>$sponsor->getNomType(),
-            'photo_sponsor'=>$sponsor->getPhototype(),
+            'historique_sponsor'=>$Type->getHistoriqueType(),
+            'nom_sponsor'=>$Type->getNomType(),
+            'photo_sponsor'=>$Type->getPhotoType()
+
         ]);
         }
         catch (PDOException $e) {
@@ -60,10 +46,10 @@ class InfluC {
     }
     } 
 
-     public function supprimersponsor($id) {
+     public function supprimerTypeInst($id) {
         try {
             $db=config::getConnexion();
-            $query=$db->prepare("delete from sponsor where id=:id");
+            $query=$db->prepare("DELETE FROM sponsor WHERE id=:id");
             $query->execute(['id'=>$id]);
         }
         catch (PDOException $e) {
@@ -71,16 +57,16 @@ class InfluC {
         }
     }
 
-     public function modifiersponsor($sponsor,$id) {
+     public function modifierTypeInst($Type,$id) {
         try {
-            $sql="update sponsor set historique_sponsor=:historique_sponsor,nom_sponsor=:nom_sponsor,photo_sponsor=:photo_sponsor where id=:id";
+            $sql="UPDATE sponsor SET historique_sponsor=:historique_sponsor,nom_sponsor=:nom_sponsor,photo_sponsor=:photo_sponsor WHERE id=:id";
             $db=config::getConnexion();
-            $query=$db->prepare($sql); 
+            $query=$db->prepare($sql);
             $query->execute([
             'id'=>$id,
-            'historique_sponsor'=>$sponsor->getHistoriqueType(),
-            'nom_sponsor_inf'=>$sponsor->getNomType(),
-            'photo_sponsor'=>$sponsor->getPhotoType(),
+            'historique_sponsor'=>$Type->getHistoriqueType(),
+            'nom_sponsor'=>$Type->getNomType(),
+            'photo_sponsor'=>$Type->getPhotoType()
             ]);
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
@@ -88,9 +74,9 @@ class InfluC {
         }
     }
 
-    public function cherchersponsor($nom_sponsor) {
+    public function chercherTypeInst($nom_sponsor) {
         $sql="SELECT * FROM sponsor where nom_sponsor='$nom_sponsor'";
-        $db=Config::getConnexion();
+        $db=config::getConnexion();
         try{
         $liste = $db->query($sql);
         return $liste;
@@ -99,6 +85,18 @@ class InfluC {
             $e->getMessage();
         }
     } 
+
+    function rechercherType($str){
+        $sql="SELECT * FROM sponsor where nom_sponsor like '".$str."%' or id like '".$str."%' ";
+        $db = config::getConnexion();
+        try{
+            $liste=$db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            return $e->getMessage();
+        }
+    }
 
 
 }

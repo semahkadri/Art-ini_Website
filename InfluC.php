@@ -1,11 +1,11 @@
 <?php
-require_once 'C:\xampp\htdocs\ilyes\config.php';
+include "configg.php";
 
 class InfluC {
     
-    public function afficherInfluenceur() {
-        $sql='SELECT * FROM influenceur';
-        $db=Config::getConnexion();
+    public function afficherType() {
+        $sql="SELECT * FROM influenceur";
+        $db=config::getConnexion();
         try{
             $liste = $db->query($sql);
             return $liste;
@@ -16,26 +16,30 @@ class InfluC {
     }
 
 
-    public function afficherInfluenceurStat() {
-        $sql='SELECT * FROM influenceur WHERE nbr_ab_inf=(SELECT max(nbr_ab_inf) FROM influenceur)';
-        $db=Config::getConnexion();
-        try{
-            $liste = $db->query($sql);
+
+    function affichercartetri($cc)
+    {
+        
+        $sql="SELECT * FROM influenceur ORDER BY $cc desc ";
+
+        $db = config::getConnexion();
+        try
+        {
+            $liste=$db->query($sql);
             return $liste;
         }
-        catch (Exception $e){ 
+        catch (Exception $e)
+        {
             die('Erreur: '.$e->getMessage());
-        }	
+        }
     }
 
-    
-
-    public function chercherid($id) {
+    public function chercheridTypeInst($id) {
         $sql="SELECT * FROM influenceur where id=:id";
-        $db=Config::getConnexion();
+        $db=config::getConnexion();
         try{
             $query=$db->prepare($sql);
-        $query->execute(['id' =>$id ]);
+        $query->execute(['id' =>$id]);
         $liste=$query->fetch();
         return $liste;
         } 
@@ -44,16 +48,17 @@ class InfluC {
         }
     }
 
-     public function ajouterInfluenceur($influenceur) {
-        $sql = "insert into influenceur (historique_influenceur,nom_influenceur,prenom_influenceur,photo_influenceur) values (:historique_influenceur,:nom_influenceur,:prenom_influenceur,:photo_influenceur)" ;
+     public function ajouterTypeInst($Type) {
+        $sql = "INSERT INTO influenceur (historique_influenceur,nom_influenceur,prenom_influenceur,photo_influenceur) values (:historique_influenceur,:nom_influenceur,:prenom_influenceur,:photo_influenceur)" ;
         try{
         $db = config::getConnexion();
         $query = $db->prepare($sql);
         $query->execute([
-            'historique_influenceur'=>$influenceur->getHistoriqueType(),
-            'nom_influenceur'=>$influenceur->getNomType(),
-            'prenom_influenceur'=>$influenceur->getPrenomType(),
-            'photo_influenceur'=>$influenceur->getPhototype(),
+            'historique_influenceur'=>$Type->getHistoriqueType(),
+            'nom_influenceur'=>$Type->getNomType(),
+            'prenom_influenceur'=>$Type->getPrenomType(),
+            'photo_influenceur'=>$Type->getPhotoType()
+
         ]);
         }
         catch (PDOException $e) {
@@ -61,10 +66,10 @@ class InfluC {
     }
     } 
 
-     public function supprimerInfluenceur($id) {
+     public function supprimerTypeInst($id) {
         try {
             $db=config::getConnexion();
-            $query=$db->prepare("delete from influenceur where id=:id");
+            $query=$db->prepare("DELETE FROM influenceur WHERE id=:id");
             $query->execute(['id'=>$id]);
         }
         catch (PDOException $e) {
@@ -72,17 +77,17 @@ class InfluC {
         }
     }
 
-     public function modifierInfluenceur($influenceur,$id) {
+     public function modifierTypeInst($Type,$id) {
         try {
-            $sql="update influenceur set historique_influenceur=:historique_influenceur,nom_influenceur=:nom_influenceur,prenom_influenceur=:prenom_influenceur,photo_influenceur=:photo_influenceur where id=:id";
+            $sql="UPDATE influenceur SET historique_influenceur=:historique_influenceur,nom_influenceur=:nom_influenceur,prenom_influenceur=:prenom_influenceur,photo_influenceur=:photo_influenceur WHERE id=:id";
             $db=config::getConnexion();
-            $query=$db->prepare($sql); 
+            $query=$db->prepare($sql);
             $query->execute([
             'id'=>$id,
-            'historique_influenceur'=>$influenceur->getHistoriqueType(),
-            'nom_influenceurm_inf'=>$influenceur->getNomType(),
-            'prenom_influenceurm_inf'=>$influenceur->getPrenomType(),
-            'photo_influenceur'=>$influenceur->getPhotoType(),
+            'historique_influenceur'=>$Type->getHistoriqueType(),
+            'nom_influenceur'=>$Type->getNomType(),
+            'prenom_influenceur'=>$Type->getPrenomType(),
+            'photo_influenceur'=>$Type->getPhotoType()
             ]);
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
@@ -90,9 +95,9 @@ class InfluC {
         }
     }
 
-    public function chercherInfluenceur($nom_influenceur) {
+    public function chercherTypeInst($nom_influenceur) {
         $sql="SELECT * FROM influenceur where nom_influenceur='$nom_influenceur'";
-        $db=Config::getConnexion();
+        $db=config::getConnexion();
         try{
         $liste = $db->query($sql);
         return $liste;
@@ -101,6 +106,18 @@ class InfluC {
             $e->getMessage();
         }
     } 
+
+    function rechercherType($str){
+        $sql="SELECT * FROM influenceur where nom_influenceur like '".$str."%' or prenom_influenceur like '".$str."%' or id like '".$str."%' ";
+        $db = config::getConnexion();
+        try{
+            $liste=$db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            return $e->getMessage();
+        }
+    }
 
 
 }

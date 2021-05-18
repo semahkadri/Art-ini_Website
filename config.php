@@ -1,26 +1,13 @@
 <?php
 
-//Etablissement de la connexion avec la base de données
+$sname= "localhost";
+$unmae= "root";
+$password = "";
 
-class Config {
-    private static $pdo = NULL;
+$db_name = "artini";
 
-    public static function getConnexion()
-    {
-        if (!isset(self::$pdo)) {
-            try {
-                self::$pdo = new PDO('mysql:host=localhost;dbname=artini', 'root', '',
-                    [
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                    ]);
-                          
-            } catch (Exception $e) {
-                die('Erreur: ' . $e->getMessage());
-            }
-        }
-        return self::$pdo;
-    }
+$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
 }
-
-?>

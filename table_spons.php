@@ -1,18 +1,21 @@
 <?php 
-   require_once 'C:/xampp/htdocs/ilyes/Controller/TypeCC.php';
-    require_once 'C:/xampp/htdocs/ilyes/Model/Typee.php';
+  require_once '../../Controller/sponsC.php';
+  require_once '../../Model/spons.php';
 
-    $tp1= new TypeC();
-    $liste=$tp1->afficherType();
+  
 
 
-  $tp2= new TypeC();
+  $tp2= new SponsC();
   if(!isset($_POST['str'])){
       $liste = $tp2->afficherType();
   }
   else{
       $liste = $tp2->rechercherType($_POST['str']);
   }
+
+
+
+
 
   foreach ($liste as $t) {
     ?>
@@ -21,7 +24,7 @@
 
     <td>  <?php echo $t['historique_sponsor'] ?>  </td>
     <td>  <?php echo $t['nom_sponsor'] ?>  </td>
-    <td><img src="<?php  echo $t['photo_sponsor']?>" width="50" height="50" ></td>
+    <td><img src="assets/<?php  echo $t['photo_sponsor']?>" width="50" height="50" ></td>
     <td>
       <a href="update_spons.php?id=<?php echo $t['id']?>"> Modifier </a>
     </td>
