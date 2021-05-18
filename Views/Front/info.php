@@ -38,6 +38,7 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
     <!-- swiper-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    
     <!-- Magnigic Popup-->
     <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
     <!-- theme stylesheet--> 
@@ -175,6 +176,9 @@ session_start();
     <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
     <!-- JavaScript files-->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
+
     <script>
       // ------------------------------------------------------- //
       //   Inject SVG Sprite - 
@@ -198,7 +202,7 @@ session_start();
       // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
       //- injectSvgSprite('${path}icons/orion-svg-sprite.svg'); 
       injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg'); 
-      
+
     </script>
     <!-- jQuery-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>

@@ -12,9 +12,10 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Art-ini</title>
+    <title>Chercher catégorie</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -28,12 +29,12 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <!-- Magnigic Popup-->
     <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
-    <!-- theme stylesheet--> 
+    <!-- theme stylesheet-->
     <link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="Assets/img/mostache.png">
+    <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -44,13 +45,14 @@ session_start();
   <?php include_once 'include/header-1.php'; ?>
 
 
+
     
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="assets/img/instagram/3.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
-          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Welcome to artini</h3>
+          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Binevenu chez Artini</h3>
           <br>
           <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
             <form action="ResRecherche.php" method="POST">
@@ -76,7 +78,7 @@ session_start();
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit"> Search </button>
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit"> Rechercher </button>
 
                 </div>
               </div>
@@ -94,17 +96,15 @@ session_start();
               
     <?php
       if (isset($_POST['nom_categorie'])) {
-        //var_dump($_POST['searchInf']);
         $inf2=new TypeC();
         if ($liste2=$inf2->chercherTypeInst($_POST['nom_categorie'])) {
-        //echo "done";
    ?>
 
     <?php
       foreach ($liste2 as $elt) {
     ?>
         <div class="container">
-          <h6 class="subtitle text-center text-primary mb-5">Search Results</h6>
+          <h6 class="subtitle text-center text-primary mb-5">Résultats de recherche</h6>
           
           <div class="row mb-7">
 
@@ -112,10 +112,9 @@ session_start();
           <br>
             <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
               <div class="card border-0 hover-animate bg-transparent">
-                <a class="position-relative" href="shop.php?id_inf=<?php echo $elt['nom_categorie'] ?>">
+                <a class="position-relative" href="shopp.php?id=<?php echo $elt['id'] ?>">
 
                   <img class="card-img-top team-img" src="assets/<?php echo $elt['photo_categorie'] ?>" alt=""/> 
-                  <!-- <p> hiiii </p>  --> 
                   <div class="team-circle bg-secondary-light"></div>
                 </a>
                   <div class="card-body team-body text-center">
@@ -129,28 +128,26 @@ session_start();
 
         </div>
   <?php
-        } // foreach
+        } 
 
-      } // récupère l'influenceur recherché de la base
+      } 
       else {
       ?>
 
         <h1 class="hero-heading mb-4">Error 404</h1>
-        <p class="text-muted mb-5">Oops, looks like the categorie you're searching for doesn't exist.</p>
+        <p class="text-muted mb-5">Oups, il semble que la catégorie que vous recherchez n'existe pas.</p>
         <p class="mb-6"> <img class="img-fluid" src="img/illustration/undraw_trip_dv9f.svg" alt="" style="width: 400px;"></p>
     <?php
       }
     }// isset              
     ?>
 
-            
-
-
-   
+            </section>
     
     <!-- Footer-->
-    <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //
@@ -193,6 +190,6 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
-    <script src="assets/js/theme.js"></script>
+    <script src="js/theme.js"></script>
   </body>
 </html>

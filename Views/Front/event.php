@@ -139,6 +139,8 @@ session_start ();
     <!-- Footer-->
     <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

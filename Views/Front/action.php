@@ -100,14 +100,14 @@
 	  $stmt2 = $conn->prepare('DELETE FROM cart');
 	  $stmt2->execute();
 	  $data .= '<div class="text-center">
-								<h1 class="display-4 mt-2 text-danger">Merci pour votre confiance!</h1>
-								<h2 class="text-success">Votre commande a été passée avec succès!</h2>
-								<h4 class="bg-danger text-light rounded p-2">Articles achetés : ' . $products . '</h4>
-								<h4>Your Name : ' . $name . '</h4>
-								<h4>Your E-mail : ' . $email . '</h4>
-								<h4>Your Phone : ' . $phone . '</h4>
-								<h4>Total Amount Paid : ' . number_format($grand_total,2) . '</h4>
-								<h4>Payment Mode : ' . $pmode . '</h4>
+								<h4 class="display-4 mt-2 text-info">Merci pour votre confiance <i class="fab fa-angellist"></i></i></h4>
+								<h4 class="text-secondary">Votre commande a été passée avec succès <i class="fas fa-check-circle"></i></h4>
+								<h4 style="background-color:tomato; text-white">Articles achetés : ' . $products . '</h4>
+								</br>
+								<h5 style="color:SlateBlue;">Nom : ' . $name . '</h5>
+								<h5 style="color:SlateBlue;">E-mail : ' . $email . '</h5>
+								<h5 style="color:SlateBlue;">N° téléphone : ' . $phone . '</h5>
+								<h5 style="color:SlateBlue;">Montant total payé : ' . number_format($grand_total,2) . ' TND</h5>
 						  </div>';
 	  echo $data;
 	  $carteC =  new carteC();

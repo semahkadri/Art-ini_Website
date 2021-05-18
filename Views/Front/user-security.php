@@ -126,6 +126,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
     </section>
     <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
+    
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

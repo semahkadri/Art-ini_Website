@@ -102,7 +102,7 @@ $numComments = $sqlNumComments->num_rows;
 
         .user {
             font-weight: bold;
-            color: black;
+            color: #12AABD ;
         }
 
         .time, .reply {
@@ -110,7 +110,7 @@ $numComments = $sqlNumComments->num_rows;
         }
 
         .userComment {
-            color: #000;
+            color: #FF5733  ;
         }
 
         .replies .comment {
@@ -126,13 +126,14 @@ $numComments = $sqlNumComments->num_rows;
             margin-top: 10px;
         }
     </style>
-   <?php include_once 'include/header-1.php'; ?>
+   
 </head>
-<br>
-<br>
+</br></br></br>
+
+
 <body>
 
-
+<?php include_once 'include/header-1.php'; ?>
 
 
 <div class="container" style="margin-top:50px;">
@@ -285,6 +286,9 @@ $numComments = $sqlNumComments->num_rows;
         });
     }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh1.js"></script>
 <script>
       // ------------------------------------------------------- //
       //   Inject SVG Sprite - 

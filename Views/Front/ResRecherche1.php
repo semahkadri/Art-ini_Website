@@ -18,7 +18,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Artini</title>
+    <title>Chercher influenceur</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -37,7 +37,7 @@ session_start();
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="Assets/img/mostache.png">
+    <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -49,7 +49,7 @@ session_start();
   
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="assets/img/photo/dj_music_disco_185378_3840x2160.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="assets/img/photo/118987935_2695336344115044_7281061669854805936_n.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
           <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Qui sont nos influenceurs ?</h3>
@@ -250,6 +250,8 @@ session_start();
     <!-- Footer-->
     <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

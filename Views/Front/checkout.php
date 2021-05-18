@@ -42,6 +42,7 @@ session_start();
     <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  
 </head>
 
 <body>
@@ -50,11 +51,13 @@ session_start();
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6 px-4 pb-4" id="order">
-        <h4 class="text-center text-info p-2">Complétez votre commande!</h4>
+        <h4 class="text-center text-info p-2">Complétez votre commande <i class="fas fa-store"></i></h4>
         <div class="jumbotron p-3 mb-2 text-center">
-          <h6 class="lead"><b>Des produit(s) : </b><?= $allItems; ?></h6>
-          <h6 class="lead"><b>Frais de livraison : </b>Gratuit</h6>
-          <h5><b>Montant total a payer : </b><?= number_format($grand_total,2) ?>/-</h5>
+          <h6 class="text-left">    <b>Les produit(s) : &nbsp;&nbsp;&nbsp;</b><?= $allItems; ?></h6>
+          <h6 class="text-left">    <b>Montant total : &nbsp;&nbsp;&nbsp;</b><?= number_format($grand_total,2) ?>  TND</h5>
+          <br>
+          <h6 style="background: #ffe7e8; border: 2px solid #e66465;"><b>Frais de livraison : </b>Gratuit   <i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></h6>
+
         </div>
         <form action="" method="post" id="placeOrder">
           <input type="hidden" name="products" value="<?= $allItems; ?>">
@@ -124,7 +127,14 @@ session_start();
     }
   });
   </script>
+
+
+
+
+  
   <?php include_once 'include/footer.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
         // ------------------------------------------------------- //

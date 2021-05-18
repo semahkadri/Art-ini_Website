@@ -57,6 +57,7 @@ if (isset($_POST['id']) && isset($_POST['password']) && isset($_POST['date']) &&
 	$image =$_POST['image'];
 	$captcha=$_POST['captcha_challenge'];
 
+
 	$user_data = 'id='. $id. '&name='. $name;
 
 

@@ -43,9 +43,9 @@ $prod=new productsC;
     <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
   </head>
   <body style="padding-top: 72px;">
-  <header class="header">
+ 
   <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-41baaf6b-e479-4628-98c8-02aef69c71c6"></div>
+
       <!-- Navbar-->
       <?php include_once 'include/header-1.php'; ?>
     <section class="py-5">
@@ -101,6 +101,9 @@ $prod=new productsC;
     </section>
     <!-- Footer-->
     <?php include_once 'include/footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

@@ -48,7 +48,7 @@
             <img src="assets/<?= $row['img_prod'] ?>" class="card-img-top" height="250">
             <div class="card-body p-1">
               <h4 class="card-title text-center text-info"><?= $row['nom_prod'] ?></h4>
-              <h5 class="card-text text-center text-danger"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['prix_prod'],2) ?>/-</h5>
+              <h5 class="card-text text-center text-danger">&nbsp;&nbsp;<?= number_format($row['prix_prod'],2) ?> <sup>TND</sup></h5>
 
             </div>
             <div class="card-footer p-1">
@@ -61,7 +61,7 @@
                     <input type="number" class="form-control pqty" value="<?= $row['quantite'] ?>">
                   </div>
                 </div>
-                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
+                <input type="hidden" class="pid" value="<?= $row['id_prod'] ?>">
                 <input type="hidden" class="pname" value="<?= $row['nom_prod'] ?>">
                 <input type="hidden" class="pprice" value="<?= $row['prix_prod'] ?>">
                 <input type="hidden" class="pimage" value="<?= $row['img_prod'] ?>">
@@ -75,6 +75,7 @@
       <?php endwhile; ?>
     </div>
   </div>
+  
   <!-- Displaying Products End -->
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -117,7 +118,7 @@ if (pqty>0)
     }
     else
 		{
-			alert("lease Enter Number of Quantity");
+			alert("Entrez une quantité valide");
 		}
     });
 
@@ -140,6 +141,8 @@ if (pqty>0)
   </script>
   <!-- Footer-->
   <?php include_once 'include/footer.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //

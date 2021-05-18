@@ -59,9 +59,9 @@
                 <th>ID</th>
                 <th>Image</th>
                 <th>Produit</th>
-                <th>Prix</th>
+                <th>Prix<sup>(TND)</sup></th>
                 <th>Quantité</th>
-                <th>Prix total</th>
+                <th>Prix total<sup>(TND)</sup></th>
                 <th>
                   <a href="action.php?clear=all" class="badge-danger badge p-1" onclick="return confirm('Voulez-vous vraiment vider votre panier?');"><i class="fas fa-trash"></i>&nbsp;&nbsp;Vider la panier</a>
                 </th>
@@ -82,13 +82,13 @@
                 <td><img src="assets/<?= $row['product_image'] ?>" width="50"></td>
                 <td><?= $row['product_name'] ?></td>
                 <td>
-                  <i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['product_price'],2); ?>
+               &nbsp;&nbsp;<?= number_format($row['product_price'],2); ?>
                 </td>
                 <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
                 <td>
                   <input type="number" class="form-control itemQty" value="<?= $row['qty'] ?>" style="width:75px;">
                 </td>
-                <td><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
+                <td><i class="fas fa-coins"></i>&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
                 <td>
                   <a href="action.php?remove=<?= $row['id'] ?>" class="text-danger lead" onclick="return confirm('Voulez-vous vraiment supprimer cet élément?');"><i class="fas fa-trash-alt"></i></a>
                 </td>
@@ -101,9 +101,9 @@
                     votre shopping </a>
                 </td>
                 <td colspan="2"><b>Grand Total</b></td>
-                <td><b><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total,2); ?></b></td>
+                <td><b><i class="fas fa-coins"></i>&nbsp;&nbsp;<?= number_format($grand_total,2); ?></b></td>
                 <td>
-                  <a href="checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Valider</a>
+                  <a href="master-card.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Valider</a>
                 </td>
               </tr>
             </tbody>
@@ -160,6 +160,8 @@
   });
   </script>
   <?php include_once 'include/footer.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="assets/js/sh.js"></script>
     <!-- JavaScript files-->
     <script>
         // ------------------------------------------------------- //

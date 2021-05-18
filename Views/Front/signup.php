@@ -103,12 +103,13 @@
                 <label class="form-label" for="re_password"> Confirmer votre mot de passe</label>
                 <input class="form-control" name="re_password" id="re_password" placeholder="Mot de passe" type="password">
               </div>
-               <div class="form-group mb-4">
+              <div class="form-group mb-4">
               <label for="captcha">Veuillez saisir le texte du captcha</label> <br>
 									    <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="material-icons"></i>
 									    <input type="text" id="captcha" name="captcha_challenge">
               </div>
 
+              
               <button class="btn btn-lg btn-block btn-primary" type="submit">S'inscrire</button>
               <!--<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
               <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
@@ -127,6 +128,7 @@
         </div>
       </div>
     </div>
+    
     <!-- JavaScript files-->
     <script>
       // ------------------------------------------------------- //
