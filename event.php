@@ -1,20 +1,28 @@
-<?php
+<?php 
 
-session_start();
+session_start (); 
 
-    require_once '../../Controller/TypeC.php';
-    require_once '../../Model/Type.php';
-  
-    $tp1= new TypeC();
-    $listetp=$tp1->afficherType();
+  include_once '../../Controller/Type3C.php';
+  include_once '../../Model/Type3.php';
+
+  $inf1= new eventC();
+  $liste=$inf1->afficherType();
+
+  $inf2= new eventC();
+  $liste2=$inf2->afficherType();
+
+
+  $tp1= new eventC();
+  $listetp=$tp1->afficherType();
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Art-ini</title>
+    <title>Evenements</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -28,55 +36,61 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <!-- Magnigic Popup-->
     <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
-    <!-- theme stylesheet--> 
+    <!-- theme stylesheet-->
     <link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="Assets/img/mostache.png">
+    <link rel="shortcut icon" href="assets/img/mostache.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>(function(w, d) { w.CollectId = "6086bfcb34b8b76f099eff1a"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+ 
   </head>
   <body style="padding-top: 72px;">
   <?php include_once 'include/header-1.php'; ?>
 
-
-    
     
     <!-- Hero Section-->
-    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="img/photo/photo-1497436072909-60f360e1d4b1.jpg" alt="">
+    <section class="py-7 position-relative dark-overlay"><img class="bg-image" src="Assets\img\instagram\event.jpg" alt="">
       <div class="container">
         <div class="overlay-content text-white py-lg-5">
-          <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Welcome to artini</h3>
+       
           <br>
           <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
-            <form action="ResRecherche.php" method="POST">
+            <form action="ResRecherche2.php" method="POST">
               <div class="row">
                 <div class="col-lg-4 d-flex align-items-center form-group">
                   <!-- INPUT RECHERCHE -->
-                 <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Tu cherches quoi?">
+                  <input class="form-control border-0 shadow-0" type="text" name="searchInf" placeholder="Quel événement recherchez-vous?">
+                
                 </div>
                 <div class="col-lg-3 d-flex align-items-center form-group no-divider">
-                <select class="selectpicker" title="Type du produit" name="nom_categorie" id="nom_categorie" >
 
-                  <?php 
-                    foreach($listetp as $t) {
-                  ?>
                   
-                  <option>  <?php echo $t['nom_categorie'] ?>  </option>
+
+                  <select class="selectpicker" title="Evenement" name="nom_type" id="nom_type" >
+
+                    <?php
+                      foreach($listetp as $t) {
+                    ?>
+
+                    <option >  <?php echo $t['nom'] ?>  </option>
                     
-                  <?php
-                    }
-                  ?>
-                </select>
+                    <?php
+                      }
+                    ?>
+                  </select>
+
                 </div>
                 <div class="col-lg-2">
                   <!-- BOUTON RECHERCHE -->
 
-                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit"> Search </button>
+                  <button class="btn btn-primary btn-block rounded-xl h-100" type="submit" > Chercher </button> 
 
                 </div>
               </div>
@@ -87,66 +101,40 @@ session_start();
       </div>
     </section>
 
-    
 
     <section class="pt-6 pb-4">
-
-              
-    <?php
-      if (isset($_POST['nom_categorie'])) {
-        //var_dump($_POST['searchInf']);
-        $inf2=new TypeC();
-        if ($liste2=$inf2->chercherTypeInst($_POST['nom_categorie'])) {
-        //echo "done";
-   ?>
-
-    <?php
-      foreach ($liste2 as $elt) {
-    ?>
-        <div class="container">
-          <h6 class="subtitle text-center text-primary mb-5">Search Results</h6>
-          
-          <div class="row mb-7">
-
-          
-          <br>
-            <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-              <div class="card border-0 hover-animate bg-transparent">
-                <a class="position-relative" href="shop.php?id_inf=<?php echo $elt['nom_categorie'] ?>">
-
-                  <img class="card-img-top team-img" src="assets/<?php echo $elt['photo_categorie'] ?>" alt=""/> 
-                  <!-- <p> hiiii </p>  --> 
-                  <div class="team-circle bg-secondary-light"></div>
-                </a>
-                  <div class="card-body team-body text-center">
-                    <h6 class="card-title"> <?php echo $elt['nom_categorie'] ?> </h6>
-                    <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $elt['historique_categorie'] ?>    </p>
-                  </div>
+    
+      <div class="container">
+        <h6 class="subtitle text-center text-primary mb-5">Evenements</h6>
+        
+        <div class="row mb-7">
+          <?php
+            foreach($liste as $i) {
+          ?>
+          <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
+            <div class="card border-0 hover-animate bg-transparent"><a class="position-relative" href="promo.php?id_inf=<?php echo $i['id'] ?>"><img class="card-img-top team-img" src="assets/<?php  echo $i['photo']?>" alt=""/>
+                <div class="team-circle bg-secondary-light"></div></a>
+              <div class="card-body team-body text-center">
+                <h6 class="card-title"> <?php echo $i['nom'] ?> </h6>
+                <p class="card-subtitle text-muted text-xs text-uppercase">directed by </p>
+                <h6 class="card-title"> <?php echo $i['directeur'] ?> </h6>
+                <p class="card-subtitle text-muted text-xs text-uppercase"><?php echo $i['prix_event'] ?> dinars    </p>
               </div>
             </div>
-         
-            
-
+          </div>
+        
+          <?php
+          }
+          ?>  
+          
         </div>
-  <?php
-        } // foreach
-
-      } // récupère l'influenceur recherché de la base
-      else {
-      ?>
-
-        <h1 class="hero-heading mb-4">Error 404</h1>
-        <p class="text-muted mb-5">Oops, looks like the categorie you're searching for doesn't exist.</p>
-        <p class="mb-6"> <img class="img-fluid" src="img/illustration/undraw_trip_dv9f.svg" alt="" style="width: 400px;"></p>
-    <?php
-      }
-    }// isset              
-    ?>
-
-            
+      </div>
 
 
+    </section>
    
+
+    
     
     <!-- Footer-->
     <!-- Footer-->
@@ -193,6 +181,6 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
-    <script src="assets/js/theme.js"></script>
+    <script src="js/theme.js"></script>
   </body>
 </html>

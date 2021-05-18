@@ -1,10 +1,10 @@
 <?php
-include_once 'C:\xampp\htdocs\mehdi\config.php';
+include_once "configg.php";
 
 class TypeC {
     
     public function afficherType() {
-        $sql="SELECT * FROM evenement";
+        $sql="SELECT * FROM categorie";
         $db=Config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -16,7 +16,7 @@ class TypeC {
     }
 
     public function chercheridTypeInst($id) {
-        $sql="SELECT * FROM evenement where id=:id";
+        $sql="SELECT * FROM categorie where id=:id";
         $db=Config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -30,15 +30,14 @@ class TypeC {
     }
 
      public function ajouterTypeInst($Type) {
-        $sql = "INSERT INTO evenement (desc_eve,nom,directeur,photo) values (:desc_eve,:nom,:directeur,:photo)" ;
+        $sql = "INSERT INTO categorie (historique_categorie,nom_categorie,photo_categorie) values (:historique_categorie,:nom_categorie,:photo_categorie)" ;
         try{
         $db = config::getConnexion();
         $query = $db->prepare($sql);
         $query->execute([
-            'desc_eve'=>$Type->getdesceveType(),
-            'nom'=>$Type->getNomType(),
-            'directeur'=>$Type->getdirecteurType(),
-            'photo'=>$Type->getPhotoType()
+            'historique_categorie'=>$Type->getHistoriqueType(),
+            'nom_categorie'=>$Type->getNomType(),
+            'photo_categorie'=>$Type->getPhotoType()
 
         ]);
         }
@@ -50,7 +49,7 @@ class TypeC {
      public function supprimerTypeInst($id) {
         try {
             $db=config::getConnexion();
-            $query=$db->prepare("DELETE FROM evenement WHERE id=:id");
+            $query=$db->prepare("DELETE FROM categorie WHERE id=:id");
             $query->execute(['id'=>$id]);
         }
         catch (PDOException $e) {
@@ -60,15 +59,14 @@ class TypeC {
 
      public function modifierTypeInst($Type,$id) {
         try {
-            $sql="UPDATE evenement SET desc_eve=:desc_eve,nom=:nom,directeur=:directeur,photo=:photo WHERE id=:id";
+            $sql="UPDATE categorie SET historique_categorie=:historique_categorie,nom_categorie=:nom_categorie,photo_categorie=:photo_categorie WHERE id=:id";
             $db=config::getConnexion();
             $query=$db->prepare($sql);
             $query->execute([
             'id'=>$id,
-            'desc_eve'=>$Type->getdesceveType(),
-            'nom'=>$Type->getNomType(),
-            'directeur'=>$Type->getdirecteurType(),
-            'photo'=>$Type->getPhotoType()
+            'historique_categorie'=>$Type->getHistoriqueType(),
+            'nom_categorie'=>$Type->getNomType(),
+            'photo_categorie'=>$Type->getPhotoType()
             ]);
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
@@ -76,8 +74,8 @@ class TypeC {
         }
     }
 
-    public function chercherTypeInst($nom) {
-        $sql="SELECT * FROM evenement where nom='$nom'";
+    public function chercherTypeInst($nom_categorie) {
+        $sql="SELECT * FROM categorie where nom_categorie='$nom_categorie'";
         $db=Config::getConnexion();
         try{
         $liste = $db->query($sql);
@@ -89,7 +87,7 @@ class TypeC {
     } 
 
     function rechercherType($str){
-        $sql="SELECT * FROM evenement where nom like '".$str."%' or directeur like '".$str."%' or id like '".$str."%' ";
+        $sql="SELECT * FROM categorie where nom_categorie like '".$str."%' or id like '".$str."%' ";
         $db = config::getConnexion();
         try{
             $liste=$db->query($sql);
@@ -99,6 +97,31 @@ class TypeC {
             return $e->getMessage();
         }
     }
+    public function chercherid($id) {
+        $sql="SELECT * FROM categorie where id=:id";
+        $db=Config::getConnexion();
+        try{
+            $query=$db->prepare($sql);
+        $query->execute(['id' =>$id ]);
+        $liste=$query->fetch();
+        return $liste;
+        } 
+        catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function chercherType($nom_categorie) {
+        $sql="SELECT * FROM categorie where nom_categorie='$nom_categorie'";
+        $db=Config::getConnexion();
+        try{
+        $liste = $db->query($sql);
+        return $liste;
+        } 
+        catch (PDOException $e) {
+            $e->getMessage();
+        }
+    } 
 
 
 }
