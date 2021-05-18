@@ -129,14 +129,14 @@ session_start();
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage Catégorie</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage influenceur</h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">Catégorie  </li>
+            <li class="breadcrumb-item active">Influenceur  </li>
           </ul>
         </div>
         <section class="no-padding-top">
@@ -151,26 +151,26 @@ session_start();
               
               <!-- Horizontal Form-->
                 <div class="block">
-                  <div class="title"><strong class="d-block">Modifier catégorie</strong><span class="d-block">Modifier la catégorie de ton produit</span></div>
+                  <div class="title"><strong class="d-block">Modifier influenceur</strong><span class="d-block">Modifier l'influenceur de ton produit</span></div>
                   <div class="block-body">
                     <form name ="f" class="form-horizontal" method="POST">
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Nom catétgrie</label>
+                          <label class="col-sm-3 form-control-label">Nom influenceur</label>
                           <div class="col-sm-9">
                             <input type="text" name="nom_influenceur" id="nom_influenceur" minlength="4" value="<?= $i['nom_influenceur'] ?>" class="form-control form-control-success" ><small class="form-text">Set free your imagination !</small>
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">prenom catétgrie</label>
+                          <label class="col-sm-3 form-control-label">prenom influenceur</label>
                           <div class="col-sm-9">
                             <input type="text" name="prenom_influenceur" id="prenom_influenceur" minlength="4" value="<?= $i['prenom_influenceur'] ?>" class="form-control form-control-success" ><small class="form-text">Set free your imagination !</small>
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Historique du catégorie</label>
+                          <label class="col-sm-3 form-control-label">Historique de l'influenceur</label>
                           <div class="col-sm-9">
                             <input type="text" name="historique_influenceur" id="historique_influenceur" minlength="10" value="<?= $i['historique_influenceur'] ?>" class="form-control form-control-success" ><small class="form-text">Allez racontez nous l'historique!</small>
                           </div>
@@ -178,7 +178,7 @@ session_start();
 
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Photo du catégorie</label>
+                          <label class="col-sm-3 form-control-label">Photo de l'influenceur</label>
                           <div class="col-sm-9">
                           <div class="form-group">
                             <div class="input-group">
@@ -201,7 +201,7 @@ session_start();
                           <div id="id" class="modal">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                               <form method="POST" action="influ.php">
-                                <strong>C'est bien !</strong> Tu as modifier la catégorie <?PHP echo $i['nom_influenceur']?>
+                                <strong>C'est bien !</strong> Tu as modifier l'influenceur<?PHP echo $i['nom_influenceur']?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

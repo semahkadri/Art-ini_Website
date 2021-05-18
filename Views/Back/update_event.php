@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
   <head> 
-  <script src="assets/javascript.js">    </script>
+  <script src="assets/javascript3.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Modifier évènement</title>

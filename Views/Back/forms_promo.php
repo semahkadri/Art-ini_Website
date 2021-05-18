@@ -63,9 +63,10 @@ $result=$db->query('select * from evenement ');
 <!DOCTYPE html>
 <html>
 <head>
+<script src="assets/javascript4.js">    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Ajout promotion</title>
+    <title>Ajout event</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -84,8 +85,46 @@ $result=$db->query('select * from evenement ');
     <!-- Favicon-->
     <link rel="shortcut icon" href="assets/img/JD&Co3.png">
     <link rel="shortcut icon" href="assets/img/mostache.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <style>
+        .form-control {
+            height: calc(2.4rem + 2px);
+            border: 1px solid #444951;
+            background: transparent;
+            border-radius: 0;
+            color: #979a9f;
+            padding: 0.45rem 0.75rem;
+        }
+        
+        input.form-control:valid {
+            border: 1px solid #0a0;
+        }
+        
+        input.form-control:invalid {
+            border: 1px solid #a00;
+        }
+        
+        input.form-control:valid+span:before {
+            content: "\f00c";
+            font-family: "FontAwesome";
+            color: #0a0;
+            font-size: 1.5em;
+        }
+        
+        input.form-control:invalid+span:before {
+            content: "\f00d";
+            font-family: "FontAwesome";
+            color: #a00;
+            font-size: 1.5em;
+        }
+    </style>
+
+</head>
 <body>
 <?php include_once 'include/header.php'; ?>
     <div class="d-flex align-items-stretch">
@@ -158,30 +197,30 @@ $result=$db->query('select * from evenement ');
                                 <div class="table-responsive">
                                     <div class="card-header">
                                         <i class="fas fa-table"></i> Ajouter une nouvelle promotion
-                                    <form id="myForm" action="" method="POST">
+                                    <form name="f" id="myForm" action="" method="POST">
                                  
                                         <div>
                                         </br>
                                         <label style="font-weight: bold"> description promo </label>
                                        
-                                        <input type="text" class="form-control" name="desc_pro" placeholder="descrption promotion" style="width:350px" > 
+                                        <input type="text" class="form-control" name="desc_pro" placeholder="descrption promotion" minlength="10" style="width:350px" > 
                                       
                                          </div>
                                          <div>
                                         <label style="font-weight: bold"> nom </label>      
                                                          
-                                        <input type="text" class="form-control" name="nom" placeholder="Nom" style="width:350px" > 
+                                        <input type="text" class="form-control" name="nom" placeholder="Nom" minlength="3" style="width:350px" > 
                                         </div>
                                       <div>
                                         <label style="font-weight: bold"> valeur </label>      
                                                                    
-                                        <input type="valeur" class="form-control" name="valeur" placeholder="Valeur de promotion" style="width:350px" >   
+                                        <input type="valeur" class="form-control" name="valeur" placeholder="Valeur de promotion" minlength="1" style="width:350px" >   
                                        
                </div>               
                <div>
                                         <label style="font-weight: bold"> prix de promotion </label>      
                                                                    
-                                        <input type="PA_Promo" class="form-control" name="PA_Promo"  placeholder="Prix de promotion" style="width:350px" > 
+                                        <input type="PA_Promo" class="form-control" name="PA_Promo"  placeholder="Prix de promotion" minlength="1" style="width:350px" > 
                </div>                
                                             <div>
                                         <label style="font-weight: bold"> Identifiant du evenement  </label>     
@@ -194,7 +233,7 @@ $result=$db->query('select * from evenement ');
           </div>     
           <div>
           </br>
-                                        <button class="btn btn-light btn-xs" type="submit" value="Valider" name="Valider">  Enregister </button>
+                                        <button class="btn btn-light btn-xs" onclick=" fonction();document.getElementById('id').style.display='block'" value="Enregistrer" type="submit" value="Valider" name="Valider">  Enregister </button>
                                         <button type="reset" value="Annuler" class="btn btn-info btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
                                         
 </div>
@@ -229,4 +268,3 @@ $result=$db->query('select * from evenement ');
 </body>
 
 </html>
-

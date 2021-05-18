@@ -55,7 +55,7 @@ $result=$db->query('SELECT * from categorie');
             $product = new product($nom_prod,$prix_prod,$img_prod,$id_categorie);
             $productsC->ajouterproducts($product);
 
-            $resultmail=$db->query('select * from users ');
+         /*   $resultmail=$db->query('select * from users ');
 foreach($resultmail as $row){
         $s=$row['email'];
 $mailto = $s;
@@ -75,7 +75,7 @@ $mailto = $s;
    $mail ->Subject = $mailSub;
    $mail ->Body = $mailMsg;
    $mail ->AddAddress($mailto);
-   $mail->Send();
+   $mail->Send();*/
 }
         
             
@@ -83,7 +83,7 @@ $mailto = $s;
         header('Location: ajouterP.php?success=Ajout fait avec succès"');
         }
         
-    }
+    //}
 
     
 
@@ -288,7 +288,7 @@ $mailto = $s;
          
                 <div>
                 <label style="font-weight: bold"> Nom du produit </label> 
-                <?php if (isset($_GET['nom_prod'])) { ?>
+                <?php if (isset($_GET['nom_categorie'])) { ?>
                 <input type="text" class="form-control form-control-success" name="nom_prod" placeholder="Nom du produit" value="<?php echo $_GET['nom_prod']; ?>" style="width:500px"> </br>
                 <?php }else{ ?>
                 <input  class="form-control" type="text" style="width:500px"

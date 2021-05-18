@@ -266,14 +266,14 @@ session_start();
                                             <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Nom</label>
                                             <div class="col-sm-9">
-                                                <input type="text" onkeypress="verifierCaracteres(event); return false;" onblur="verifReff(this)" name="nom_categorie" id="nom_categorie" placeholder="Categorie nom" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" onkeypress="verifierCaracteres(event); return false;" onblur="verifReff(this)" name="nom_categorie" id="nom_categorie" placeholder="Categorie nom" style="width:350px" class="form-control form-control-success"><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Historique</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="historique_categorie" onblur="verifReff(this)" id="historique_categorie" placeholder="Categorie hisorique" style="width:350px" class="form-control form-control-success" required><small class="form-text">Art-ini </small>
+                                                <input type="text" name="historique_categorie" onblur="verifReff(this)" id="historique_categorie" placeholder="Categorie hisorique" style="width:350px" class="form-control form-control-success"><small class="form-text">Art-ini </small>
                                             </div>
                                         </div>
 
@@ -283,44 +283,15 @@ session_start();
                                                 <div class="form-group">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <input type="file" class="btn btn-primary" name="photo_categorie" id="photo_categorie" required></input>
+                                                            <input type="file" class="btn btn-primary" name="photo_categorie" id="photo_categorie"></input>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                         
-                                        <div class="form-group row">
-                                            <div class="col-sm-9 offset-sm-3">
-                                            <button type="reset" value="Annuler" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
-
-                                                <input type="button" onclick="document.getElementById('id').style.display='block'" value="Enregistrer" name="Submit" class="btn btn-success">
-
-                                                <div id="id" class="modal">
-                                                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                                       <form method="POST" action="formType.php">
-                                                       <strong> Succés</strong> Tu as ajouté une catégorie.
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                                                            <div class="clearfix ">
-                                                                <input type="submit" onclick="document.getElementById('id').style.display='none'" class="btn-primary" value="Passer">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-
-                                                <script>
-                                                    var modal = document.getElementById('id')
-                                                    window.onclick = function(event) {
-                                                        if (event.target == modal) {
-                                                            modal.style.display = "none";
-                                                        }
-                                                    }
-                                                </script>
-
-                                            </div>
-                                        </div>
+                                        <button class="btn btn-success" type="submit" value="Valider" name="Valider">  Enregister </button>
+                                        <button type="reset" value="Annuler" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Annuler </button>
                                     </form>
                                 </div>
                             </div>

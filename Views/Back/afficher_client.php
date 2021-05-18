@@ -211,6 +211,7 @@ session_start();
                                     <th>Adresse </th>
                                     <th>Numero de téléphone</th>
                                     <th>Date de naissance</th>
+                                    <th>Etat</th>
                                 </tr>
                             </thead>
 
@@ -222,12 +223,13 @@ session_start();
 
                                        
                             <td>  <?php echo $row['id']; ?></td>
-                            <td> <?php echo $row['login']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
+                            <td> <?php echo $row['name']; ?></td>
+                            <td><?php echo $row['login']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['adress']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
                             <td><?php echo $row['birthday']; ?></td>
+                            <td><?php echo $row['etat']; ?></td>
                         <td>  
                         <a href="afficher_client.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger btn-xs"><i class ="fa fa-trash-o"> </i> Supprimer</a>
 </tr>

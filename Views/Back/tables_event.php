@@ -119,15 +119,15 @@
           <div class="container">
                   <div class="title"><strong>Liste des évenèments</strong></div>
 
-
-
+                  <button  class="btn btn-info mr-2" onclick="window.print()" style="position: relative; left: 750px "><i class="fa fa-print" aria-hidden="true"></i></i> Imprimer</button>
+                  </br> </br>
                   </br>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <button type="button" class="btn btn-primary" >Chercher</button>
                       </div>
-                      <input type="text" id="rech" class="form-control" placeholder="Chercher une catégorie">
+                      <input type="text" id="rech" class="form-control" placeholder="Chercher un événement">
                     </div>
 
 

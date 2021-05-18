@@ -132,14 +132,14 @@
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
                 <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Affichage evenement</h2>
+                    <h2 class="h5 no-margin-bottom">Affichage promotion</h2>
                 </div>
             </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active">evenement  </li>
+            <li class="breadcrumb-item active">Promotions  </li>
           </ul>
         </div>
         <section class="no-padding-top">
@@ -154,40 +154,40 @@
               
               <!-- Horizontal Form-->
                 <div class="block">
-                  <div class="title"><strong class="d-block">Modifier evenement</strong></div>
+                  <div class="title"><strong class="d-block">Modifier promotion</strong></div>
                   <div class="block-body">
                     <form name ="f" class="form-horizontal" method="POST">
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Nom evenement</label>
+                          <label class="col-sm-3 form-control-label">Nom promotion</label>
                           <div class="col-sm-9">
                             <input type="text" name="nom" id="nom" minlength="4" value="<?= $i['nom'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">valeur evenement</label>
+                          <label class="col-sm-3 form-control-label">valeur promotion</label>
                           <div class="col-sm-9">
                             <input type="text" name="valeur" id="valeur" minlength="1" value="<?= $i['valeur'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">prix evenement</label>
+                          <label class="col-sm-3 form-control-label">prix promotion</label>
                           <div class="col-sm-9">
                             <input type="text" name="PA_Promo" id="PA_Promo" minlength="1" value="<?= $i['PA_Promo'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">description d'evenement</label>
+                          <label class="col-sm-3 form-control-label">description de la promotion</label>
                           <div class="col-sm-9">
                             <input type="text" name="desc_pro" id="desc_pro" minlength="10" value="<?= $i['desc_pro'] ?>" class="form-control form-control-success" >
                           </div>
                         </div>
 
                         <div>
-                                        <label style="font-weight: bold"> Identifiant du evenement  </label>     
-                                        <select  class="form-select form-select-lg mb-3" tabindex="10"  name="idevent" id="idevent" required>
+                                        <label style="font-weight: bold"> Nom de l'evenement  </label>     
+                                        <select  class="form-control" tabindex="10" style="width:350px" name="idevent" id="idevent" required>
                                         <?php while ($row = $result->fetch()) { 
                                     ?>
                                     <option value= "<?php echo  $row['id'];?>"> <?php echo $row['nom'];?> </option>
@@ -195,7 +195,7 @@
                                 </select>
                       </div>     
                         
-
+</br> </br>
                         <div class="form-group row">       
                           <div class="col-sm-9 offset-sm-3">
 
