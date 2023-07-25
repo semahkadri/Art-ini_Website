@@ -10,7 +10,7 @@ Artini is a dynamic website designed to cater to Tunisian artists, providing the
 🌙 Dark Mode: For a seamless browsing experience, we offer a stylish dark mode that's easy on the eyes.
 🌐 Multilingual: Artini speaks your language! Enjoy the website in your preferred language for a personalized experience.
 💳 Online Payment: Say goodbye to hassle! We offer secure and convenient online payment options for a seamless checkout process.
-🔐 Registration + Login: Create an account and enjoy exclusive benefits. Forgot your password? No worries, we've got you covered!
+🔐 Registration + Login: Create an account and enjoy exclusive benefits. Forgot your password? No worries, we've got you covered!.
 
 
 ### Technologies Used 💻
