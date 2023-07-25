@@ -5,12 +5,12 @@ Welcome to the Artini project, where music meets innovation! 🎶🚀
 Artini is a dynamic website designed to cater to Tunisian artists, providing them with a platform to discover and purchase musical instruments at unbeatable prices. But that's not all! Artini goes beyond just being an instrument store; it's also your go-to destination for organizing music festivals sponsored by influencers. 🎹🎤
 
 ### Features 🌟
-🤖 Chat Bot: Need assistance? Our friendly chatbot is here to help you with any questions or concerns you might have.
-⭐ Reviews and Rating: Hear what our customers have to say! Read reviews and find ratings for your favorite instruments.
-🌙 Dark Mode: For a seamless browsing experience, we offer a stylish dark mode that's easy on the eyes.
-🌐 Multilingual: Artini speaks your language! Enjoy the website in your preferred language for a personalized experience.
-💳 Online Payment: Say goodbye to hassle! We offer secure and convenient online payment options for a seamless checkout process.
-🔐 Registration + Login: Create an account and enjoy exclusive benefits. Forgot your password? No worries, we've got you covered!.
+1. 🤖 Chat Bot: Need assistance? Our friendly chatbot is here to help you with any questions or concerns you might have.
+2. ⭐ Reviews and Rating: Hear what our customers have to say! Read reviews and find ratings for your favorite instruments.
+3. 🌙 Dark Mode: For a seamless browsing experience, we offer a stylish dark mode that's easy on the eyes.
+4. 🌐 Multilingual: Artini speaks your language! Enjoy the website in your preferred language for a personalized experience.
+5. 💳 Online Payment: Say goodbye to hassle! We offer secure and convenient online payment options for a seamless checkout process.
+6. 🔐 Registration + Login: Create an account and enjoy exclusive benefits. Forgot your password? No worries, we've got you covered!.
 
 
 ### Technologies Used 💻
